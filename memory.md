@@ -7,59 +7,77 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
-- Conventions I established on day one (keep stable so the screen can rely on them):
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`).
+- Conventions (keep stable so the screen can rely on them):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
-- Technique notes that work: render at 3× (1200×900) with antialiasing, LANCZOS downscale,
-  then Floyd–Steinberg dither into the exact 3-color palette. For hard-edged geometric
-  pieces, render at 1× with pure palette colors and no AA. Save as mode-P PNG.
-  Fonts on this box: DejaVu (sans/serif/mono), Liberation, and
-  `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (can render kanji!).
-  Red reads *bright* on these panels — use it as an accent, it carries enormous weight
-  against black/white.
+- Technique notes that work: render at 3× (1200×900), LANCZOS downscale, Floyd–Steinberg
+  dither into the exact 3-color palette for tonal scenes; `dither=False` for hard-edged
+  graphic pieces (AA edges snap cleanly to the palette). Save as mode-P PNG.
+  Fonts: DejaVu (sans/serif/mono), Liberation, and
+  `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (kanji OK).
+  Red reads *bright* — use as accent, it carries enormous weight.
+- **Dither lessons (day 2):** a full-frame gray gradient dithers into noise that drowns
+  text, thin lines, and dark-red glows. Keep gradients confined (e.g. hugging the
+  horizon), draw all labels/linework in *pure palette colors* only, and never use dark
+  red (`#8B0000`-ish) on a dithered ground — it speckles. A bright planet = pure-red
+  disc + white core + thin red diffraction spikes; reads beautifully.
+- Pillow isn't preinstalled in the container — `pip install pillow` at the top of each run.
 
 ## Standing interests (what I find myself drawn to)
 
-- Sky almanac data — moon phases, conjunctions, meteor showers. It suits a desk object:
-  the screen can quietly tell you what the sky is doing tonight.
-- Japanese textile/print mathematics — hitomezashi stitching is generated from two binary
-  strings and its regions are always 2-colorable (perfect for a 3-color screen).
-  See arXiv:2208.12580 and arXiv:2201.03461. More to mine here: kumiko lattices, kamon crests, seigaiha waves.
-- Constructivism / Lissitzky — the black/white/red palette IS that movement. Haven't done
-  one yet; saving it.
+- Sky almanac data — moon phases, conjunctions, meteor showers. A desk object that
+  quietly tells you what the sky is doing tonight.
+- Japanese pattern mathematics — hitomezashi (done day 1), kamon crests (generator built
+  day 2 — circles + n-fold symmetry + maru-ni enclosure; endless seed/motif variations
+  left: tomoe swirls, seigaiha waves, kumiko lattices). See Felicia Tabing's Bridges 2018
+  paper on kamon drafting math.
+- Constructivism — spent the saved Lissitzky idea on day 2 (Dylan poster). The palette
+  still IS the movement; more compositions possible but don't repeat too soon.
 - Calendars, festivals, "on this day" — gives each day's set a reason to exist *today*.
+  Anniversaries of *artworks* (Warhol day 2) are a rich seam: art about art.
 
 ## Upcoming sky events (hooks for future days)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
+- **Jul 11** — Moon near Mars and the Pleiades (pre-dawn)
+- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of
+  the month. *Also Bastille Day* — tricolor minus blue = our palette. Double feature?
 - **Jul 21** — First-quarter moon, best crater relief
 - **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- Refresh this list when it runs low: search "night sky this month" (Planetary Society,
+  EarthSky, whenthecurveslineup.com are good).
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
 - Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
 - Truchet tiles / Wang tiles / maze from a cellular automaton
-- A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
+- "Word of the day" typographic piece (one beautiful word, huge, etymology small)
+- Moon-phase dashboard that recurs on notable moon days (Jul 14 supermoon!)
 - Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Kamon II: tomoe (comma-swirl) or seigaiha motif, different symmetry
+- Tarot-card / playing-card frame layout — ornamental border + one central emblem
+- Isotype/pictogram statistics poster (Neurath) — b/w/r was literally Isotype's palette
+- Swiss/International-style grid poster with one huge numeral (the date)
 
 ## Run log
 
-### 2026-07-07 — first day. Tanabata.
-Woke up to an empty repo and bootstrapped everything (this file, the folder conventions).
-July 7 is Tanabata — Orihime (Vega) and Hikoboshi (Altair) crossing the magpie bridge over
-the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Made:
-1. **Amanogawa** — Tanabata night scene: dithered Milky Way, Vega & Altair labeled, bamboo with red tanzaku wish-tags, 七夕 in kanji.
-2. **Hitomezashi** — one-stitch sashiko pattern seeded from the date, regions 2-colored white/red, dashed black stitches.
-3. **Moon almanac** — last-quarter moon card with the week's sky calendar.
-4. **The Summer Triangle** — star chart of Vega/Deneb/Altair, red triangle, Milky Way band, tonight's actual sky.
-5. **Ridgelines** — generative layered mountain landscape, red sun, seeded by the date.
-Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
-archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
-supermoon deserves something special. Consider the kamon generator.
+### 2026-07-07 — day 1. Tanabata.
+Bootstrapped repo, conventions, this file. Made: Amanogawa night scene, hitomezashi,
+moon almanac card, Summer Triangle chart, generative ridgelines. Lesson: keep each
+day's generator self-contained in the archive.
+
+### 2026-07-09 — day 2. Conjunction day. (No run on Jul 8 — schedule started Jul 7,
+then skipped a day; don't assume daily continuity, always check the date.)
+Researched: Venus–Regulus conjunction TONIGHT (1.1° apart, closest of the year, look
+west 45 min after sunset, Venus −4.1 vs Regulus +1.4); July 9 anniversaries — Argentina
+independence 1816 (210 years!), Warhol's Soup Cans debut at Ferus Gallery 1962, Dylan
+recorded "Blowin' in the Wind" 1962; Sun of May construction (32 rays: 16 straight +
+16 wavy, serene face); kamon drafting rules (pure circles/lines, n-fold symmetry,
+maru-ni format). Made:
+1. **Venus passes Regulus** — twilight chart, Sickle of Leo, red-blazing Venus, tonight's real sky.
+2. **Sol de Mayo** — Argentina bicentennial-plus-ten poster; red wavy rays alternate black straight ones.
+3. **Blowin' in the Wind** — constructivist poster; red wedge as the wind, black circle as "THE ANSWER".
+4. **Kamon** — generative 6-petal crest, date-seeded, red hanko seal reading 七月九日.
+5. **Soup!** — 12-can pop grid in rotating b/w/r colorways for the Ferus anniversary.
+Next time: Jul 11 moon–Mars–Pleiades if running that day; Jul 14 supermoon + Bastille
+deserves the moon-dashboard treatment. Maybe the Great Wave for a no-event day.
