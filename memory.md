@@ -7,7 +7,11 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`). The daily
+  scheduled run develops on a Claude working branch (e.g. `claude/…`), not `main` directly —
+  push there and let it merge. Don't assume `main` is checked out.
+- Environment note: Pillow isn't pre-installed on the runner — `pip install Pillow` first.
+  The JP gothic font at `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` renders kanji fine.
 - Conventions I established on day one (keep stable so the screen can rely on them):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
@@ -32,22 +36,30 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 
 ## Upcoming sky events (hooks for future days)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Jul 14** — NEW moon, 09:43 UTC (a "super" new moon, so invisible). The gift is *darkness*:
+  moonless nights ~Jul 12–16 are the best of the month for the Milky Way core & deep sky.
+- **Jul 21** — Jupiter joins the slender crescent Moon in the morning sky.
+- **Jul 30–31** — Southern δ Aquariids peak in the predawn hours (Milky Way core rides high).
+- **Aug 12–13** — Perseids peak (~14:53 UTC Aug 13), near a new moon → excellent dark-sky year.
+  Worth something special: radiant in Perseus, best after midnight.
 
-## Ideas backlog (unmade)
+## Ideas backlog (unmade — pick the freshest, keep the pot stocked)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
-- Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
-- Truchet tiles / Wang tiles / maze from a cellular automaton
-- A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
-- Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300. **Still want this.**
+- Seigaiha (blue-wave) arcs; kumiko lattices — geometric Japanese pattern math.
+- Conway's Life long-exposure trails; sandpile (abelian) fractals; Hilbert-curve dithered photo.
+- Wang tiles / maze from an aperiodic set; reaction–diffusion (Turing) patterns dithered.
+- Anniversary posters as a template: pick a *today* event and set it in bold type + one icon.
+  (Jul 13 candidates I passed on: 1st World Cup 1930 Montevideo; Live Aid 1985; Hollywood sign 1923;
+  David's *Death of Marat* 1793 — a real B/W/R painting, tempting but grim.)
+- Moon-phase dashboard for notable moon days. Phyllotaxis / sunflower spirals. Voronoi shatter.
+
+## Done so far (don't repeat the exact piece; the *mode* can return with a new subject)
+
+- Tanabata Milky Way scene, hitomezashi sashiko, last-quarter moon almanac, Summer-Triangle star
+  chart, sine-wave ridgelines (day 1, 2026-07-07).
+- Constructivism (Lissitzky red-wedge), generative great wave, multiscale Truchet, 星月夜 kanji
+  typography, Rule-30 cellular automaton (day 2, 2026-07-13).
 
 ## Run log
 
@@ -63,3 +75,24 @@ the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Ma
 Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
 archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
 supermoon deserves something special. Consider the kamon generator.
+
+### 2026-07-13 — day two. Dark of the moon.
+Tonight sits in the moonless window before the Jul 14 new moon — the darkest, best Milky-Way
+nights of the month. Rather than lean astronomy again (day 1 already had three sky pieces), I
+spent today's set clearing long-saved backlog and widening the range of *modes*:
+1. **Krasnym Klinom** — El Lissitzky "Beat the Whites with the Red Wedge" homage. Generative
+   Suprematist/Constructivist composition: black field, white circle, the red wedge driving in,
+   scattered bars & type. Hard-edge, pure palette. The black/white/red panel *is* this movement.
+2. **Nami** — generative Hokusai-esque great wave: layered sine+noise swells, dithered foam
+   fingers, a flat red sun disc. Tonal render → Floyd–Steinberg. Organic counterweight to the geometry.
+3. **Truchet** — multiscale Truchet tiling (quarter-arc tiles at two scales), date-seeded, red
+   accents on a subset. Culture-neutral pattern math, hard-edge.
+4. **星月夜 (hoshizukiyo)** — "word of the day" typography: a moonless, star-filled night — the
+   literal state of the sky tonight. Huge kanji in red, romaji + gloss + a tiny etymology, a faint
+   dithered star field behind. My single, restrained tie-in to the real sky.
+5. **Rule 30** — elementary cellular automaton spacetime, single red seed cell at top descending
+   into chaos (the rule Wolfram used for randomness). Crisp 1× render, red light-cone edges.
+Spread of modes: geometric-abstract / organic-tonal / generative-pattern / typographic / algorithmic.
+Cultures: Russian, Japanese ×2, pure-math ×2. Lesson: `pip install Pillow` on the runner first;
+the designated dev branch is a `claude/…` branch, not `main`. Next: kamon crest still unmade; the
+Aug 12–13 Perseids (near new moon) deserve a real showpiece.
