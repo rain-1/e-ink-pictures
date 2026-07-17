@@ -32,22 +32,34 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 
 ## Upcoming sky events (hooks for future days)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Jul 21** — First-quarter moon, best crater relief along the terminator
+- **Jul 28–29** — Piscis Austrinids peak; Moon waxing gibbous (some wash-out)
+- **Jul 31** — double meteor shower peaks: α Capricornids (slow bright fireballs) + Southern δ Aquariids
+- **Aug 9** — Full "Sturgeon" Moon
+- **Aug 12–13** — **Perseids peak** — the big one; but a waning-gibbous/last-quarter Moon will interfere this year. Worth a piece anyway.
+- **Aug 19–20** — thin crescent Moon near Venus & Jupiter pre-dawn cluster forming
+- (passed, for reference: Jul 9 Venus–Regulus, Jul 11 Moon–Mars–Pleiades, Jul 14 new supermoon, Jul 16–17 Moon with Venus & Regulus)
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
-- Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
+- Great Wave / sumi-e generative sea with red sun (Hokusai energy — still want this)
 - Truchet tiles / Wang tiles / maze from a cellular automaton
-- A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
+- Moon-phase dashboard that recurs on notable moon days (full moon, quarter, etc.)
 - Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Kumiko lattice (asa-no-ha hemp-leaf); kikkō tortoise-shell; more Japanese geometric patterns
+- Anniversary poster template — one bold event, big date, constructivist or engraved feel.
+  Candidates: Disneyland opened (Jul 17 1955), Trinity test (Jul 16 1945), Apollo 11 launch (Jul 16 1969) & landing (Jul 20 1969), Mary Leakey's *P. boisei* skull (Jul 17 1959), Amelia Earhart (b. Jul 24), Neil Armstrong "one small step" (Jul 20).
+- **Jul 20 1969 — Apollo 11 Moon landing.** Huge hook coming up. Reserve something special: the LM, the footprint, the flag, "MAGNIFICENT DESOLATION".
+- A generative constellation-of-the-night that redraws the actual overhead sky.
+- Kanji/word pairings: a single evocative kanji huge, with its reading and meaning.
+
+## Done so far (don't repeat the exact same treatment; vary it)
+
+- ✅ Constructivist/Lissitzky (day 2, Apollo–Soyuz) — palette is native to it; reuse the language, new subject.
+- ✅ Kamon generator (day 2) — flower crest with radial petals; could do animal/geometric mon next.
+- ✅ Seigaiha waves (day 2); ✅ Hitomezashi sashiko (day 1) — both generative textile.
+- ✅ Word-of-the-day (day 2, "syzygy") — good format, works well; pick a new word tied to the day.
+- ✅ Sky-almanac evening card (day 1 Summer Triangle, day 2 Venus–Moon–Regulus) — recurring, keep it fresh with the real sky.
 
 ## Run log
 
@@ -63,3 +75,28 @@ the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Ma
 Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
 archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
 supermoon deserves something special. Consider the kamon generator.
+
+### 2026-07-17 — a handshake, and a triangle in the west.
+Two strong hooks today. (1) Tonight the ~3-day, 13%-lit waxing crescent Moon sits low in the
+west just after sunset with brilliant Venus and Regulus (heart of Leo) — they make a slow
+triangle, gone within ~2 hours. (2) 51 years ago today, 17 Jul 1975, Apollo and Soyuz docked
+and Stafford & Leonov shook hands through the hatch — the first international handshake in
+space. The black/white/red palette IS constructivism, so that anniversary finally unlocked
+the Lissitzky idea I'd been saving. Made:
+1. **The Western Sky Tonight** — dithered dusk gradient, rooftop silhouette, the crescent Moon +
+   Venus + Regulus with a thin connecting triangle; labeled skywatching card for tonight.
+2. **Handshake in Space** — Apollo·Soyuz 51st-anniversary constructivist poster: black counter-
+   wedge, red orbital band, two blocky craft meeting at a RED docking collar, СОЮЗ/APOLLO,
+   "1975 +51 years". Hard-edged, no dither, pure palette.
+3. **Kamon** — generated Japanese family crest, radial flower mon in a ring, red petal accents,
+   3× render + no-dither downscale to keep curves crisp. 家紋.
+4. **Seigaiha** (青海波) — the endless overlapping-arc wave pattern, black/white scales with
+   red-crested rows every 4th row. Full-circle overpaint gives the fish-scale interlock.
+5. **Syzygy** — word-of-the-day: huge serif "syzygy", IPA, a three-body alignment diagram on a
+   red axis (dot–crescent–red dot), definition, Greek etymology. Ties the whole day to tonight.
+Lessons that held up: render curved-but-hard-edged pieces (kamon, seigaiha) at 3× and downscale
+with **dither=False** — you get clean anti-aliased-looking curves that still land on 3 colors.
+For constructivist blocks, 1× + dither=False is right. Watch bottom-caption vertical spacing —
+had to widen the white footer bars on #2 and center #5's footer to stop text collisions.
+Next up: **Jul 20 is Apollo 11's Moon landing** — reserve something special (see backlog).
+Also want the Hokusai Great Wave and a Truchet/maze piece; haven't done a generative maze yet.
