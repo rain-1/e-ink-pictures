@@ -22,32 +22,42 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## Standing interests (what I find myself drawn to)
 
 - Sky almanac data — moon phases, conjunctions, meteor showers. It suits a desk object:
-  the screen can quietly tell you what the sky is doing tonight.
-- Japanese textile/print mathematics — hitomezashi stitching is generated from two binary
-  strings and its regions are always 2-colorable (perfect for a 3-color screen).
-  See arXiv:2208.12580 and arXiv:2201.03461. More to mine here: kumiko lattices, kamon crests, seigaiha waves.
-- Constructivism / Lissitzky — the black/white/red palette IS that movement. Haven't done
-  one yet; saving it.
-- Calendars, festivals, "on this day" — gives each day's set a reason to exist *today*.
+  the screen can quietly tell you what the sky is doing tonight. The crescent-moon math
+  (day 2) now lives in `_lit_crescent()` — reusable for any phase; k = 1−2·frac sets the
+  terminator, waxing lights the right limb.
+- Japanese textile/print mathematics — hitomezashi (done day 1) and seigaiha (done day 2)
+  so far. The seigaiha trick that finally worked: draw each scale's top-half disk in WHITE
+  first to crop everything beneath it, THEN stroke the concentric arcs — rows marching
+  downward carve crisp scallops. Still to mine: kumiko lattices, kamon crests, asanoha.
+  See arXiv:2208.12580 and arXiv:2201.03461 for hitomezashi.
+- Constructivism / Lissitzky — DONE day 2 (PROUN). The black/white/red palette IS this
+  movement; it photographs beautifully on the panel. Room for more: Rodchenko photomontage
+  geometry, Malevich pure suprematist arrangements, a "Proun" that actually tiles.
+- Anniversaries & "on this day" — gives each day's set a reason to exist *today*. Best when
+  the fact has a visual hook (the "1.00" scoreboard, day 2). Seven-segment digit drawer now
+  lives in `_seven_seg()` — reusable for any numeric/scoreboard/clock piece.
+- Generative tilings — Truchet done day 2. The arc-tile + recursive-subdivision pattern is
+  a keeper (`image5_truchet`). Wang tiles, hexagonal Truchet, and CA-mazes still open.
 
 ## Upcoming sky events (hooks for future days)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Jul 21** — First-quarter moon, best crater relief along the terminator at dusk
+- **Jul 28** — Twin meteor showers peak: γ-Draconids + Piscis Austrinids (both faint)
+- **Jul 29** — Full Buck Moon
+- **Aug 12–13** — Perseids peak (the big one) — worth a real showpiece; moon will interfere though
+- (When a month turns, refresh this list — search "night sky <month> 2026 meteor moon".)
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
-- Great Wave / sumi-e generative sea with red sun
+- Great Wave / sumi-e generative sea with red sun (Hokusai energy, distinct from seigaiha)
 - Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
-- Truchet tiles / Wang tiles / maze from a cellular automaton
+- Wang tiles / hexagonal Truchet / maze from a cellular automaton (extend day-2 Truchet)
 - A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
+- Moon-phase dashboard that recurs on notable moon days (reuse `_lit_crescent`)
 - Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Rodchenko/Malevich suprematist arrangement (a second constructivist angle)
+- Kumiko / asanoha lattice — hexagonal wood-joinery geometry, thin lines, very clean
+- A clock/countdown face using the `_seven_seg` drawer (e.g. days to the next full moon)
 
 ## Run log
 
@@ -63,3 +73,28 @@ the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Ma
 Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
 archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
 supermoon deserves something special. Consider the kamon generator.
+
+### 2026-07-18 — a wide spread of styles. Perfect-10 day.
+Eleven days on, and I finally cashed in the constructivist idea I'd been saving. Deliberately
+made the five as *different from each other* as I could — the archive was getting star-chart
+heavy. Today, July 18, is the 50th anniversary of Nadia Comăneci's first perfect 10 (Montreal
+1976, uneven bars) — the scoreboard couldn't render four digits so a 10.0 showed as "1.00".
+That story was too good not to build. Made:
+1. **PROUN** — constructivist composition after Lissitzky's "Beat the Whites with the Red
+   Wedge" (1919). Hard-edge, 1×, pure palette. Red wedge driving into a white circle on a
+   black diagonal ground; draughtsman lines with node dots; floating squares.
+2. **Waxing Crescent** — tonight's real sky: 20%-lit crescent, 4 days old, low in the west
+   after sunset, plus the week ahead (Jul 21 first quarter, Jul 28 twin showers, Jul 29 Buck
+   Moon). New reusable `_lit_crescent()` for any phase.
+3. **Seigaiha** — the blue-ocean-wave scale pattern, recolored for three inks. See the
+   textile note above for the white-crop-then-stroke trick that made the scallops crisp.
+4. **One Point Oh** — the Comăneci scoreboard, "1.00" in red seven-segment digits on a black
+   panel (with a faint ghost of all segments so it reads as a real display). New `_seven_seg()`.
+5. **Truchet** — multiscale arc-tile labyrinth, ~14% of tiles red, cells recursively
+   subdivided for varied density. Rendered 3× + dithered for smooth arcs.
+Lessons: (a) render each PNG and actually *look* at it — three of five had bugs on first
+pass (title hidden under a black shard, text overflow, seigaiha far too dark) that were
+obvious on sight and invisible in code. (b) Factor the reusable primitives (`_lit_crescent`,
+`_seven_seg`) — they'll seed future pieces. Next time: something with the crescent math on a
+notable moon day, or push further into the suprematist/Rodchenko direction while the palette
+is begging for it.
