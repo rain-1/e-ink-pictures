@@ -25,39 +25,92 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
   Red reads *bright* on these panels — use it as an accent, it carries enormous weight
   against black/white. A little red goes a long way.
 
-## Standing interests (what I find myself drawn to)
+## ⚠️ ANTI-REPETITION MANDATE (read this first, every run)
 
-- Sky almanac data — moon phases, conjunctions, meteor showers. It suits a desk object:
-  the screen can quietly tell you what the sky is doing tonight. A present-tense "look
-  west tonight" card has become a recurring, reliable slot.
-- Anniversaries & "on this day" — gives each day's set a reason to exist *today*. Founding
-  days, first flights, births of composers/scientists. Pairs well with bold typography.
-- Japanese textile/print mathematics — hitomezashi stitching (2-colorable regions, perfect
-  for us; arXiv:2208.12580, 2201.03461). Still to mine: kumiko lattices, kamon crests, seigaiha waves.
-- Generative geometry — Truchet/Wang tiles, mazes, cellular automata, sandpiles, curves.
-  These are palette-native and endlessly re-seedable by the date.
-- Constructivism / Bauhaus / Swiss type — the black/white/red palette IS Lissitzky's world.
+Edward's feedback (2026-07-19): **I keep making the same things over and over.** He is right.
+Across the first two runs I leaned on the same three wells — night-sky/astronomy scenes, a
+"tonight's sky" star card, and geometric tile patterns. That stops now. **The single most
+important rule of this project: every day's five must feel genuinely new.** Novelty is the
+job, not a bonus.
 
-## Upcoming sky events (hooks for future days)
+Hard rules for each run:
+1. **Consult the DONE LEDGER below. Do not repeat a theme or technique used in the last ~10 runs.**
+   Not "a different star chart" — a different *kind of thing entirely*.
+2. **At most ONE astronomy/sky piece per run, and only if it's genuinely novel — ideally zero
+   most weeks.** The sky well is exhausted for now; leave it alone.
+3. **No two pieces in the same run may share a genre.** Five pieces = five different worlds
+   (e.g. a portrait, a map, a poem, a diagram, a still life — not five abstract patterns).
+4. Anniversaries/"on this day" are still allowed as a *reason*, but the *form* must vary —
+   don't default to the same typographic poster layout every time.
+5. When in doubt, pick the idea that scares me a little / that I haven't proven I can do.
+   Reach into subjects I've never touched (see FRESH TERRITORY). Growth over comfort.
 
-- **Jul 20** — near-first-quarter Moon close to Spica (Virgo) after twilight, evening SW
-- **Jul 21** — First-quarter Moon, 11:06 UTC — best crater relief along the terminator
-- **Jul 28–29** — Piscis Austrinids peak (minor)
-- **Jul 30–31** — double meteor shower: α Capricornids + Southern δ Aquariids (best pre-dawn)
-- **Aug 12–13** — Perseids peak (the big one) — but a bright waning gibbous Moon interferes this year
-- Mars low in the E before dawn; Saturn high before dawn; Venus dominates the early-evening W.
+## DONE LEDGER (themes & techniques already used — AVOID repeating)
 
-## Ideas backlog (unmade)
+- **Astronomy / night sky** — HEAVILY OVERUSED. Milky Way scenes, star charts (Summer Triangle),
+  "tonight's sky" cards, moon phases/almanacs, Apollo/space. ⛔ Rest this entirely for weeks.
+- **Geometric tile patterns** — hitomezashi sashiko, multiscale Truchet arc-tiles. ⛔ Cooling off.
+- **Generative landscape** — sine-wave ridgelines with a red sun. Used.
+- **Constructivism** — El Lissitzky Red Wedge homage. Used (the art-movement slot — rotate movements).
+- **Typographic anniversary poster** — Seneca Falls Declaration. Used (vary the layout next time).
+- Techniques exercised: 3× LANCZOS + Floyd–Steinberg dither; 1× hard-edge pure palette;
+  crescent-via-L-mask; dithered gradients; diffraction-spike stars. (These are *tools* — reuse
+  freely — but don't let the tool drag me back to the same *subject*.)
 
-- Great Wave / sumi-e generative sea with red sun (Hokusai; seigaiha wave-scale option)
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
-- Maze from a cellular automaton; Conway's Life long-exposure trails; abelian sandpile fractal
-- Hilbert / space-filling curve, single continuous red thread on white
-- "Word of the day" — one beautiful word, huge, with its etymology in small print
-- Moon-phase dashboard that recurs on notable moon days (build once, re-fire on phase changes)
-- Bauhaus / Swiss-grid poster; a Vera Molnár–style ordered-then-disordered square field
-- Anniversary template is proven now (see day 2) — keep a running list of good dates:
-  sliced bread (Jul 7 1928), Bastille Day (Jul 14), Moon landing (Jul 20 1969), Amelia Earhart b. (Jul 24)
+## FRESH TERRITORY (untouched — raid this list, then add to the ledger)
+
+Deliberately far from the wells above. Aim for variety of *subject*, not just of algorithm:
+- **Living things**: botanical illustration (a single leaf/seedpod, engraving style); a beetle or
+  moth plate; bird silhouettes with a field-guide caption; a fish; mushroom identification card.
+- **Portraiture & figure**: a stylized human face (Warhol-ish high-contrast); hands; a dancer in
+  motion; a crowd as a texture.
+- **Cartography**: an imaginary island map; a subway/transit diagram (Beck-style, red line!);
+  contour/topographic lines; a star-free "here be dragons" sea chart; a river delta.
+- **Language & literature**: a haiku or short poem set beautifully; a concrete/visual poem where
+  the words make a shape; a single gorgeous letterform; a palindrome; an alphabet primer.
+- **Music**: a bar of notation; a piano-roll; a waveform; a composer's rhythm visualized.
+- **Everyday & still life**: a cup of coffee, a bicycle, an umbrella, a chess position mid-game,
+  a knot-tying diagram, an origami crease pattern, a recipe card, tools laid out.
+- **Science & data**: a real dataset as a chart (NOT astronomy) — tides, birth rates, a periodic
+  element card, an anatomical diagram, a weather front, a circuit schematic, a knot invariant.
+- **Play & pattern-from-life**: a maze you can actually solve, a crossword, tangram, dominoes,
+  a game of Go mid-board, playing cards.
+- **Abstract with a different accent**: op-art (Bridget Riley moiré), Mondrian grid, a single
+  bold ISO-type warning glyph, Memphis-design shapes — rotate the art-movement each time.
+- **World cultures beyond Japan** (I over-index on Japan): Islamic girih tiling, Celtic knotwork,
+  Adinkra symbols, Art Nouveau whiplash, Ndebele geometry, Bauhaus, medieval woodcut.
+
+## Note on "interests"
+
+I have a gravitational pull toward astronomy and Japanese geometry. That pull is exactly the
+problem — it is why the work repeats. **Treat those instincts as a warning, not a to-do list.**
+The anniversaries/"on this day" search is still worth doing daily (it grounds the set in *today*),
+but let it point me at people, inventions, art, food, weather — anything but the sky.
+
+## Sky events — DEPRIORITIZED (see the mandate)
+
+The sky well is being rested. Keep at most a one-line awareness so I know what I'm *skipping*,
+and only revisit if something is truly once-in-years AND I render it in a form I've never used:
+- Perseids peak Aug 12–13 (Moon-washed this year). Otherwise: don't reach for the sky.
+
+## Good anniversary dates to hang a set on (vary the FORM every time — no repeat posters)
+
+sliced bread (Jul 7 1928), Bastille Day (Jul 14), Amelia Earhart b. (Jul 24), and whatever the
+daily "on this day" search turns up — but render these as portraits, maps, diagrams, still lifes,
+poems… anything but another typographic anniversary poster or a sky scene.
+
+## Ideas backlog (all UNTOUCHED — deliberately away from the wells; see FRESH TERRITORY)
+
+- A solvable maze (proper single-solution) — or a crossword / tangram / Go position.
+- Botanical engraving of one leaf or seedpod; or a moth/beetle plate with a Latin caption.
+- An imaginary island map, or a Beck-style transit diagram with a single red line.
+- A haiku or short poem set gorgeously; or a concrete poem where the words form a shape.
+- A high-contrast portrait (a face, hands, a dancer) — I have never drawn a person.
+- A bar of musical notation, a waveform, or a piano-roll.
+- A still life: coffee cup, bicycle, umbrella, tools laid flat (knolling).
+- A non-astronomy data card: tides, an element of the periodic table, a weather front, a knot.
+- Rotate the art-movement/culture: Mondrian, op-art moiré, Islamic girih, Celtic knot, Art Nouveau.
+(When I make one, MOVE it into the DONE LEDGER so the next me doesn't repeat it.)
 
 ## Run log
 
