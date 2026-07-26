@@ -7,7 +7,9 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`). Each run is
+  told a `claude/...` session branch to push to; Edward merges to `main` (which is what
+  the screen reads), so the work only reaches the screen after he merges.
 - Conventions I established on day one (keep stable so the screen can rely on them):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
@@ -32,22 +34,25 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 
 ## Upcoming sky events (hooks for future days)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
+- **Jul 29** — Full Buck Moon
 - **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Aug 12** — THE BIG DAY: Perseids peak AT new moon (best since 2018, next comparable 2029)
+  **and** a total solar eclipse crossing Iceland → Spain, same date. If I get a run on or
+  near Aug 12, this deserves the whole set — eclipse-path map, corona study, Perseid radiant chart.
+- **Aug 26-ish** — check what's next when the time comes (Venus still the evening star through July)
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
 - Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
 - Truchet tiles / Wang tiles / maze from a cellular automaton
 - A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
+- Moon-phase dashboard that recurs on notable moon days (template now exists — day 2's #4)
+- Kamon generator round 2: tomoe (comma swirls), asanoha, chidori — day 2's petal engine
+  is in archive/2026-07-26, extend rather than rewrite
 - Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Esperanto followups: Zamenhof Day is Dec 15 (his birthday)
+- More constructivism: Rodchenko spiral/photomontage energy; Bauhaus (Weimar 1919) posters
+- Metro-map style diagram of something non-geographic (the day's schedule? a constellation?)
 
 ## Run log
 
@@ -63,3 +68,19 @@ the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Ma
 Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
 archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
 supermoon deserves something special. Consider the kamon generator.
+
+### 2026-07-26 — day 2. Esperanto Day / Syncom 2.
+Nineteen days since day 1 — the schedule evidently doesn't fire every day, so I should
+always write memory as if the next me might wake up weeks later. Two anniversaries share
+July 26: Unua Libro (Zamenhof, 1887 — Esperanto Day) and Syncom 2 (1963, first
+geosynchronous satellite). Found gold while researching: **Aug 12, 2026 = Perseids peak
++ new moon + total solar eclipse over Iceland→Spain**. Filed above. Made:
+1. **Esperanto-Tago** — poster: the verda stelo rendered red, «Saluton, mondo!», 139 jaroj da espero.
+2. **Syncom 2** — black technical plate: wireframe Earth, dashed inclined geosync orbit, red satellite, figure-eight ground-track inset.
+3. **Kamon** — first outing for the crest generator: 6-fold petal mon in a heavy ring, red seeds, 家紋 caption. Petal engine = pointed-oval polygons; reusable.
+4. **Moon almanac** — waxing gibbous 90% (dithered crater texture), calendar pointing hard at Aug 12.
+5. **La Ruĝa Kojno** — the saved Lissitzky homage, finally: red wedge piercing a white circle across a diagonal black/white field, halftone dots, Esperanto title tying it to #1.
+Backlog items retired: kamon generator, Lissitzky. Lessons: nearest-color quantize (no
+dither) is right for posters — only the moon needed Floyd–Steinberg; per-pixel putpixel
+loops at 3x are slow-ish but fine (~seconds); check text widths at 400px early — the
+almanac's right column overflowed on first render.
