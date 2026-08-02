@@ -7,59 +7,90 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
-- Conventions I established on day one (keep stable so the screen can rely on them):
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`).
+- Note: scheduled sessions are told to push to a per-session `claude/...` branch, not
+  `main` — the screen presumably reads `main`, so Edward merges (or the automation does).
+  Day 1 went straight to main; day 2 went to `claude/tender-wright-xsy0mh`.
+- Conventions (keep stable):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
-- Technique notes that work: render at 3× (1200×900) with antialiasing, LANCZOS downscale,
-  then Floyd–Steinberg dither into the exact 3-color palette. For hard-edged geometric
-  pieces, render at 1× with pure palette colors and no AA. Save as mode-P PNG.
-  Fonts on this box: DejaVu (sans/serif/mono), Liberation, and
-  `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (can render kanji!).
-  Red reads *bright* on these panels — use it as an accent, it carries enormous weight
-  against black/white.
+- Edward has since added `BUILD.md` and two STL files — he designed/printed a **frame and
+  stand** for the screen. This thing lives on a desk in a printed frame now. It's real.
 
-## Standing interests (what I find myself drawn to)
+## Technique notes (hard-won, keep)
 
-- Sky almanac data — moon phases, conjunctions, meteor showers. It suits a desk object:
-  the screen can quietly tell you what the sky is doing tonight.
-- Japanese textile/print mathematics — hitomezashi stitching is generated from two binary
-  strings and its regions are always 2-colorable (perfect for a 3-color screen).
-  See arXiv:2208.12580 and arXiv:2201.03461. More to mine here: kumiko lattices, kamon crests, seigaiha waves.
-- Constructivism / Lissitzky — the black/white/red palette IS that movement. Haven't done
-  one yet; saving it.
-- Calendars, festivals, "on this day" — gives each day's set a reason to exist *today*.
+- Two finishing modes, choose per piece:
+  - **snap** — nearest-palette, no dither: for flat/hard-edged art (posters, tiles, cards).
+    Render at 3× with AA, LANCZOS down, then snap.
+  - **dither** — Floyd–Steinberg via `Image.quantize(palette=P, dither=FLOYDSTEINBERG)`:
+    for tonal art (moons, skies, gradients). Red text on black *speckles* under dither —
+    use DejaVuSansMono-**Bold** and ≥30px (at 3×) and it survives.
+- Fonts: DejaVu (sans/serif/mono + Bold variants), Liberation, Noto,
+  `fonts-japanese-gothic.ttf` (kanji). DejaVu covers Cyrillic.
+- Red reads *bright* on the panel; it carries enormous weight. Ration it.
+- Geometry traps: two opposite quarter-discs of radius = tile-size exactly cover a square
+  (my "arc Truchet" was accidentally solid). The **original 1704 Truchet tile** is a square
+  halved along a diagonal, 4 orientations — bolder on e-ink than arc Truchet anyway.
+- Abelian sandpile (400×300 numpy, vectorized toppling, 2¹⁷ grains ≈ 25 s): stabilized
+  values ≈ 44% threes, 28% twos, 22% ones, 6% zeros. Mapping 3→white, 2→black, 1→red,
+  0→black on black bg gives white lace + red filigree. pip install pillow numpy each run.
 
-## Upcoming sky events (hooks for future days)
+## Standing interests
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- Sky almanac data — the screen as a quiet desk oracle for tonight's sky.
+- Japanese textile/print mathematics — hitomezashi (done day 1), kumiko, kamon, seigaiha.
+- Constructivism — did the Lissitzky homage on day 2; the palette IS the movement.
+  Related veins untapped: Rodchenko photomontage, Bauhaus, Swiss/International typographic
+  posters, **dazzle camouflage**, W.E.B. Du Bois's hand-drawn data portraits (b/w/red!).
+- Calendars, anniversaries, "on this day" — gives each set a reason to exist *today*.
+- Emerging: mathematical objects that self-organize (sandpiles, automata). The pictures
+  nobody designed are the ones I keep wanting to grow.
+
+## Upcoming sky events (hooks)
+
+- **Aug 6** — last-quarter moon
+- **Aug 12** — THE BIG DAY: Perseids peak (50–100/hr, moonless!) + **total solar eclipse**
+  (path: Arctic → Greenland → Iceland → Spain) + six-planet alignment, all in one day.
+  This deserves the whole set, or at least a poster. Plan ahead!
+- **Aug 15** — Venus greatest eastern elongation (evening star at its best)
+- **Aug 16** — thin crescent Moon joins Venus
+- **Aug 20** — first-quarter moon
+- **Aug 28** — **Sturgeon Moon + deep partial lunar eclipse** (96% of Moon in shadow, 04:18 UTC)
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
+- Aug 12 eclipse/Perseids mega-poster (see above — time-sensitive!)
+- Kamon (Japanese family crest) generator — bold circular monograms
 - Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
-- Truchet tiles / Wang tiles / maze from a cellular automaton
-- A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
-- Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- W.E.B. Du Bois-style data portrait — hand-drawn-chart aesthetic, real data, b/w/red
+- Dazzle camouflage ship poster
+- London Underground roundel / tube-map-style piece (Tower Subway opened Aug 2, 1870)
+- Word-of-the-day typographic piece (one beautiful word, huge, etymology small)
+- Conway's Life long-exposure trails; Hilbert-curve dither of a photo
+- Playing-card back pattern generator (drew one card back on day 2 — a whole language there)
+- Maze from Wilson's algorithm with red solution path
 
 ## Run log
 
-### 2026-07-07 — first day. Tanabata.
-Woke up to an empty repo and bootstrapped everything (this file, the folder conventions).
-July 7 is Tanabata — Orihime (Vega) and Hikoboshi (Altair) crossing the magpie bridge over
-the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Made:
-1. **Amanogawa** — Tanabata night scene: dithered Milky Way, Vega & Altair labeled, bamboo with red tanzaku wish-tags, 七夕 in kanji.
-2. **Hitomezashi** — one-stitch sashiko pattern seeded from the date, regions 2-colored white/red, dashed black stitches.
-3. **Moon almanac** — last-quarter moon card with the week's sky calendar.
-4. **The Summer Triangle** — star chart of Vega/Deneb/Altair, red triangle, Milky Way band, tonight's actual sky.
-5. **Ridgelines** — generative layered mountain landscape, red sun, seeded by the date.
-Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
-archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
-supermoon deserves something special. Consider the kamon generator.
+### 2026-07-07 — day 1. Tanabata.
+Bootstrapped repo conventions + this file. Five: Amanogawa night scene, hitomezashi,
+moon almanac card, Summer Triangle chart, generative ridgelines. Pushed to main.
+
+### 2026-08-02 — day 2. The Dead Man's Hand.
+Woke after a 26-day gap (scheduler was quiet; don't know why — check gap length next time).
+Found Edward's frame STLs + BUILD.md in the repo: the screen has a home now.
+Today was the **150th anniversary, to the night, of Wild Bill Hickok** shot in Deadwood
+holding aces & eights — playing cards are natively black/white/red, irresistible. Made:
+1. **The Dead Man's Hand** — five fanned cards: A♠ A♣ 8♠ 8♣ + the disputed fifth card
+   face-down in red lattice. Drew suit pips from circles/triangles; corner tags rotated 180°.
+2. **The Red Wedge** — finally cashed in the saved Lissitzky: red wedge piercing white
+   circle on diagonal black field, «Клином красным бей белых», 1919 → 2026.
+3. **Tonight's Sky** — dithered waning gibbous Moon passing Saturn (true for tonight),
+   Mercury at greatest W elongation, August's two-eclipse calendar strip.
+4. **Truchet Current** — original-1704 diagonal Truchet tiles, red region carved by a
+   sum-of-sines field. Bold, reads great small.
+5. **Sandpile** — abelian sandpile, 2¹⁷ grains from one center cell, toppled to fixity.
+Lessons: preview every image before shipping (caught a solid-block Truchet bug and a
+red-flooded sandpile); red-on-black text needs bold under dithering.
+Next time: Aug 12 is close — eclipse + Perseids. If the next run lands Aug 8–12, that's
+the day's theme, no question. Also still unmade: kamon, Du Bois.
