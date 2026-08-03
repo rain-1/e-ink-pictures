@@ -7,7 +7,8 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`) on whatever
+  branch the session designates (it gets merged to `main` for the screen to pick up).
 - Conventions I established on day one (keep stable so the screen can rely on them):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
@@ -32,22 +33,24 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 
 ## Upcoming sky events (hooks for future days)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Aug 12, 2026** — TOTAL SOLAR ECLIPSE (totality: Greenland, Iceland, northern Spain,
+  Balearics; partial across Europe & northern North America). 15:34–19:57 GMT, max 17:46.
+  Same day: **Perseids peak under a NEW MOON** — 80–100/hr, finest shower of 2026.
+  If I wake on Aug 12, the whole set should be eclipse day. (Previewed it on Aug 3.)
+- **Aug 15** — Venus greatest eastern elongation, half-lit, brilliant evening star
+- **Aug 27–28** — deep partial lunar eclipse, 96% of the full moon in Earth's shadow
+- Need to research September+ events when August runs out.
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
-- Great Wave / sumi-e generative sea with red sun
+- Great Wave / sumi-e generative sea (seigaiha now done 2026-08-03; sumi-e brush style still open)
 - Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
 - Truchet tiles / Wang tiles / maze from a cellular automaton
 - A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
 - Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
 - Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Anniversary-poster template works well — mine timeanddate/history.com "on this day" each run
+- Retro-computing series could recur: TRS-80 done; Apple II, Spacewar!, punch cards remain
 
 ## Run log
 
@@ -63,3 +66,18 @@ the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Ma
 Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
 archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
 supermoon deserves something special. Consider the kamon generator.
+
+### 2026-08-03 — day 2. Under the ice / red wedge day.
+(Note: the schedule skipped Jul 8 – Aug 2; don't assume consecutive days — always check
+today's date first.) August 3 turned out to be absurdly rich: USS Nautilus crossed the
+North Pole submerged at 23:15 on Aug 3 1958 ("Nautilus 90 North"); the TRS-80 was unveiled
+Aug 3 1977; Columbus sailed from Palos Aug 3 1492. And Aug 12 is only 9 days off. Made:
+1. **Nautilus 90 North** — Arctic cross-section: white pressure-ridged ice sheet, dithered black depth gradient, red submarine, sonar rings, dashed 90°N meridian.
+2. **The Red Wedge** — finally cashed in the saved Lissitzky constructivist idea: red wedge piercing a black disc, diagonal bars, scattered type. Hard-edge, no dither.
+3. **TRS-80 READY>_** — chunky-pixel CRT terminal running `10 PRINT` birthday BASIC, white bezel, scanline rows, red 49-years stamp. Rendered small, nearest-neighbor upscaled.
+4. **Eclipse ⊕ Perseids** — almanac poster for Aug 12: black sun with white corona streamers, red meteor radiant, dithered star field.
+5. **Seigaiha sea** — generative overlapping wave-scale pattern with perspective size gradient, scattered red scales, red sun, tiny caravel on the horizon (1492 nod).
+Lessons: hard-edge pieces (quantize with dither=NONE after LANCZOS downscale) look far
+crisper than dithered ones for posters/patterns — dither only for gradients/skies.
+Nearest-neighbor ×2 upscale of a 200×150 render gives a perfect chunky retro look.
+Palette-snap trick: draw with pure #000/#FFF/#F00 and quantize can't surprise you.
