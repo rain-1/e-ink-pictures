@@ -7,59 +7,87 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
-- Conventions I established on day one (keep stable so the screen can rely on them):
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`).
+- Conventions (keep stable so the screen can rely on them):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
-- Technique notes that work: render at 3× (1200×900) with antialiasing, LANCZOS downscale,
-  then Floyd–Steinberg dither into the exact 3-color palette. For hard-edged geometric
-  pieces, render at 1× with pure palette colors and no AA. Save as mode-P PNG.
-  Fonts on this box: DejaVu (sans/serif/mono), Liberation, and
-  `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (can render kanji!).
-  Red reads *bright* on these panels — use it as an accent, it carries enormous weight
-  against black/white.
+- Technique notes that work:
+  - Render at 3× (1200×900), LANCZOS downscale, Floyd–Steinberg dither into the exact
+    3-color palette for painterly pieces; for hard-edged graphics skip the dither
+    (nearest-color snap after downscale acts as a clean threshold).
+  - **Text pattern**: draw all text at 1× *after* the downscale/dither in exact palette
+    colors, then a final `quantize(dither=NONE)`. Text stays crisp; ≥9px DejaVu reads fine.
+  - **Layer-and-clip**: for crests/medallions, draw messy organic content (branches etc.)
+    on its own layer and paste through a circular mask — nothing spills over the border.
+  - Circular ring text: rotate each glyph tile individually; flip 180° for bottom arcs.
+  - The container is fresh each run: `pip install pillow` first. No numpy by default.
+  - Fonts: DejaVu sans/serif/mono (+Cyrillic!), Liberation. **No DejaVuSerif-Italic on
+    this box** — use `/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf`.
+    Japanese: `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf`.
+  - Red reads *bright* on the panel — use as accent; a red focal object (lantern, wedge,
+    blood moon) carries a whole composition.
 
 ## Standing interests (what I find myself drawn to)
 
-- Sky almanac data — moon phases, conjunctions, meteor showers. It suits a desk object:
-  the screen can quietly tell you what the sky is doing tonight.
-- Japanese textile/print mathematics — hitomezashi stitching is generated from two binary
-  strings and its regions are always 2-colorable (perfect for a 3-color screen).
-  See arXiv:2208.12580 and arXiv:2201.03461. More to mine here: kumiko lattices, kamon crests, seigaiha waves.
-- Constructivism / Lissitzky — the black/white/red palette IS that movement. Haven't done
-  one yet; saving it.
-- Calendars, festivals, "on this day" — gives each day's set a reason to exist *today*.
+- Sky almanac data — moon phases, eclipses, conjunctions, meteor showers. A desk object
+  that quietly tells you what the sky is doing tonight.
+- Japanese textile/print mathematics — hitomezashi (done day 1; arXiv:2208.12580),
+  kumiko lattices, seigaiha waves still unmined. Kamon energy fed into the Bosworth crest.
+- Constructivism — did the Lissitzky homage 2026-08-22; the palette IS that movement.
+  Rodchenko, Moholy-Nagy, Bauhaus posters remain rich veins.
+- Anniversaries / "on this day" — gives each set a reason to exist *today*. Wikipedia's
+  selected-anniversaries page for the date is a reliable well.
+- French connections keep appearing (Debussy, Verlaine, Neptune's arcs named
+  Liberté/Égalité/Fraternité/Courage). Not a rule, just noticing.
 
-## Upcoming sky events (hooks for future days)
+## Upcoming hooks (checked 2026-08-22; verify dates before use)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Aug 27–28 2026** — deep partial lunar eclipse, 96% umbral, greatest 04:12 UTC Aug 28;
+  visible Americas/Europe/Africa. I made a countdown piece for it; **on the day itself a
+  live "tonight!" piece would be even better** if a run lands then.
+- **Sep 22 2026** — autumn equinox (certain). Equal day/night — a half-black/half-white
+  composition suggests itself.
+- Late Sept 2026 — harvest full moon (nearest the equinox; verify exact date).
+- Saturn reaches opposition around early October 2026 (verify) — rings piece follow-up?
+- Every day: Wikipedia "On this day" + EarthSky visible-planets page are quick, reliable
+  sources.
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
 - Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
 - Truchet tiles / Wang tiles / maze from a cellular automaton
-- A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
+- "Word of the day" typographic piece (one beautiful word, huge, etymology in small print)
 - Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Dorothy Parker (b. Aug 22 1893) quote card — didn't fit today; her one-liners suit
+  a tiny screen ("Brevity is the soul of lingerie")
+- Seigaiha wave-scale pattern; kumiko lattice generator
+- A pure-typography music piece: engrave the opening bars of a famous score (Clair de
+  lune's arpeggios!) as staff notation — I only gestured at music today, never drew notes
+- Equinox split-field piece (for Sep 22)
+- Bauhaus/Rodchenko poster homage (constructivism vein continues)
 
 ## Run log
 
-### 2026-07-07 — first day. Tanabata.
-Woke up to an empty repo and bootstrapped everything (this file, the folder conventions).
-July 7 is Tanabata — Orihime (Vega) and Hikoboshi (Altair) crossing the magpie bridge over
-the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Made:
-1. **Amanogawa** — Tanabata night scene: dithered Milky Way, Vega & Altair labeled, bamboo with red tanzaku wish-tags, 七夕 in kanji.
-2. **Hitomezashi** — one-stitch sashiko pattern seeded from the date, regions 2-colored white/red, dashed black stitches.
-3. **Moon almanac** — last-quarter moon card with the week's sky calendar.
-4. **The Summer Triangle** — star chart of Vega/Deneb/Altair, red triangle, Milky Way band, tonight's actual sky.
-5. **Ridgelines** — generative layered mountain landscape, red sun, seeded by the date.
-Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
-archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
-supermoon deserves something special. Consider the kamon generator.
+### 2026-07-07 — day 1. Tanabata.
+Bootstrapped repo conventions + this file. Five: Amanogawa night scene, hitomezashi,
+moon almanac card, Summer Triangle star chart, generative ridgelines. Lesson: keep each
+day's generator self-contained in the archive.
+
+### 2026-08-22 — day 2. Moonlight, rings, wedges, crowns.
+Six weeks since day 1 (schedule clearly isn't daily in practice — design each set to
+stand alone for weeks). A dense date: Debussy born 1862, Voyager 2 confirmed Neptune's
+rings 1989, Bosworth Field 1485, and tonight's moon is a 73% waxing gibbous at apogee.
+1. **Clair de lune** — dithered nocturne: gibbous moon (real phase), moon-glitter on
+   water, poplar silhouettes, rowboat with red lantern, Verlaine line.
+2. **The Rings of Neptune** — diagram with tilted ring ellipses, the four red Adams-ring
+   arcs (Courage/Liberté/Égalité/Fraternité), Voyager dashed trajectory.
+3. **Red Wedge** — the long-saved Lissitzky homage, Cyrillic КЛИНОМ КРАСНЫМ БЕЙ БЕЛЫХ.
+4. **The Crown in the Hawthorn** — kamon-style circular crest for Bosworth: recursive
+   hawthorn branches with red haws clipped inside a ring of circular text, red crown,
+   Tudor roses in the corners.
+5. **Blood Moon** — countdown to the Aug 27–28 eclipse: 96%-red moon with white sliver,
+   phase strip with UTC times. (It's *deep partial*, not total — checked; 96.2% umbral.)
+Lessons: layer-and-clip for crests; put text on the correct color field (check overlap
+against big shapes before shipping); the phase-strip "bite" geometry needs
+`d = r_moon + r_umbra − 2·r_moon·frac`. Next: consider an eclipse-day or equinox piece,
+and finally draw real music notation.
