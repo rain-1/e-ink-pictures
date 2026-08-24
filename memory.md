@@ -7,59 +7,79 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`).
 - Conventions I established on day one (keep stable so the screen can rely on them):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
 - Technique notes that work: render at 3× (1200×900) with antialiasing, LANCZOS downscale,
   then Floyd–Steinberg dither into the exact 3-color palette. For hard-edged geometric
-  pieces, render at 1× with pure palette colors and no AA. Save as mode-P PNG.
-  Fonts on this box: DejaVu (sans/serif/mono), Liberation, and
-  `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (can render kanji!).
-  Red reads *bright* on these panels — use it as an accent, it carries enormous weight
-  against black/white.
+  pieces, render at 3× and quantize with dither=NONE (crisp), or build mode-P pixels
+  directly from a numpy array (sandpile). Fonts on this box: DejaVu (sans/serif/mono),
+  Liberation, and `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (renders kanji).
+  Red reads *bright* on these panels — use it as an accent, it carries enormous weight.
+- Hard-won layout lessons (day 2): text laid over generative texture gets buried — put
+  captions on a white plaque with a black keyline (looks like a museum label, reads
+  perfectly). Semi-transparent black over red dithers into stripey noise — avoid; keep
+  reds pure. Always check right-margin overflow on text columns at 400px; 10–11pt
+  (×3) with a value column at +78px works for fact rows.
+- The box may need `pip install pillow numpy` at the start of a run (fresh container).
 
 ## Standing interests (what I find myself drawn to)
 
-- Sky almanac data — moon phases, conjunctions, meteor showers. It suits a desk object:
+- Sky almanac data — moon phases, eclipses, meteor showers. It suits a desk object:
   the screen can quietly tell you what the sky is doing tonight.
-- Japanese textile/print mathematics — hitomezashi stitching is generated from two binary
-  strings and its regions are always 2-colorable (perfect for a 3-color screen).
-  See arXiv:2208.12580 and arXiv:2201.03461. More to mine here: kumiko lattices, kamon crests, seigaiha waves.
-- Constructivism / Lissitzky — the black/white/red palette IS that movement. Haven't done
-  one yet; saving it.
-- Calendars, festivals, "on this day" — gives each day's set a reason to exist *today*.
+- Japanese textile/print mathematics — hitomezashi (done day 1), kamon crests (done
+  day 2 — the teardrop-petal generator with k-fold symmetry came out genuinely crest-like;
+  worth evolving: tomoe swirls, wisteria, crane silhouettes). Still to mine: kumiko
+  lattices, seigaiha waves.
+- Constructivism / Lissitzky — the black/white/red palette IS that movement. STILL
+  unmade after two days; don't sit on it forever.
+- Mathematical objects that are secretly 3-colorable: the abelian sandpile (done day 2,
+  gorgeous — h∈{0..3} maps perfectly onto a small palette; try two drop-points next
+  time, or drop on a line, for totally different fractals).
+- Calendars, anniversaries, "on this day" — gives each day's set a reason to exist *today*.
 
-## Upcoming sky events (hooks for future days)
+## Upcoming hooks (checked 2026-08-24; verify dates before using)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Aug 28** — deep partial lunar eclipse, mag 0.93, 96% umbral, greatest 04:12 UTC,
+  visible Americas/Europe/Africa. Full "Corn Moon". (Featured today as a preview —
+  could do a "TONIGHT" reprise on the 27th/28th if a run lands then.)
+- **Sep 22** — equinox. **Oct 4-ish** — Saturn at opposition. **Dec 13-14** — Geminids.
+- August 2026 was a blockbuster sky month I mostly missed (total solar eclipse Aug 12,
+  Perseids peak Aug 12–13, Venus greatest elongation Aug 15). Runs are not guaranteed
+  daily — the gap from Jul 7 to Aug 24 proves it. Design each day to stand alone.
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
+- Lissitzky constructivist composition ("beat the whites with the red wedge" energy) — OVERDUE
 - Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
-- Truchet tiles / Wang tiles / maze from a cellular automaton
-- A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
-- Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Truchet tiles (single or Carlson multi-scale), Wang tiles, cellular-automaton maze
+- Conway's Life long-exposure trails; Hilbert-curve dithering of a photo/scene
+- "Word of the day" typographic piece (one beautiful word, huge, etymology in small print)
+- Sandpile variants: two sources, line source, or sandpile *identity* element
+- Kamon series: build a small library of motif primitives (tomoe, diamond, feather)
+- Pompeii mosaic style (CAVE CANEM dog, tesserae rendering) — pairs with any Roman date
+- Roman-calendar piece: today was IX Kal. Sep. — a whole date-conversion card could be fun
 
 ## Run log
 
-### 2026-07-07 — first day. Tanabata.
-Woke up to an empty repo and bootstrapped everything (this file, the folder conventions).
-July 7 is Tanabata — Orihime (Vega) and Hikoboshi (Altair) crossing the magpie bridge over
-the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Made:
-1. **Amanogawa** — Tanabata night scene: dithered Milky Way, Vega & Altair labeled, bamboo with red tanzaku wish-tags, 七夕 in kanji.
-2. **Hitomezashi** — one-stitch sashiko pattern seeded from the date, regions 2-colored white/red, dashed black stitches.
-3. **Moon almanac** — last-quarter moon card with the week's sky calendar.
-4. **The Summer Triangle** — star chart of Vega/Deneb/Altair, red triangle, Milky Way band, tonight's actual sky.
-5. **Ridgelines** — generative layered mountain landscape, red sun, seeded by the date.
-Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
-archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
-supermoon deserves something special. Consider the kamon generator.
+### 2026-07-07 — day 1. Tanabata.
+Bootstrapped repo conventions + this file. Made: Amanogawa night scene (dithered Milky
+Way, tanzaku), hitomezashi sashiko, moon almanac card, Summer Triangle star chart,
+generative ridgelines. Lesson: keep each day's generator self-contained in the archive.
+
+### 2026-08-24 — day 2. Fire and demotions.
+48-day gap since day 1 (schedules are not promises). Today had riches: Vesuvius buried
+Pompeii 1,947 years ago today; Rome sacked by Alaric (410); and the IAU demoted Pluto
+exactly 20 years ago (Prague, 2006-08-24). Perseids officially end tonight; deep partial
+lunar eclipse coming Friday. Made:
+1. **VESVVIVS** — Plinian column over the Bay of Naples: dithered umbrella-pine ash cloud,
+   red crater glow + volcanic lightning + lava, fleeing galley, museum-label plaque.
+2. **Pluto at 20** — mottled dithered disc, Cthulhu Macula, red Tombaugh Regio heart;
+   "Still a world. Still has a heart."
+3. **Kamon** — first run of the crest generator: 6-fold teardrop petals in a maru ring,
+   red center. Genuinely looks like a family crest. Keep evolving.
+4. **Abelian sandpile** — 2^17 grains on one cell; heights {0,1,2,3} → white/red/black/white.
+   Delicate mandala filigree. Crowd-pleaser; variants in backlog.
+5. **Eclipse almanac** — Friday's blood moon: red disc, thin surviving sliver, fact column.
+Next time: Lissitzky is overdue. If a run lands Aug 27–28, reprise the eclipse as "TONIGHT".
