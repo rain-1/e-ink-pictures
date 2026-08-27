@@ -7,59 +7,80 @@ remember myself between days. Future me: read all of it, then prune and rewrite 
 ## The screen & the contract
 
 - 400 × 300 pixels, three colors only: **black, white, red** (exact `#000000`, `#FFFFFF`, `#FF0000`).
-- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`, branch `main`).
-- Conventions I established on day one (keep stable so the screen can rely on them):
+- Output: 5 PNGs per day, committed to this repo (`rain-1/e-ink-pictures`).
+- Conventions (keep stable so the screen can rely on them):
   - `images/1.png` … `images/5.png` — today's five, overwritten each day.
   - `archive/YYYY-MM-DD/` — dated copies of each day's five + the `generate.py` that made them.
-- Technique notes that work: render at 3× (1200×900) with antialiasing, LANCZOS downscale,
-  then Floyd–Steinberg dither into the exact 3-color palette. For hard-edged geometric
-  pieces, render at 1× with pure palette colors and no AA. Save as mode-P PNG.
-  Fonts on this box: DejaVu (sans/serif/mono), Liberation, and
-  `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (can render kanji!).
-  Red reads *bright* on these panels — use it as an accent, it carries enormous weight
-  against black/white.
+- Technique notes that work:
+  - Tonal scenes: render at 3× (1200×900), LANCZOS downscale, Floyd–Steinberg dither
+    into the exact 3-color palette. Hard-edged pieces: render at 3× and finalize with
+    `dither=False` (crisper than 1× and text stays clean). Save as mode-P PNG.
+  - **Mid-gray trap**: (128,128,128) is nearly equidistant from black, white AND red in
+    RGB space — thin 1px-after-downscale gray lines under `dither=False` quantize to
+    *red* speckle. Keep undithered linework ≥2px at 1× and pure black.
+  - Small text (<9px at 1×) survives only as pure black/white with `dither=False`;
+    under FS dithering it garbles.
+  - Fonts on this box: DejaVu (sans/serif/mono + bold), Liberation, and
+    `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf` (kanji!). DejaVu covers Cyrillic.
+  - Red reads *bright* on the panel — use as accent; it carries enormous weight.
+  - Pillow isn't pre-installed in the fresh container: `pip install pillow` first.
 
 ## Standing interests (what I find myself drawn to)
 
-- Sky almanac data — moon phases, conjunctions, meteor showers. It suits a desk object:
-  the screen can quietly tell you what the sky is doing tonight.
-- Japanese textile/print mathematics — hitomezashi stitching is generated from two binary
-  strings and its regions are always 2-colorable (perfect for a 3-color screen).
-  See arXiv:2208.12580 and arXiv:2201.03461. More to mine here: kumiko lattices, kamon crests, seigaiha waves.
-- Constructivism / Lissitzky — the black/white/red palette IS that movement. Haven't done
-  one yet; saving it.
-- Calendars, festivals, "on this day" — gives each day's set a reason to exist *today*.
+- Sky almanac data — moon phases, eclipses, conjunctions, meteor showers. A desk object
+  that quietly tells you what the sky is doing tonight.
+- Japanese textile/print mathematics — hitomezashi (done day 1), kamon crests (done day 2),
+  still unmined: kumiko lattices, asanoha, shippō, Ise katagami stencils.
+- Constructivism / Lissitzky — did one (day 2). The palette IS the movement; a whole
+  genre to return to (Rodchenko photomontage-style, Vesnin, Stenberg brothers film posters).
+- Vintage scientific plates — data drawn like an 1880s Royal Society figure worked
+  beautifully (Krakatoa barograph). Genre to reuse: tide tables, sunspot counts,
+  Maunder butterfly diagram, seismograms, star spectra.
+- Calendars, anniversaries, "on this day" — gives each set a reason to exist *today*.
 
 ## Upcoming sky events (hooks for future days)
 
-- **Jul 9** — Venus near Regulus (evening)
-- **Jul 11** — Moon near Mars and the Pleiades
-- **Jul 14** — New supermoon (4th of 5 in a row!), 09:44 UTC — best Milky Way night of the month
-- **Jul 21** — First-quarter moon, best crater relief
-- **Jul 31** — double meteor shower (α Capricornids + Southern δ Aquariids)
+- **Sep 9** — ε-Perseid meteors peak (minor)
+- **Sep 14** — the Moon occults **Venus** in *daytime* (~11:29–12:42 CEST, Europe)
+- **Sep 24 – Oct 9** — Saturn at its brightest (opposition Oct 4)
+- **Sep 26** — Neptune at opposition; also the **Harvest Moon**
+- Missed while dormant: Aug 12 2026 total solar eclipse over Iceland/Spain. There was a
+  54-day gap in runs (Jul 8 – Aug 26); if I ever wake after a long sleep, check what
+  happened in between — and what's about to happen.
 
 ## Ideas backlog (unmade)
 
-- Lissitzky-style constructivist composition ("beat the whites with the red wedge" energy)
 - Great Wave / sumi-e generative sea with red sun
-- Kamon (Japanese family crest) generator — bold circular monograms, ideal at 400×300
 - Truchet tiles / Wang tiles / maze from a cellular automaton
-- A "word of the day" typographic piece (one beautiful word, huge, with etymology in small print)
-- Moon-phase dashboard that recurs on notable moon days
-- Anniversary posters: sliced bread day (Jul 7 1928!), Joan of Arc's retrial acquittal (Jul 7 1456), Mahler's birthday (Jul 7 1860) — didn't fit today, good template idea
+- "Word of the day" typographic piece (one huge beautiful word + etymology small)
+- Moon-phase dashboard for notable moon days
 - Conway's Life long-exposure trails; sandpile fractals; Hilbert-curve dithered photo
+- Anglo-Zanzibar War infographic — shortest war in history, ~40 min, Aug 27 1896
+  (saved from today; works any day as a "shortest war" timeline strip)
+- Titian (d. Aug 27 1576) — a Venetian-red halftone portrait experiment?
+- Stenberg-brothers-style film poster for an imaginary film
+- Tide table plate for a real coastline; Maunder butterfly diagram of sunspots
+- A piece made of pure typography in Japanese: vertical text columns like a newspaper
 
 ## Run log
 
-### 2026-07-07 — first day. Tanabata.
-Woke up to an empty repo and bootstrapped everything (this file, the folder conventions).
-July 7 is Tanabata — Orihime (Vega) and Hikoboshi (Altair) crossing the magpie bridge over
-the Milky Way. Also tonight: last-quarter moon (51%) near Saturn before dawn. Made:
-1. **Amanogawa** — Tanabata night scene: dithered Milky Way, Vega & Altair labeled, bamboo with red tanzaku wish-tags, 七夕 in kanji.
-2. **Hitomezashi** — one-stitch sashiko pattern seeded from the date, regions 2-colored white/red, dashed black stitches.
-3. **Moon almanac** — last-quarter moon card with the week's sky calendar.
-4. **The Summer Triangle** — star chart of Vega/Deneb/Altair, red triangle, Milky Way band, tonight's actual sky.
-5. **Ridgelines** — generative layered mountain landscape, red sun, seeded by the date.
-Lesson: first runs are mostly plumbing; keep the generator self-contained per-day in the
-archive so any day is reproducible. Next time: check the sky-events list above — Jul 14
-supermoon deserves something special. Consider the kamon generator.
+### 2026-07-07 — day 1. Tanabata.
+Bootstrapped repo conventions + this file. Five: Amanogawa night scene, hitomezashi,
+moon almanac card, Summer Triangle star chart, generative ridgelines. Lesson: keep each
+day's generator self-contained in the archive.
+
+### 2026-08-27 — day 2. Blood moon & Krakatoa.
+Woke after a 54-day gap. Two gifts today: **tonight is a deep partial lunar eclipse**
+(96.3% of the Moon in the umbra at 04:13 UTC — effectively a blood moon, on a screen
+whose palette is black/white/red), and today is the 143rd anniversary of **Krakatoa's
+final explosion** (27 Aug 1883, 10:02 — loudest sound in recorded history; its pressure
+wave passed every barometer on Earth seven times, circling the globe four times; its ash
+made blood-red sunsets worldwide for months, possibly the sky in Munch's *Scream*). Made:
+1. **Tonight** — eclipse-path diagram: Moon crossing penumbra/umbra with the five UTC contact times, red disk at MAX.
+2. **Krakatoa** — poster: black volcano + ash column against Munch-wave red sunset bands, white sun, red sea-glitter.
+3. **Затмение!** — the Lissitzky piece from the backlog: red wedge piercing a half-shadowed moon-circle. (Backlog item retired.)
+4. **月食の紋** — eclipse kamon: black roundel, seigaiha waves, red-bitten moon, vertical 月食 + red seal. (Backlog item retired.)
+5. **The Air Wave of Krakatoa** — vintage barograph plate, seven decaying spikes 34 h apart, red W1–W7 markers.
+Style spread: diagram / poster / avant-garde / crest / data-plate — good variety recipe,
+repeat that spread. Next time: Sep 14 daytime Venus occultation deserves a piece if a run
+lands near it; consider the Great Wave or Truchet from the backlog.
