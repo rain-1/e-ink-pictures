@@ -209,7 +209,8 @@ def image1_higanbana():
     dr.text((16, 268), "Lycoris radiata", font=font(FONT_SERIF_I, 12), fill=BLACK)
     dr.text((16, 283), "red spider lily · blooms at the equinox, before its leaves · Higan week begins Sep 20", font=font(FONT_SANS, 9), fill=BLACK)
     dr.text((16, 206), "HIGANBANA", font=font(FONT_SANS_B, 11), fill=BLACK)
-    dr.text((16, 220), "the flower of the distant shore", font=font(FONT_SANS, 9), fill=BLACK)
+    dr.text((16, 220), "the flower of", font=font(FONT_SANS, 9), fill=BLACK)
+    dr.text((16, 232), "the distant shore", font=font(FONT_SANS, 9), fill=BLACK)
     return nearest3(img)
 
 
