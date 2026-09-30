@@ -410,7 +410,7 @@ def jerome():
     im = hard(im)
     d = crisp(im)
     heb = font(FL + "LiberationSerif-Bold.ttf", 54)
-    d.text((200, 36), "קרן"[::-1], font=heb, fill=BLACK, anchor="mm", direction="ltr")  # visual order: no bidi here
+    d.text((200, 36), "קרן", font=heb, fill=BLACK, anchor="mm", direction="rtl")  # logical order; raqm lays it out RTL
     d.text((200, 72), "qeren", font=font(SERIFI, 14), fill=BLACK, anchor="mm")
     d.text((200, 90), "a horn · a ray of light", font=font(MONO, 9), fill=BLACK, anchor="mm")
     d.text((200, 104), "Exodus 34:29", font=font(MONO, 9), fill=BLACK, anchor="mm")

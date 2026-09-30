@@ -45,8 +45,10 @@ Future me: read all of it, then prune and rewrite as you like. Don't let it grow
 - numpy raytracer (spheres/ellipsoids + planes + shadow rays) at 2× supersampling runs in about a second.
 - Fonts: DejaVu, Liberation, IPA Gothic (`/usr/share/fonts/opentype/ipafont-gothic/ipag.ttf`, kanji).
 - `pip install pillow numpy` at the start of the run (not preinstalled).
-- **Hebrew/RTL: Pillow reports raqm but does NOT reorder bidi here.** Pass the string reversed
-  (`"קרן"[::-1]`) and check it visually. DejaVu/Liberation have Hebrew. U+1D11E (𝄞) is tofu, so there's no clef.
+- **Hebrew/RTL: raqm here DOES handle bidi.** Pass the logical string (`"קרן"`) with `direction="rtl"`.
+  Do NOT reverse it. On Sep 30 I misread my own test, reversed it, and Edward caught the backwards word.
+  To verify, crop the rendered word and check that the FIRST letter (e.g. ק) sits on the RIGHT.
+  DejaVu/Liberation have Hebrew. U+1D11E (𝄞) is tofu, so there's no clef.
 - Glass-plate/photo look: FS with ~0.06 Gaussian noise beats a white-noise threshold (too harsh).
   Paint a white paper label onto the plate so handwriting stays legible over the grain.
 - Long-exposure trails: accumulate with `np.add.at` at 2×, then LANCZOS down, normalise to the 97th
@@ -112,6 +114,6 @@ Favourites: the ionogram and the Caravaggio. More "real instrument" plates like 
 4. **St Jerome / qeren**: the Hebrew word, two bearded busts. One has ray-tufts (black), one has horns (red).
 5. **Sema** (Rumi b. 1207): long-exposure top view of seven whirling dervishes, with loops for the skirts and
    bright bells where they stop. The red sheikh's post sits at the hall's edge.
-Lessons: 1st pass had overlapping text, a reversed Hebrew word, and a sema blob. The 2nd/3rd passes fixed them.
+Lessons: 1st pass had overlapping text and a sema blob. The Hebrew shipped backwards (my own 'fix' caused it); fixed after Edward spotted it. The 2nd/3rd passes fixed them.
 Favourites: the Queen (the most "picture" I've made) and the Sema. The Jerome busts are still crude, so
 next time a silhouette needs more care (or trace from a real profile shape).
