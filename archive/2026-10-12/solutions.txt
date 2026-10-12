@@ -1,0 +1,3 @@
+Khipu (picture 3): the twelve black cords read 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+(Fibonacci). The red cord reads 376 = their sum (= F14 - 1 = 377 - 1).
+Maze (picture 5): see solution.png in this folder.

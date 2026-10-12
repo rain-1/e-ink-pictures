@@ -11,7 +11,8 @@ Each run pushes to its own branch (`claude/practical-turing-XXXXXX`) and nothing
 didn't know this and each thought it was "day 1". Before doing anything else:
 `git fetch origin`, then list `git branch -r | grep practical-turing` with commit dates
 (`git log -1 --format=%ci <branch>`), and `git merge --ff-only` (or read) the newest one.
-That's what I did on 2026-10-11 (from `i30o2o`). If ff fails, just copy its
+That's what I did on 2026-10-11 (from `i30o2o`) and 10-12 (from `lo2ssk`).
+`git reset --hard` is blocked by the permission classifier — use `git merge --ff-only`. If ff fails, just copy its
 `memory-fable-5-1.md` and `archive/` in.
 
 ## Contract
@@ -44,6 +45,13 @@ That's what I did on 2026-10-11 (from `i30o2o`). If ff fails, just copy its
 - **DLA**: vectorised numpy walkers. Needs: few walkers (~500), spawn ~25 cells above the
   front, reset if >45 above, stick prob ~0.9. Too many walkers / spawn too close → mush.
   Parent pointers give a lineage to colour red. Runs in ~2s on 200×150.
+- **Theta (circular) maze** (10-12): rings with sector count doubling when arcs get long;
+  recursive backtracker = spanning tree = unique path; BFS solution drawn red to
+  `solution.png`. Walls need lw ≥2px at 1× or diagonals vanish when snapped.
+- **Khipu** (10-12): base-10 knots on pendant cords (singles for 10s/100s, long knot = n
+  turns for units, figure-eight = 1). Bands at fixed heights so columns read across.
+- **Engraved sphere**: horizontal lines every 3px, thickness ∝ darkness**1.4 (max ~2px);
+  heavier max reads as a solid black blob.
 - **Nonogram**: include a line-solver and `assert` the puzzle is line-solvable; periodic
   wave rows are ambiguous (diagonal shift) — follow them with a full row. Solution in
   `archive/<date>/nonogram-solution.txt`. Edward can use these — do more puzzles sometimes
@@ -51,14 +59,16 @@ That's what I did on 2026-10-11 (from `i30o2o`). If ff fails, just copy its
 
 ## Interests / threads to pull
 - Islamic geometry: girih tiles (quasi-periodic), muqarnas.
-- Typography history: did Romain du Roi R today. Next could be Bodoni/Didot hairlines,
-  Johnston's Underground (1916) built from circles & squares, or Fraktur construction.
+- Typography history: did Romain du Roi R (10-11). Next could be Bodoni/Didot hairlines,
+  Johnston's Underground alphabet (1916; O a perfect circle, M/E from squares, counters 2×
+  stroke width; Gill Sans descends from it), or Fraktur construction.
+- Encodings / counting by hand: khipu (done), tally sticks, Ishango bone, semaphore,
+  Braille, Napier's bones, Morse — "numbers you can touch".
 - Experimental-physics diagrams: Foucault pendulum, Michelson–Morley, Eratosthenes.
 - Lost places: Rungholt (1362, the "Grote Mandrenke"), Doggerland, Dunwich, Atlantis-maps.
-- Biology-by-rule: Conus shells (done), phyllotaxis, Turing stripes on fish, leaf venation.
+- Biology-by-rule: Conus shells, phyllotaxis (both done), Turing stripes on fish, leaf venation.
 
 ## Upcoming hooks
-- Oct 12: Mercury at greatest eastern elongation
 - Oct 14: Apollo 7 first live US TV from orbit (1968): Schirra's card "Keep those cards and
   letters coming in, folks!" — a scan-line TV frame piece?
 - Oct 21/22: Orionids peak (Halley's debris; Moon ~79%, best 3am–dawn)
@@ -70,7 +80,8 @@ That's what I did on 2026-10-11 (from `i30o2o`). If ff fails, just copy its
 - Eratosthenes' shadow sticks at Syene/Alexandria
 - Girih tiles with a red path; an invented word, defined (typographic)
 - Rule 30 as a woven textile (red weft) — the shell used the CA, the textile hasn't
-- Phyllotaxis sunflower with the one red Fibonacci spiral
+- Puzzles still untried: kakuro, slitherlink, star battle, a cipher (Edward can solve).
+- Apollo 7 TV-frame scan-line piece (Oct 14); Orionids radiant chart with Halley's orbit
 
 ## Everything made so far (across all branches — don't repeat)
 Old Claude 07-07: Tanabata night, hitomezashi, moon card, Summer Triangle, ridgelines.
@@ -83,19 +94,23 @@ occultation, weaving draft, Draconids chart, Goddard, azulejo · 10-06 occultati
 Euridice, Draconids, Kon-Tiki · 10-07 Luna 3, Raven calligram, Hα, ebru, Lepanto ·
 10-08 geese, Draconid tally, 1871 fires, barchan dunes, dew web · 10-09 Draconids, 한글,
 21P orbit, 10,000 vs 5, Gray–Scott · 10-10 new moon, Truchet, square inscription, Cavendish,
-Giacometti · 10-11 (below).
+Giacometti · 10-11 Strand 1634, Conus/Rule 30, Romain du Roi, Nonogram 1, DLA frost ·
+10-12 (below).
 Overused already: Saturn, Draconids, weaving drafts, Chladni, Gray–Scott. Avoid for a while.
 
 ## Run log
+### 2026-10-12 — counting, crowding, reaching
+1. **Voskhod 1** (12 Oct 1964): engraved descent sphere, three crew shoulder to shoulder,
+   red dashed rings = the helmets/suits that didn't fit.
+2. **Mercury, at full stretch**: greatest eastern elongation 25.2°; red = the tangent
+   sightline from Earth + angle arc. Clean geometry diagram — a good mode for sky events.
+3. **Khipu**: 12 cords = Fibonacci 1…144, red cord = 376 (their sum). A soft puzzle.
+4. **(untitled) Sunflower**: Vogel model N=1000, 34 petals ×2, one red 34-parastichy. No text.
+5. **Puzzle No. 2**: theta maze, 10 rings; solution.png + solutions.txt in archive.
+Lessons: first Mercury draft had the tangent point on the wrong side (derive geometry
+carefully: angle at Sun = 90° − elongation). Khipu's top-cord idea crammed 16 knots into
+50px — when a feature has no room, change the form (made it a red pendant) instead of
+shrinking it. Today was diagram-heavy; tomorrow lean towards texture/landscape/abstraction.
 ### 2026-10-11 — growth by rule / what the sea takes back
-1. **Strand**: Burchardi flood (night of 11–12 Oct 1634) schematic map; red sea-lines where
-   the old island lay; Pellworm, Nordstrand, Nordstrandischmoor, Südfall survive.
-2. **(untitled) Conus textile**: no text. Rule 30 from one red cell at the shell's tip; the
-   shell is the light cone. Spire whorls continue the pattern.
-3. **Romain du Roi**: R on the 48×48 grid (1692), compass circles & leg rules in red. Notes
-   Truchet sat on that committee (link to yesterday).
-4. **Nonogram No. 1**: 15×15, line-solvable; red "15" row = start. Solution: a Hallig house on its warft.
-5. **First Frost**: DLA from the bottom of the glass, 1,906 walks; red = lineage of the highest crystal.
-Lessons: the frost and the shell came alive only on the 2nd/3rd attempt (parameters matter
-more than code). The no-text shell is pure form — do more of those. Spire is still the
-weakest part of #2; shells need a better 3-D model if I return to them.
+Strand 1634 map, Conus/Rule 30 shell, Romain du Roi R, Nonogram No. 1, DLA frost. Lessons:
+parameters matter more than code; no-text pure-form pieces are strong — do more.
