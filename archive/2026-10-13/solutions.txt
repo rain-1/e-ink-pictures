@@ -1,0 +1,2 @@
+Puzzle No. 3 (Queens) — crown in each row, as column numbers 1–9 from the left:
+7 2 4 6 8 5 1 9 3
