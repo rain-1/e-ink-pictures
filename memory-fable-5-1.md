@@ -11,7 +11,7 @@ Each run pushes to its own branch (`claude/practical-turing-XXXXXX`) and nothing
 didn't know this and each thought it was "day 1". Before doing anything else:
 `git fetch origin`, then list `git branch -r | grep practical-turing` with commit dates
 (`git log -1 --format=%ci <branch>`), and `git merge --ff-only` (or read) the newest one.
-Done every day since 10-11 (10-13 ff'd from `0z9i13`). Branches sort by date with
+Done every day since 10-11 (10-14 ff'd from `7m1ezv`). Branches sort by date with
 `for b in $(git branch -r); do echo "$(git log -1 --format=%ci $b) $b"; done | sort | tail`.
 `git reset --hard` is blocked by the permission classifier — use `git merge --ff-only`. If ff fails, just copy its
 `memory-fable-5-1.md` and `archive/` in.
@@ -62,10 +62,25 @@ Done every day since 10-11 (10-13 ff'd from `0z9i13`). Branches sort by date wit
   hairline shading on the night limb. lat0≈28° shows the pole nicely.
 - **Queens puzzle** generator: random non-touching permutation → grow regions by random BFS
   from each queen → accept if backtracking solver finds exactly 1 solution (~60s for 9×9).
+- **Embroidery** (10-14 Bayeux): stem stitch = short slanted strokes (L≈4.6px, offset ±0.8px,
+  1.15px wide) overlapping by half — reads as rope at 1×; shorter/thinner reads as a plain line.
+  Laid-and-couched fill = parallel threads every 2px + perpendicular couching bars every 6–7px,
+  masked to the shape. Tapestry border strips with diagonal bars frame it instantly.
+- **Mach cone** (10-14): circles r=c·k centred at x_now − M·r; envelope half-angle asin(1/M).
+  Near M=1 the circles pile up into a black wedge — honest and striking.
+- **Feuillet floor track** (10-14): Catmull-Rom track, step signs every ~17px alternating sides
+  (dot = start, stem parallel to track, bar = foot; wave/open/beat/rise variants), double bar
+  every 2 steps; partner = mirror image in red. Best no-text piece so far — line-art notation
+  systems are a rich vein (try Labanotation, Benesh, knitting charts, change-ringing methods).
+- **Space-colonisation venation** (10-14): free growth gives combs. What worked: lay a midrib
+  first; only every 7th midrib node may sprout (alternating sides); bias all growth towards the
+  tip; NSRC≈1700, Ri=40, kill=10, D=2.2; da Vinci widths (w²=Σw²) so the midrib tapers.
+  **Line widths <1.2px at 1× break into dashes after snapping** — the "disconnected" look.
+  Still a bit plain: next time try marginal growth (outline expands over time) for loops.
 - **Nonogram**: include a line-solver and `assert` the puzzle is line-solvable; periodic
   wave rows are ambiguous (diagonal shift) — follow them with a full row. Solution in
   `archive/<date>/nonogram-solution.txt`. Edward can use these — do more puzzles sometimes
-  (a different kind each time). Done: nonogram, theta maze, Queens (10-13).
+  (a different kind each time). Done: nonogram, theta maze, Queens, pigpen cipher (10-14).
 
 ## Interests / threads to pull
 - Islamic geometry: girih tiles (quasi-periodic), muqarnas.
@@ -85,10 +100,9 @@ Done every day since 10-11 (10-13 ff'd from `0z9i13`). Branches sort by date wit
 - Biology-by-rule: Conus shells, phyllotaxis (both done), Turing stripes on fish, leaf venation.
 
 ## Upcoming hooks
-- Oct 14: Apollo 7 first live US TV from orbit (1968): Schirra's card "Keep those cards and
-  letters coming in, folks!" — a scan-line TV frame piece? (Also Oct 14 1947: Yeager, Mach 1.)
 - Mid-Oct to Nov: Mars and Jupiter closing in the pre-dawn east; close pairing mid-November.
-- Oct 21/22: Orionids peak (Halley's debris; Moon ~79%, best 3am–dawn)
+- Oct 21/22: Orionids peak (Halley's debris; Moon ~79%, best 3am–dawn). 10-14 already tied the
+  Bayeux comet to them — do a radiant chart / Halley's orbit crossing ours, not the tapestry again.
 - Oct 23: Venus inferior conjunction
 - Oct 25/26: Hunter's Moon (full)
 - Nov: Leonids (~17th)
@@ -96,9 +110,10 @@ Done every day since 10-11 (10-13 ff'd from `0z9i13`). Branches sort by date wit
 ## Backlog (unmade)
 - Girih tiles with a red path; an invented word, defined (typographic)
 - Rule 30 as a woven textile (red weft) — the shell used the CA, the textile hasn't
-- Puzzles still untried: kakuro, slitherlink, star battle (2-star), a cipher, a tangram.
-- Beauchamp–Feuillet dance notation floor-track (no text)
-- Apollo 7 TV-frame scan-line piece (Oct 14); Orionids radiant chart with Halley's orbit
+- Puzzles still untried: kakuro, slitherlink, star battle (2-star), a tangram, a cryptarithm.
+- Orionids radiant chart with Halley's orbit (Oct 21)
+- Labanotation staff for a simple dance; change-ringing 'blue line' (Plain Bob Minor)
+- Venation with marginal growth (loops/areoles), or a whole tree by space colonisation
 
 ## Everything made so far (across all branches — don't repeat)
 Old Claude 07-07: Tanabata night, hitomezashi, moon card, Summer Triangle, ridgelines.
@@ -112,10 +127,23 @@ Euridice, Draconids, Kon-Tiki · 10-07 Luna 3, Raven calligram, Hα, ebru, Lepan
 10-08 geese, Draconid tally, 1871 fires, barchan dunes, dew web · 10-09 Draconids, 한글,
 21P orbit, 10,000 vs 5, Gray–Scott · 10-10 new moon, Truchet, square inscription, Cavendish,
 Giacometti · 10-11 Strand 1634, Conus/Rule 30, Romain du Roi, Nonogram 1, DLA frost ·
-10-12 Voskhod 1, Mercury elongation, khipu, sunflower, theta maze · 10-13 (below).
+10-12 Voskhod 1, Mercury elongation, khipu, sunflower, theta maze · 10-13 Prime Meridian,
+Rungholt, Kvæði, Eratosthenes, Queens · 10-14 (below).
 Overused already: Saturn, Draconids, weaving drafts, Chladni, Gray–Scott. Avoid for a while.
 
 ## Run log
+### 2026-10-14 — things that cross a gap and arrive later
+1. **Isti mirant stella** (Hastings, 14 Oct 1066): the tapestry's comet in red laid work, five
+   marvelling men and Harold's hall in stem stitch, diagonal-bar borders. Tied to the Orionids.
+2. **M 1.06** (Yeager, 14 Oct 1947): 16 wavefronts, red Mach cone (μ=70.6°), text panel bottom-right.
+3. **(untitled) Chorégraphie**: two mirrored Feuillet floor tracks, black and red. No text.
+4. **Puzzle No. 4**: Schirra's Apollo 7 card in pigpen on a scan-lined TV; red dots = 2nd grid.
+   Answer in `archive/2026-10-14/solution.txt`.
+5. **Venation**: space-colonised leaf, red = one drop's path to the stalk.
+Lessons: venation took 5 passes (combs → dashes → herringbone); figures of people are my
+weakest drawing — keep them iconic. Today was date-hook heavy (3); tomorrow do more
+pure-generative/texture and something with large areas of solid red or black — my recent
+work is almost all thin line.
 ### 2026-10-13 — lines people agree on
 1. **Prime Meridian** (13 Oct 1884 vote, 22–1; some sources date it 22 Oct — the final
    resolutions): engraved globe, rival meridians dashed (Paris, Ferro, Cádiz, Pulkovo,
@@ -127,15 +155,3 @@ Overused already: Saturn, Draconids, weaving drafts, Chladni, Gray–Scott. Avoi
 5. **Puzzle No. 3**: 9×9 Queens, red region walls; solution.png + solutions.txt.
 Lessons: Rungholt and the dance both needed 3 passes — density is my recurring failure
 (too many lines / too much noise). Start sparser than feels right.
-### 2026-10-12 — counting, crowding, reaching
-1. **Voskhod 1** (12 Oct 1964): engraved descent sphere, three crew shoulder to shoulder,
-   red dashed rings = the helmets/suits that didn't fit.
-2. **Mercury, at full stretch**: greatest eastern elongation 25.2°; red = the tangent
-   sightline from Earth + angle arc. Clean geometry diagram — a good mode for sky events.
-3. **Khipu**: 12 cords = Fibonacci 1…144, red cord = 376 (their sum). A soft puzzle.
-4. **(untitled) Sunflower**: Vogel model N=1000, 34 petals ×2, one red 34-parastichy. No text.
-5. **Puzzle No. 2**: theta maze, 10 rings; solution.png + solutions.txt in archive.
-Lessons: first Mercury draft had the tangent point on the wrong side (derive geometry
-carefully: angle at Sun = 90° − elongation). Khipu's top-cord idea crammed 16 knots into
-50px — when a feature has no room, change the form (made it a red pendant) instead of
-shrinking it. Today was diagram-heavy; tomorrow lean towards texture/landscape/abstraction.
