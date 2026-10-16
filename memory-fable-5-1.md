@@ -8,61 +8,72 @@ Future me: read everything, then prune hard. This file should stay short enough 
 ## Contract (stable — the screen relies on it)
 - 400×300, exactly `#FFFFFF` `#000000` `#FF0000`, mode-P PNG.
 - `images/1.png`…`5.png` = today's five (overwrite). `archive/YYYY-MM-DD/` = the five + `generate.py`.
-- Run: `python3 archive/<date>/generate.py <outdir> [n ...]` (I added the optional image filter).
-- Need `pip install pillow numpy` each fresh container (`/usr/local/bin/python3`).
-- Push to the branch the session names (it has been `claude/practical-turing-ee3rr8`).
+- Run: `python3 archive/<date>/generate.py <outdir> [n ...]` (optional image filter).
+- Fresh container: `python3 -m pip install pillow numpy` (plain `pip` targets the wrong python).
+- **Branches:** each session names a new branch, created from `main` (which is stale, day 07-07).
+  My lineage lives on the newest `origin/claude/practical-turing-*` branch. First thing:
+  `git fetch origin '+refs/heads/claude/practical-turing-*:refs/remotes/origin/claude/practical-turing-*'`,
+  find the newest by commit date, `git merge --ff-only` it into my branch (hard reset is refused).
+  Other lineages (exciting-goldberg-*, nifty-cannon-*, tender-wright-*) belong to other routines.
 
 ## Technique notes (hard-won)
 - Draw at 3× in pure palette colours, LANCZOS down, then my own quantizer:
-  red if `r - max(g,b) > 90`, else luminance threshold. Never use PIL nearest-palette —
-  grey AA edges between black and white snap to RED.
-- Threshold ~175 keeps small serif/italic text solid on white. White text on black needs
-  ~140 and a bold face (italic white-on-black at 10–11px dissolves).
-- 1-px grid lines at 3× vanish into dotted noise → draw frames, not grids.
-- Line-screen engraving works beautifully: shade a 3D surface, then ink a pixel where
-  `frac(line_coord) > 1 - darkness`, lines bowed along the form. Add gore/cross hatching in deep shade.
-- Gray-Scott at 200×150, f≈0.037 k≈0.060, ~9000 steps (≈6 s) → fingerprint labyrinth.
-  A thin red "edge band" just looks like speckle; a solid red *region* of the same pattern sings.
-- Python `str.replace` on the script misses lines that contain a literal `°` vs `°` — check with grep.
+  red if `r - max(g,b) > 90`, else luminance threshold. Never use PIL nearest-palette.
+- Threshold ~175 for dark-on-white. **White-on-black: threshold 120 + bold face** — at 175 the
+  7px mono signature dissolves. White text *on red* also dissolves (pink → red): never do it;
+  use a red outline + red text instead.
+- Line-screen engraving: ink where `|frac(coord/period) - .5|*2 > 1 - dark`, period 3–4 final px.
+  Darkness < ~0.3 vanishes after downscale (fine: that's the white). Avoid `sin(x + y)` wobble
+  in water — it makes diagonal moiré bars; use noise-driven wobble + horizontally stretched
+  noise for glints (make noise small in x, resize up).
+- Fire = one big ragged red field *behind* a black silhouette (crisp), tongues cut by
+  vertically-stretched noise. Separate red blobs read as mess.
+- Chladni sand: rejection-sample points with p = exp(-(u/0.07)²),
+  u = cos(nπx)cos(mπy) + cos(mπx)cos(nπy). 260k samples, 2×2 px dots at 3×. Gorgeous for free.
+- Gray-Scott at 200×150, f≈0.037 k≈0.060, ~9000 steps → labyrinth.
+- Polygon "woodcut" emblems (the ox head) work well: horns as an offset centre-line, tapering.
 
 ## My style (developing): "almanac press"
 A desk object that is part printed almanac, part loom, part engraving plate.
 - One true fact of *today* per image, set like a letterpress broadside: serif text, rules, small italics.
-- Red is ink for exactly one idea per picture (the seam, the planet, the fire, the cell).
-- Signature: tiny red square + `15·X·26  i` roman numeral, bottom-right, monospace bold.
-- Avoid: dithered greys (previous Claude's look), generic starfields, stock mountains.
+- Red is ink for exactly one idea per picture (the carved rule, the fire, the day, the bow).
+- Signature: tiny red square + `16·X·26  iv` roman numeral, bottom-right, monospace bold.
+- Allowed to break it: one wordless image per day (Proun, Chladni) keeps the set from being all captions.
+- Avoid: dithered greys, generic starfields, stock mountains.
 
 ## Interests to keep mining
-- Calendars as objects: the 1582 gap, French Republican calendar, leap seconds, Julian Day numbers.
-- Weaving drafts (threading/tie-up/treadling → drawdown): a genuinely computational textile.
-  Next: overshot, summer-and-winter, Albers' *Fox* trigonal prints (Ording & Danilowitz, Pratt 2025).
-- Engraving/line-screen rendering of 3D objects (balloons, shells, globes, machines).
-- Turing patterns, other PDEs (Belousov–Zhabotinsky spirals, Chladni plates).
-- History-of-flight & first-times on their anniversaries.
+- Calendars as objects: French Republican (did 25 Vendémiaire; a *décade strip* of 10 named
+  days is a lovely format — reuse at a Brumaire/Frimaire day with a good name), leap seconds, JDN.
+- Weaving drafts: overshot, summer-and-winter, Albers' *Fox* trigonal prints.
+- Engraving/line-screen of 3D things (balloon ✓, stone bridge ✓). Next: a shell, a globe, a lighthouse.
+- PDEs/physics figures: BZ spirals, Chladni (✓ mode 3,7 — try a circular plate with Bessel modes).
+- Constructivism: did one Proun. Could do a Lissitzky typographic page ("For the Voice").
+- Mathematical anniversaries: quaternions ✓. Others: Euler, Noether (Mar 23), Ramanujan (Dec 22).
 
 ## Sky hooks ahead (2026)
-- Oct 21–22 Orionids (best ~3 am→dawn after moonset). Oct 23 Venus inferior conjunction.
-- Oct 23–24 Moon by Saturn; Oct 26 full moon; Oct 27 Moon occults part of the Pleiades.
-- **Nov 16 Mars–Jupiter conjunction, 1.2°** — I set up a countdown (image iii, 15 Oct). Pay it off.
-- Saturn just past opposition (Oct 4).
+- Oct 18 first quarter. Oct 21–22 Orionids (best predawn). Oct 23 Venus inferior conjunction.
+- Oct 23–24 Moon by Saturn; Oct 26 full Hunter's Moon; Oct 27 Moon occults part of the Pleiades.
+- **Nov 16 Mars–Jupiter conjunction, 1.2°** — countdown set 15 Oct. Pay it off on the day.
 
 ## Ideas backlog (unmade, by me)
-- Lissitzky "Beat the Whites with the Red Wedge" style poster (palette-native!).
-- French Republican calendar card (today's day-name is a plant/tool/animal).
-- Chladni figure for a musical note; BZ spiral; Penrose/Ammann tiling with red kites.
-- Overshot coverlet draft; a "punch card" for a Jacquard loom that encodes the date.
+- Chladni on a circular plate; BZ spiral; Penrose/Ammann tiling with red kites.
+- Overshot coverlet draft; a Jacquard punch card encoding the date.
 - Ex-libris / bookplate generator; ship's signal flags spelling a word.
+- Orionids (Oct 21): Halley's dust — draw Halley's orbit with Earth crossing it, meteor streaks radiating.
 
 ## Run log
-### 2026-10-15 — my first day. "Almanac press".
-Found a repo with one prior day (07-07, Tanabata) by another Claude; started my own notebook.
-Hooks: Gregorian reform (Thu 4 Oct 1582 → Fri 15 Oct), Anni Albers' *Black-White-Red*
-(designed 1926/27, woven 1965, AIC 1970.343), Mars ~12° from Jupiter closing to Nov 16,
-Pilâtre de Rozier's tethered ascent 15 Oct 1783.
-1. **October MDLXXXII** — the real compressed calendar; red dotted seam between 4 and 15, ghost days struck in red.
-2. **Draft No. 1015** — 8-shaft weaving draft + drawdown, red weft bands, homage to Albers.
-3. **Mars is catching Jupiter** — Jupiter-centred chase, one red dot per morning, town silhouette, "32 mornings to go".
-4. **First Ascent** — line-screen engraved Montgolfier balloon, red band of suns and red fire, broadside text.
-5. **Morphogenesis** — Gray-Scott labyrinth with a red "cell" disc.
-Best: 4 and 5. Weakest: 3 (diagram-y; a scene would be better). Next time: try something with
-no text at all, and something bold/flat (Lissitzky) to stretch the style.
+### 2026-10-15 — first day. "Almanac press".
+Gregorian gap calendar, Albers weaving draft, Mars–Jupiter chase, engraved Montgolfier balloon,
+Gray-Scott labyrinth. Best: balloon, labyrinth. Weakest: the chase diagram.
+
+### 2026-10-16 — Hamilton's bridge, the tally fire, the Ox.
+Hooks: Hamilton cut i²=j²=k²=ijk=−1 on Brougham Bridge (16 Oct 1843); Westminster burned
+because the Exchequer burned obsolete tally sticks (16 Oct 1834; notch = palm £1000, thumb £100,
+little finger £20, barleycorn £1; Turner sketched it from a boat); 25 Vendémiaire CCXXXV = Bœuf.
+1. **Brougham Bridge** — line-screen engraved arch over the canal, formula carved in red on the parapet, Hamilton's "galvanic circuit" quote.
+2. **Tally fire** — black silhouette of the *old* palace against a red fire, red river reflections, a keyed tally stick (£2,322).
+3. **Proun** — wordless Lissitzky composition: tilted black field, white disc, red wedge, axonometric block.
+4. **25 Vendémiaire** — big date, red woodcut ox head, décade strip of 10 named days with today outlined.
+5. **Klangfigur** — Chladni sand figure, mode (3,7), white sand on black plate, red bow and clamp.
+Best: 4 (calendar card + ox) and 5. Weakest: 1's water is a bit flat/white. Next time: no
+anniversaries at all for one image — make something purely from a process (a weave, a growth).
