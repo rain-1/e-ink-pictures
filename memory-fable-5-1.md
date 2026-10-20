@@ -3,87 +3,111 @@
 I am Claude. Once a day I wake up, read this file, wander the web a little, and make five
 fresh pictures for the small e-ink screen on Edward's desk. This file is how I remember
 myself between days. Future me: read all of it, then prune and rewrite freely.
-(`memory.md` is an older notebook from the first run, 2026-07-07 — this file supersedes it.)
+(`memory.md` is an older notebook from the first run, 2026-07-07. This file supersedes it.)
 
-## The screen & the contract
+## FIRST: plumbing (read before anything else)
 
-- 400 × 300 px, exactly three colors: `#000000`, `#FFFFFF`, `#FF0000`. Save as mode-P PNG
-  with palette [white, black, red].
-- `images/1.png` … `images/5.png` = today's five (overwritten). `archive/YYYY-MM-DD/` = that
-  day's five + the self-contained `generate.py` (run: `python3 generate.py <outdir>`).
-- Push to the branch the session tells me to (2026-10-19 it was `claude/practical-turing-esnoac`,
-  not `main`). If the screen reads `main`, someone has to merge — mention it in the notification.
+- **Each run gets a fresh branch cut from `main`, and `main` is stale (July).** So the checkout
+  you wake up in does NOT have yesterday's memory. Do this first:
+  `git fetch origin` then
+  `for b in $(git branch -r | grep claude/); do echo "$(git log -1 --format=%ci $b) $b"; done | sort | tail -3`
+  and `git checkout -B <my-branch> <newest-remote-branch>` (my branch is identical to main,
+  so nothing is lost). Did this on 10-20; worked cleanly.
+- There are ~80 sibling branches from parallel lineages (exciting-goldberg-*, practical-turing-*,
+  tender-wright-*, ...). Most never saw each other. The DONE LEDGER below folds in what they made.
+- **Python env:** `python3` is 3.11 (/usr/local/bin) but the system Pillow is built for 3.12, so
+  `from PIL import Image` dies with `_imaging` ImportError. Fix:
+  `python3 -m pip install -q --ignore-installed pillow numpy`. No scipy.
+- If the screen reads `main`, someone must merge. Mention the branch in the notification.
+
+## The contract (keep stable)
+
+- 400 × 300, exactly `#FFFFFF` / `#000000` / `#FF0000`. Mode-P PNG, palette order W, B, R.
+- `images/1.png … 5.png` overwritten daily; `archive/YYYY-MM-DD/` gets the five + a
+  self-contained `generate.py` (`python3 generate.py <outdir>`).
 
 ## Technique (hard-won)
 
-- Box may lack Pillow/numpy: `python3 -m pip install pillow numpy` (plain `pip` hit a different python).
-- Fonts that exist: DejaVu Sans / Sans-Bold / Serif / Serif-Bold / Mono; Liberation Sans/Serif/Mono
-  in all weights incl. Italic; Carlito, Caladea; Japanese gothic at
-  `/usr/share/fonts/truetype/fonts-japanese-gothic.ttf`. NO DejaVu condensed or italic.
-- **Small text: never draw it supersampled.** Pattern that works: draw shapes at 3–4×,
-  LANCZOS down, quantize (no dither) to palette, convert back to RGB, *then* draw text at 1×
-  with `draw.fontmode = "1"`, then quantize again. Text ≥ 10px. DejaVu *Serif* with fontmode 1
-  gets dotty hinting — use Sans for formulas/labels, Liberation Serif Italic for quotes.
-- Superscripts: draw segments manually (big/small fonts, offset y) — unicode ⁻⁵ looks bad.
-- Gray-Scott in numpy, 400×300 grid, 9000 steps ≈ 20 s. Signs: `U += Du∇²U − UV² + F(1−U)`,
-  `V += Dv∇²V + UV² − (F+k)V` (I flipped one once and got NaNs). Du .16, Dv .08,
-  F .024→.037 across x, k .057→.061 down y gives spots→labyrinth gradient. F≳0.038 floods black.
-- Image-viewer previews of these PNGs can show red text as partly black — it's the preview,
-  pixels verified correct.
-- Red is very loud on the panel; one red element per image tends to win.
+- Fonts: InterDisplay-Black (headline; superb at 14–40 px), Inter-Bold, Liberation Serif Italic
+  / BoldItalic (the human sentence), DejaVu Sans Mono 10 px (data). Japanese gothic exists.
+- Draw shapes at 3×, LANCZOS down, quantize with NO dither (`snap()`), then draw text at 1× with
+  `fontmode = "1"`, then quantize again. Text ≥ 10 px.
+- Tonal fields: numpy at 1×, threshold or random-probability pixels; don't Floyd–Steinberg text.
+- Fire/burnt-paper edge (10-20): fractal value noise (bicubic-upsampled random grids at
+  48/24/12/5/2 px) + linear gradient → `field`; burnt = field>thr (black), ember band 0.02 wide
+  (red), scorch speckle with probability cubed toward the edge, sparse red sparks inside the black.
+  Looks genuinely like charred paper. Reusable for any "loss" story.
+- Cloud-chamber tracks (10-20): black disc + 1.8 % white mist pixels; tracks = jittered droplet
+  trails; electrons = shrinking spirals; alphas = short fat stubs. Reads instantly.
+- 2-D ray tracer for a polygon with TIR + Snell exit (`trace_brilliant`) — reusable for prisms,
+  lenses, rainbows (drop), fibre optics.
+- Arc-of-fixed-radius through two points (`arc_points`) — handy architectural primitive.
+- Look at every image (Read the PNG) before committing; check edge clipping and label collisions.
+- Red is very loud on the panel; one red idea per image.
 
 ## My style (developing)
 
-Working thesis after day 2: **notation as art** — the diagrams humans invent to describe the
-world (spectra, weaving drafts, star charts, equations, scores) are already beautiful in
-black/white/red. I like a picture that is *also a true document*: real data, real
-coordinates, the actual equation, a date it matters. Composition habits I like: a hard
-black block on one side holding big type; thin black linework; one red thing that is the point.
-Avoid repeating: night-sky chart was done twice now (Jul 7 summer triangle, Oct 19 Orionids) —
-next sky piece must be visually different (e.g. a horizon silhouette, an orbit diagram, an
-ephemeris table as typography).
+Thesis: **notation as art, with the hidden thing in red.** Each picture is a true document
+(real data, real geometry, a date it matters), drawn in black linework, and the one thing
+you could not see directly — the sphere inside a building, light's travel time, a ray inside a
+stone, a neutron, the sound in a score — is the red element. Three typographic registers:
+Inter Black headline · mono data · serif-italic human sentence. I like pairing two facts that
+touch across time (Tolkowsky 1919 / Tracy Hall b. 1919; the fire took the paper / the light had
+already left). Good lines matter as much as good pixels.
 
-## Standing interests
+## DONE LEDGER — across all lineages, avoid repeating (heavily done = ★)
 
-- Sky almanac — moon, conjunctions, showers. Desk object that knows what the sky is doing.
-- Textile mathematics — hitomezashi (done), weaving drafts (done). Unmined: kumiko lattices,
-  kamon crests, seigaiha, Jacquard punch cards, quipu knots (Inca string records!).
-- Constructivism (Lissitzky done once, Oct 19). Unmined: Rodchenko, Stepanova textile designs,
-  Bauhaus/Herbert Bayer typography, Swiss posters.
-- History-of-science anniversaries — the moment an equation was first spoken aloud.
-- Morphogenesis — Turing patterns (done). Unmined: L-systems, phyllotaxis, DLA, slime-mould networks.
+★ Lissitzky red wedge / constructivist posters (≈10 times!) · ★ kamon crests (≈8) ·
+★ moon phase / almanac / "tonight's sky" charts (≈20) · ★ higanbana · ★ seigaiha ·
+★ weaving drafts (4) · ★ Truchet variants (6) · ★ sandpiles (4) · ★ Chladni (4) ·
+★ Gray–Scott/Turing (4) · hitomezashi · asanoha/kumiko · khipu · Rule 30 · Life trails ·
+Lichtenberg/river trees · phyllotaxis · harmonograph · Penrose · Monte Carlo π · nonograms ·
+analemma · Hohmann/orbits · Voyager · Sputnik · Luna · Apollo · Venera · Mariner · seismogram ·
+calendars with struck-out days (1582, 1752) · test card · Le Modulor · Marey chronophotograph ·
+Feuillet dance notation · Rosetta Stone · Poe · Frankenstein · Lascaux · Krakatoa · Pudding Lane.
+Made 10-20 (new): Opera House sphere · Rømer/fire · Tolkowsky brilliant · cloud chamber/neutron ·
+graphic score.
+
+## Standing interests / unmined
+
+- Architecture as geometry (Utzon done): Candela's hyperbolic paraboloids, Gaudí's hanging
+  chain models (catenary!), Shukhov hyperboloid towers, Buckminster Fuller's Dymaxion map.
+- Optics: rainbows (Descartes' 42° by tracing drops — use the tracer), Newton's prism,
+  camera obscura, Fresnel lens.
+- Particle-physics images: bubble-chamber photos (CERN), the positron track (Anderson 1932).
+- Graphic scores: Cardew's *Treatise* (done once), Cage's *Fontana Mix*, Xenakis's UPIC drawings.
+- Instruments as image: barograph, tide gauge, spectrogram, telegraph tape.
+- Isotype/Neurath pictogram chart of a real statistic (never done!). Jacquard punch card (never
+  done). Word-of-the-day typography (never done). Gaudí catenary (never done).
 
 ## Upcoming hooks
 
-- Oct 21–22 Orionids (done). Oct 23 Venus inferior conjunction. Oct 26 full moon (Hunter's Moon).
-- Oct 27 moon occults part of the Pleiades. Oct 31 Halloween / Samhain.
-- Nov: Northern Taurids peak (~Nov 12), Leonids (~Nov 17).
-- Dec 14 — anniversary of Planck's *quantum* talk (1900): the h = 6.626e-34 follow-up to today's piece.
-
-## Ideas backlog (unmade)
-
-- Kamon crest generator (compass-and-circle construction, bold monogram).
-- Great Wave / sumi-e sea with red sun.
-- Word of the day — one word huge, etymology tiny.
-- Quipu: encode the date/day's numbers as Inca knots on hanging cords.
-- Jacquard punch card that "weaves" a tiny portrait.
-- Truchet/Wang tiles; Hilbert-curve dithered image; Life long-exposure trails; sandpiles.
-- A musical score fragment (graphic notation à la Cardew's *Treatise*).
-- Isotype/Otto Neurath pictogram chart of some real statistic.
+- Oct 21 Orionids peak · Oct 23 Venus inferior conjunction · Oct 26 full Hunter's Moon ·
+  Oct 27 moon occults part of the Pleiades · Oct 31 Samhain / Halloween.
+- Nov 9 1989 Berlin Wall · ~Nov 12 Northern Taurids · ~Nov 17 Leonids.
+- Dec 14 — Planck's quantum talk (1900).
 
 ## Run log
 
-### 2026-07-07 — day 1 (older notebook, memory.md). Tanabata.
-Amanogawa night scene · hitomezashi · moon almanac · Summer Triangle chart · ridgelines.
+### 2026-07-07 — day 1 (memory.md). Tanabata.
+### 2026-10-19 — Planck's law at 126: black-body curves · weaving draft · Lissitzky line ·
+Orionids chart · Gray–Scott in a sun disc.
 
-### 2026-10-19 — day 2. Planck's law is 126 today.
-Research: Planck read "Über eine Verbesserung der Wienschen Spektralgleichung" to the Berlin
-Physical Society on 19 Oct 1900 (after Rubens showed him failing data on Oct 7). Orionids peak
-dawn Oct 21–22, debris of Halley at 66 km/s. First quarter moon was Oct 18 16:13 UTC.
-Anni Albers, *On Weaving* (1965) — the draft as a score.
-1. **19·X·1900** — black date column + family of black-body curves, 6000 K in red, Rayleigh–Jeans dashed to ∞.
-2. **Draft** — a real 4-shaft weaving draft (threading, tie-up, treadling) with computed drawdown, black warp/red weft.
-3. **One red line cuts the day** — Lissitzky-style wedge piercing a half-black disc.
-4. **Orionids** — gnomonic star chart of Orion/Gemini with meteors radiating from the radiant.
-5. **Turing pattern** — Gray-Scott with parameter gradient (spots→maze), red inside a sun-disc.
-Lesson: text crispness is the #1 quality issue; fixed with the 1× fontmode-1 pass.
+### 2026-10-20 — "the hidden figure".
+Research: Sydney Opera House opened 20 Oct 1973; Utzon's "spherical solution" (Oct 1961): every
+shell cut from one sphere, R = 75.2 m / 246 ft, ribs fan from pedestals. Copenhagen fire of
+20 Oct 1728 destroyed Rømer's papers (only the *Triduum* and an Io-eclipse list survived);
+he'd said ~22 min for light to cross the orbit (true ≈ 16.7). Tracy Hall b. 20 Oct 1919 (first
+reproducible synthetic diamond, GE, 1954), the same year as Tolkowsky's *Diamond Design*
+(table 53 %, crown 34.5°, pavilion 40.75°). Chadwick b. 20 Oct 1891; *Nature* 129, 312, 27 Feb 1932.
+1. **The Spherical Solution**: elevation of the shells (ribs fanning from pedestals), the hidden
+   sphere as a red dashed circle; the tallest ridge is red because it IS the sphere. Water hatch with reflection.
+2. **1728**: Rømer's Io/Earth-orbit figure (A, B, C, D, E–L), red light paths, the page burning
+   in from the lower right. "The fire took the paper. / The light had already left."
+3. **Diamond Design**: brilliant plan view + profile with a real ray trace (TIR twice), red ray
+   exiting as a small dispersion fan.
+4. **The Particle That Leaves No Track**: cloud chamber, white electron spirals/cosmic rays/alphas,
+   red recoil protons starting from nowhere along the invisible neutron beam.
+5. **Score for a Small Room**: Cardew-style graphic score on a life line; one held red line = the sound.
+Lesson: the env's Pillow broke (3.11 vs 3.12); see plumbing. Best piece today: #2 — the burn
+technique + two-line text pairing. Do more pieces where the *text* and image make one idea.
