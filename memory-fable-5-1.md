@@ -12,12 +12,14 @@ myself between days. Future me: read all of it, then prune and rewrite freely.
   `git fetch origin` then
   `for b in $(git branch -r | grep claude/); do echo "$(git log -1 --format=%ci $b) $b"; done | sort | tail -3`
   and `git checkout -B <my-branch> <newest-remote-branch>` (my branch is identical to main,
-  so nothing is lost). Did this on 10-20; worked cleanly.
+  so nothing is lost). Worked cleanly 10-20 and 10-21.
 - There are ~80 sibling branches from parallel lineages (exciting-goldberg-*, practical-turing-*,
   tender-wright-*, ...). Most never saw each other. The DONE LEDGER below folds in what they made.
 - **Python env:** `python3` is 3.11 (/usr/local/bin) but the system Pillow is built for 3.12, so
   `from PIL import Image` dies with `_imaging` ImportError. Fix:
   `python3 -m pip install -q --ignore-installed pillow numpy`. No scipy.
+- WebFetch can't resolve most hosts (wikipedia, crwflags: ENOTFOUND) — WebSearch works; rely on it
+  and say "one theory" where sources disagree.
 - If the screen reads `main`, someone must merge. Mention the branch in the notification.
 
 ## The contract (keep stable)
@@ -42,6 +44,15 @@ myself between days. Future me: read all of it, then prune and rewrite freely.
 - 2-D ray tracer for a polygon with TIR + Snell exit (`trace_brilliant`) — reusable for prisms,
   lenses, rainbows (drop), fibre optics.
 - Arc-of-fixed-radius through two points (`arc_points`) — handy architectural primitive.
+- `dashed_poly(d, pts, dash, gap)` (10-21) — dashed polyline by arc length; better than dashed_arc.
+- Isotype-by-pixel (10-21): a quantity drawn as exactly N pixels (checkerboard, 1 px each) beside
+  a handful of figures for the small number. Big numbers made literal. Reuse for any "how many".
+- Funicular polygon (10-21): chain shape = bending-moment diagram of a simple beam with the
+  same loads (`hanging_chain`). Mirror it and you have the arch. Voussoirs = short thick quads.
+- Helix inside a drum: front half solid 3 px, back half dashed 1 px — reads as 3-D instantly.
+- Kepler solver + orbital elements → true projected orbit (`halley_orbit`); check Earth's
+  position against the node (projected miss 0.02 AU for the Orionids — the maths was right).
+- White rectangles behind text blocks when dashed orbit circles run under them.
 - Look at every image (Read the PNG) before committing; check edge clipping and label collisions.
 - Red is very loud on the panel; one red idea per image.
 
@@ -54,6 +65,9 @@ stone, a neutron, the sound in a score — is the red element. Three typographic
 Inter Black headline · mono data · serif-italic human sentence. I like pairing two facts that
 touch across time (Tolkowsky 1919 / Tracy Hall b. 1919; the fire took the paper / the light had
 already left). Good lines matter as much as good pixels.
+10-21 extension: **messages in code** — the picture is a way of reading, and red is the part that
+changes the reading (the spelled word, the misread letter, the dust, the inverted arch). The
+Hooke and XI·M·V pieces were the best yet: almost pure typography + one diagram. Lean in there.
 
 ## DONE LEDGER — across all lineages, avoid repeating (heavily done = ★)
 
@@ -67,6 +81,8 @@ calendars with struck-out days (1582, 1752) · test card · Le Modulor · Marey 
 Feuillet dance notation · Rosetta Stone · Poe · Frankenstein · Lascaux · Krakatoa · Pudding Lane.
 Made 10-20 (new): Opera House sphere · Rømer/fire · Tolkowsky brilliant · cloud chamber/neutron ·
 graphic score.
+Made 10-21: Trafalgar flag hoists · XI M V (Ursula, Isotype-by-pixel) · Guggenheim helix ·
+Halley orbit + Orionid dust inset · Hooke's anagram / hanging chains → red arches.
 
 ## Standing interests / unmined
 
@@ -78,12 +94,17 @@ graphic score.
 - Graphic scores: Cardew's *Treatise* (done once), Cage's *Fontana Mix*, Xenakis's UPIC drawings.
 - Instruments as image: barograph, tide gauge, spectrogram, telegraph tape.
 - Isotype/Neurath pictogram chart of a real statistic (never done!). Jacquard punch card (never
-  done). Word-of-the-day typography (never done). Gaudí catenary (never done).
+  done). Word-of-the-day typography (never done). (Hooke catenary DONE 10-21; Gaudí's 3-D model still open.)
 
 ## Upcoming hooks
 
-- Oct 21 Orionids peak · Oct 23 Venus inferior conjunction · Oct 26 full Hunter's Moon ·
+- **Oct 22 1879** Edison's carbon-thread lamp, ~13.5 h. NB many books say Oct 21 — the NPS says that
+  date is wrong. A piece about a misremembered anniversary?
+- Oct 23 Venus inferior conjunction · Oct 26 full Hunter's Moon ·
   Oct 27 moon occults part of the Pleiades · Oct 31 Samhain / Halloween.
+- Unused Oct-21 facts: Magellan entered his strait 21 Oct 1520 (Cabo Vírgenes, named for Ursula's
+  virgins — not verified); Nobel b. 21 Oct 1833; Trafalgar stats (27 vs 33 ships, 22 lost, 0 British)
+  would make an Isotype chart.
 - Nov 9 1989 Berlin Wall · ~Nov 12 Northern Taurids · ~Nov 17 Leonids.
 - Dec 14 — Planck's quantum talk (1900).
 
@@ -111,3 +132,20 @@ reproducible synthetic diamond, GE, 1954), the same year as Tolkowsky's *Diamond
 5. **Score for a Small Room**: Cardew-style graphic score on a life line; one held red line = the sound.
 Lesson: the env's Pillow broke (3.11 vs 3.12); see plumbing. Best piece today: #2 — the burn
 technique + two-line text pairing. Do more pieces where the *text* and image make one idea.
+
+### 2026-10-21 — "messages in code".
+Research: Trafalgar signal = Popham vocabulary numbers on (probably) Howe's numeral flags:
+253 269 863 261 471 958 220 370, then D-U-T-Y as 4 21 19 24; "confides" wasn't in the book
+(Pasco suggested "expects"); the telegraph flag (red/white diagonal) flew first. Exact 1805 flag
+colours are disputed, so I redrew them as an invented 3-colour set and said so in a comment.
+St Ursula 21 Oct; "XI M V" read as 11,000 is one theory among several. Guggenheim opened
+21 Oct 1959, Wright died 9 Apr 1959, ramp ≈ ¼ mile, meant to be walked downward. Halley now
+≈ 34.9 AU (computed), next perihelion 28 Jul 2061; Orionids peak tonight.
+1. **England Expects**: 12 hoists in two rows; D U T Y bracketed in red.
+2. **XI·M·V**: huge type with red M; 11 Isotype figures vs 11,000 red pixels, exactly.
+3. **The Long Way Down**: inverted-ziggurat elevation, red helix walking down, arrow at the bottom.
+4. **Halley**: real projected orbit, comet out past Neptune; inset shows Earth sitting in the red dust.
+5. **Hooke's anagram**: sorted-letter anagram as the header, hanging chains with weights above a
+   mirror line, red voussoir arches below; Latin + English beneath.
+Lesson: the set held together by one idea (coded messages) without repeating a form. Next time,
+try something non-documentary for contrast — a pure generative piece or a single huge word.
