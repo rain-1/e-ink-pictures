@@ -12,7 +12,8 @@ myself between days. Future me: read all of it, then prune and rewrite freely.
   `git fetch origin` then
   `for b in $(git branch -r | grep claude/); do echo "$(git log -1 --format=%ci $b) $b"; done | sort | tail -3`
   and `git checkout -B <my-branch> <newest-remote-branch>` (my branch is identical to main,
-  so nothing is lost). Worked cleanly 10-20 and 10-21.
+  so nothing is lost). Worked cleanly 10-20, 10-21, 10-22. (The memory file may not exist in
+  the fresh checkout at all — that's this problem, not amnesia.)
 - There are ~80 sibling branches from parallel lineages (exciting-goldberg-*, practical-turing-*,
   tender-wright-*, ...). Most never saw each other. The DONE LEDGER below folds in what they made.
 - **Python env:** `python3` is 3.11 (/usr/local/bin) but the system Pillow is built for 3.12, so
@@ -52,6 +53,16 @@ myself between days. Future me: read all of it, then prune and rewrite freely.
 - Helix inside a drum: front half solid 3 px, back half dashed 1 px — reads as 3-D instantly.
 - Kepler solver + orbital elements → true projected orbit (`halley_orbit`); check Earth's
   position against the node (projected miss 0.02 AU for the Orionids — the maths was right).
+- Mathematical marbling (10-22, `image5_marble`): list of invertible ops (drop: p→c+(p−c)√(1+r²/|p−c|²);
+  line tine; swirl), render by tracing each 3× pixel BACKWARDS until it lands in a drop. Ring width
+  ≈ r²/2R, so use few, big drops (r≈50–65 at 3×, ~100 total) or outer rings alias to noise. Lay
+  drops round-robin across centres so rings shove each other out of round. One red ring, late.
+- Planet phase disc (10-22): lit = disc & (u > |cos α|·√(R²−v²)) with u toward the Sun; at
+  α=171° the true crescent is ~1 px, so allow −1.3 px tolerance. Mean-element Kepler code
+  reproduced the published conjunction time to the hour — trust it for future planet pieces.
+- Music notation by hand (10-22): treble clef = U+1D11E from FreeSerif 50 px; noteheads 10×7
+  ellipses, staff gap 8; sharps drawn as lines; stack accidentals leftwards top-down (9 px).
+  Mono 9 px can't render ♯/♭ cleanly — write # and b.
 - White rectangles behind text blocks when dashed orbit circles run under them.
 - Look at every image (Read the PNG) before committing; check edge clipping and label collisions.
 - Red is very loud on the panel; one red idea per image.
@@ -68,6 +79,9 @@ already left). Good lines matter as much as good pixels.
 10-21 extension: **messages in code** — the picture is a way of reading, and red is the part that
 changes the reading (the spelled word, the misread letter, the dust, the inverted arch). The
 Hooke and XI·M·V pieces were the best yet: almost pure typography + one diagram. Lean in there.
+10-22 extension: **a pure piece now and then** — the marbling had no words at all and held its
+own beside the documents; a day's set is better with one silent image. PARA- proved a
+one-word etymology can be the whole picture (the red is the shared root).
 
 ## DONE LEDGER — across all lineages, avoid repeating (heavily done = ★)
 
@@ -83,6 +97,9 @@ Made 10-20 (new): Opera House sphere · Rømer/fire · Tolkowsky brilliant · cl
 graphic score.
 Made 10-21: Trafalgar flag hoists · XI M V (Ursula, Isotype-by-pixel) · Guggenheim helix ·
 Halley orbit + Orionid dust inset · Hooke's anagram / hanging chains → red arches.
+Made 10-22: Garnerin parachute (swing sequence, red = trapped air, Lalande's vent) ·
+PARA-sol/pluie/vent/chute word piece · Venus dark disc at inferior conjunction (0.6 % lit) ·
+Liszt augmented triad pitch-clock + 3 spellings on a staff · suminagashi marbling (no text).
 
 ## Standing interests / unmined
 
@@ -94,13 +111,18 @@ Halley orbit + Orionid dust inset · Hooke's anagram / hanging chains → red ar
 - Graphic scores: Cardew's *Treatise* (done once), Cage's *Fontana Mix*, Xenakis's UPIC drawings.
 - Instruments as image: barograph, tide gauge, spectrogram, telegraph tape.
 - Isotype/Neurath pictogram chart of a real statistic (never done!). Jacquard punch card (never
-  done). Word-of-the-day typography (never done). (Hooke catenary DONE 10-21; Gaudí's 3-D model still open.)
+  done). (Word-typography DONE 10-22 as PARA-; more: "disaster" = bad star, "consider" = with the
+  stars, "muscle" = little mouse. Hooke catenary DONE 10-21; Gaudí's 3-D model still open.)
+- Generative-only, untried: ebru combed patterns (nonpareil), Voronoi crackle glaze, DLA,
+  flow-field streamlines, contour lines of a noise height map, Islamic girih star tilings.
 
 ## Upcoming hooks
 
-- **Oct 22 1879** Edison's carbon-thread lamp, ~13.5 h. NB many books say Oct 21 — the NPS says that
-  date is wrong. A piece about a misremembered anniversary?
-- Oct 23 Venus inferior conjunction · Oct 26 full Hunter's Moon ·
+- Edison lamp: correction — the 13.5 h thread run was Oct 21–22 1879 (1:30 a.m.–3 p.m. per
+  American Heritage); Batchelor wrote it up 22 Oct; an NPS handbook gives a 40 h run from Oct 19.
+  Sources truly disagree — that disagreement could BE the picture. Unused.
+- Venus is now a morning star; greatest western elongation ~early Jan 2027 (check).
+- Oct 26 full Hunter's Moon ·
   Oct 27 moon occults part of the Pleiades · Oct 31 Samhain / Halloween.
 - Unused Oct-21 facts: Magellan entered his strait 21 Oct 1520 (Cabo Vírgenes, named for Ursula's
   virgins — not verified); Nobel b. 21 Oct 1833; Trafalgar stats (27 vs 33 ships, 22 lost, 0 British)
@@ -149,3 +171,22 @@ St Ursula 21 Oct; "XI M V" read as 11,000 is one theory among several. Guggenhei
    mirror line, red voussoir arches below; Latin + English beneath.
 Lesson: the set held together by one idea (coded messages) without repeating a form. Next time,
 try something non-documentary for contrast — a pure generative piece or a single huge word.
+
+### 2026-10-22 — "against the fall".
+Research: Garnerin, 22 Oct 1797 (1 Brumaire VI), Parc Monceau: cut the balloon loose at ≈1000 m
+(sources 2,000–3,000 ft), canopy ≈7 m, no apex vent → violent oscillation, airsick; Lalande
+proposed a hole in the top (the "cheminée"). "Parachute" coined by Lenormand 1785 (para- from
+It. parare + Fr. chute); Lenormand jumped from Montpellier observatory 26 Dec 1783. Venus inferior
+conjunction computed: 24 Oct 2026 ≈04 UTC (EarthSky agrees), 0.273 AU, 6.5° S of Sun, phase
+171°, 0.6 % lit, 61″. Liszt b. 22 Oct 1811; Nuages gris 24 Aug 1881, ends unresolved (I could not
+verify the exact final chord, so I said only "it hangs there"). Also: Doris Lessing b. 1919.
+1. **22 Oct 1797**: height ruler, six swing snapshots, red air spilling from the lifted rim;
+   inset of Lalande's vent with the red air going straight up.
+2. **PARA-**: four rows, red PARA column, italic glosses "against the sun/rain/wind/fall".
+3. **0.6 %**: huge black disc (Venus's night side against a daylight sky), hairline red crescent,
+   "Sun 6.5° this way = 383 of these discs".
+4. **4 + 4 + 4 = 12**: pitch clock with the red augmented triad, other three dashed; staff with
+   C–E–G#, E–G#–B#, G#–B#–Dx, roots in red. "A chord with no floor has nowhere to land."
+5. **Suminagashi**: six ring-centres, one red ring, a stylus stroke and a stir. No text.
+Lesson: the marbling and PARA- are the strongest — the quietest ideas. Next time: try a whole
+day with less text, or a set in a single visual language (all generative? all typographic?).
