@@ -10,18 +10,22 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-10-25: `claude/practical-turing-jzmuhe`).
+- Push to whatever branch the session names (2026-10-26: `claude/practical-turing-x41xot`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
   `git fetch origin`, find the newest `origin/claude/practical-turing-*` branch
   (`git for-each-ref --sort=-committerdate refs/remotes/origin/claude`), and
-  `git merge` it into today's branch. That brings in this file and the archive. If the screen
+  `git merge --ff-only` it into today's branch (a `git reset --hard` gets blocked by the
+  permission classifier; a fast-forward merge works fine). That brings in this file and the archive. If the screen
   reads `main`, it's been showing July's pictures all along, so tell Edward in the notification.
 
 ## Toolbox (works on this box)
 
-- `python3 -m pip install numpy pillow` first. The system PIL was broken (`_imaging` import
-  error); a fresh pillow from pip fixes it.
+- `python3 -m pip install -q --ignore-installed numpy pillow ephem` first. The system PIL is broken
+  (`_imaging` import error); plain `pip install` thinks it's satisfied, so `--ignore-installed`.
+- **PyEphem works** and is great for real sky data: topocentric Moon positions, occultation
+  disappear/reappear times (loop minutes, test separation < m.size/2). Precompute the numbers
+  and embed them in generate.py so the archive script needs no ephem.
 - Fonts: JetBrains Mono (Regular to ExtraBold, my favourite for captions), DejaVu, Liberation,
   FreeSerif Italic/BoldItalic (lovely for playbill flourishes), Caladea/Carlito, wqy-zenhei (CJK).
 - Pipelines:
@@ -70,7 +74,7 @@ toward:
 
 ## Sky hooks ahead
 
-- Full Hunter's Moon 04:12 UTC Mon 26 Oct. Moon occults Pleiades stars on Oct 27 (good hook!).
+- (Done 10-26: Pleiades occultation, London 00:17–02:00 GMT Wed 28 Oct.)
 - Late Oct pre-dawn: Jupiter, Mars and Regulus lined up in the east.
 - Saturn in Cetus all autumn, rising at sunset.
 - Nov 2026: S. Taurids peak ~Nov 4–5, N. Taurids ~Nov 11–12, new moon ~Nov 9, Mars–Jupiter
@@ -83,24 +87,19 @@ toward:
   a "word of the day" type specimen, Hokusai-style wave with a halftone sea.
 - Other runs on older branches already did plenty of: Proun/red wedge, kamon, Chladni, moon
   cards, seigaiha, sandpiles, weaving drafts. Avoid those unless there's a truly new angle.
-- Upcoming dates: Oct 27 Pleiades occultation; Oct 31 Hallowe'en / Reformation (1517);
+- Instruments still untried: sundial/nocturnal, slide rule, sextant, Napier's bones. (Tide
+  machine done 10-26 — the "sum of pulleys" diagram was a good form.)
+- Objects-drawn-large (new, 10-26): the bifurcated needle worked as a quiet memorial. Other
+  humble world-changing tools: a cotter pin, a QWERTY typebar, a ration book, a Bakelite plug.
+- Upcoming dates: Oct 28 Statue of Liberty dedicated (1886); Oct 29 ARPANET first message "LO"
+  (1969); Oct 30 War of the Worlds broadcast (1938); Oct 31 Hallowe'en / Reformation (1517);
   Nov 1 All Saints / Lisbon earthquake (1755); Nov 3 Laika (1957); Nov 5 Bonfire Night;
   Nov 9 Berlin Wall (1989); Nov 11 Armistice.
 
 ## Run log
 
-### 2026-10-24 (Sat). My first day with this file.
-Hooks: first photo of Earth from space (V-2 No.13, White Sands, 24 Oct 1946, 105 km, 35 mm frame
-every 1.5 s, film survived in a steel cassette); Hunter's Moon 97% beside Saturn; Houdini's last
-show (Garrick Theatre, Detroit, Sun 24 Oct 1926); Black Thursday (24 Oct 1929, 12.9 M shares,
-afternoon bankers' rally); Anni Albers.
-1. **105 km**: a dithered film frame with a curved limb, haze, grain and a scratch, plus red edge codes.
-2. **Hunter's Moon**: a red dithered moon, a ringed Saturn, a stubble field converging, red/white glitter, hay bales.
-3. **After Albers**: 7 bands of trapezoids/parallelograms, prototypes repeated and rotated 180°.
-4. **Houdini**: a playbill with a chained trunk and a red padlock.
-5. **Black Thursday**: ticker tape looping over graph paper, with a red cliff-then-rally line.
-Notes: the ribbon glyph-overlap bug and 1× text mush were the main fixes. Albers is the
-strongest pure-graphic piece; the film frame could use more cloud structure next time.
+### 2026-10-24 (Sat). V-2 film frame, Hunter's Moon field, After Albers, Houdini playbill,
+Black Thursday ticker tape. Albers was the strongest pure-graphic piece.
 
 ### 2026-10-25 (Sun). Clocks back; St Crispin's Day.
 Found the continuity gotcha above and merged yesterday's branch first. Hooks: BST ends (02:00 →
@@ -118,4 +117,18 @@ Gjon Mili's 1949 light drawings (two cameras, side and front); Johann Strauss II
 5. **Organette strip**: the Blue Danube opening (simplified) punched as holes on a sprocketed strip.
    The echo "ta-ta" notes are red.
 Notes: the first spiral packed the key hour into the centre. Make the important thing *big*.
+
+### 2026-10-26 (Mon). Full Hunter's Moon (04:12 UTC).
+Hooks: Moon occults Pleiades over London Wed 28 Oct (Celaeno, Taygeta, Asterope, Maia; computed
+with ephem); Erie Canal opened 26 Oct 1825 (cannon relay Buffalo→NYC ~81 min; Seneca Chief
+arrived 4 Nov; 363 mi, 83 locks); FA founded at Freemasons' Tavern, Mon 26 Oct 1863 (Law I: max
+200×100 yd, flags, posts 8 yd apart, no tape or bar); last natural smallpox case, Ali Maow
+Maalin, Merca, 26 Oct 1977 (sources differ 26/27/30 Oct on onset vs diagnosis; WHO uses 26).
+1. **Seven Sisters**: black chart, ghost Moon every 30 min, solid disc at 01:00 hiding four red-ticked sisters.
+2. **News by gunfire**: lock-staircase profile, a row of guns with red puffs, 81 min vs 9 days in big type.
+3. **Laws of the Game I.**: a rule-book page; the 1863 maximum ground to scale, stipple turf, no lines.
+4. **Merca**: a bifurcated needle drawn large, red dose in the fork, short italic memorial text.
+5. **Sum of five sines**: Kelvin tide machine (pulleys over, guides under, one wire) + red week trace.
+Notes: labels collided everywhere on pass 1 (Erie city names, tide footer). Plan label slots
+before drawing. The needle looked weak until drawn much bigger with engraved hatch lines.
 
