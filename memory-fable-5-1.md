@@ -10,7 +10,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-10-26: `claude/practical-turing-x41xot`).
+- Push to whatever branch the session names (2026-10-28: `claude/practical-turing-njotwk`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
   `git fetch origin`, find the newest `origin/claude/practical-turing-*` branch
@@ -18,6 +18,10 @@ prune and rewrite freely. Keep it short enough to read in one go.
   `git merge --ff-only` it into today's branch (a `git reset --hard` gets blocked by the
   permission classifier; a fast-forward merge works fine). That brings in this file and the archive. If the screen
   reads `main`, it's been showing July's pictures all along, so tell Edward in the notification.
+- **10-28 addendum:** the 10-27 run *didn't* merge (it reseeded this file from `memory.md`), so the chain
+  forked. I ff-merged 10-26 (`x41xot`) then did a real merge of 10-27 (`esqsgs`), keeping this file's
+  text (ours) and folding its log in below. If two branches share the newest date, check *both*:
+  `for b in $(git branch -r); do git log -1 --format='%ci %h' $b; done | sort | tail`.
 
 ## Toolbox (works on this box)
 
@@ -43,6 +47,14 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Astrolabe maths (in 2026-10-25/generate.py): stereographic projection from the south pole,
   r = Req·tan((90°−δ)/2), plus alt/az→(δ,H) for almucantars and a GMST formula. Reusable for any
   planisphere or star-dial piece.
+- **Tonal + red without red speckle:** dither tone with a 2-colour (white/black) palette first,
+  then paint solid red/black shapes from 3×-drawn masks (`mask_layer` + `paint` in 10-28's script).
+  Straight 3-colour Floyd–Steinberg on greys sprinkles red everywhere.
+- **Physical scale:** the panel is 84.8 × 63.6 mm, so **4.72 px/mm** (≈120 dpi). "Actual size" pieces work.
+- Vectorised DLA (4000 walkers in numpy, sticking prob 0.6, re-drop walkers that stray 45 px above the
+  front): 17k crystals in ~5 s. Track each pixel's seed id to colour one lineage.
+- Glyphs rotated with NEAREST at 8 px are illegible — keep small text horizontal.
+- A thin red diagonal with any widening at one end reads as an ARROW. Avoid for tools/pens.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -83,7 +95,7 @@ toward:
 
 ## Ideas backlog
 
-- Telegram form (Oct/Nov anniversaries), punch-card weave (Jacquard to IBM), Truchet/maze piece,
+- Telegram form (Oct/Nov anniversaries), Ming Forbidden City roof plan (capital 1420), punch-card weave (Jacquard to IBM), Truchet/maze piece,
   a "word of the day" type specimen, Hokusai-style wave with a halftone sea.
 - Other runs on older branches already did plenty of: Proun/red wedge, kamon, Chladni, moon
   cards, seigaiha, sandpiles, weaving drafts. Avoid those unless there's a truly new angle.
@@ -91,10 +103,11 @@ toward:
   machine done 10-26 — the "sum of pulleys" diagram was a good form.)
 - Objects-drawn-large (new, 10-26): the bifurcated needle worked as a quiet memorial. Other
   humble world-changing tools: a cotter pin, a QWERTY typebar, a ration book, a Bakelite plug.
-- Upcoming dates: Oct 28 Statue of Liberty dedicated (1886); Oct 29 ARPANET first message "LO"
+- Upcoming dates: Oct 29 ARPANET first message "LO"
   (1969); Oct 30 War of the Worlds broadcast (1938); Oct 31 Hallowe'en / Reformation (1517);
   Nov 1 All Saints / Lisbon earthquake (1755); Nov 3 Laika (1957); Nov 5 Bonfire Night;
-  Nov 9 Berlin Wall (1989); Nov 11 Armistice.
+  Nov 9 Berlin Wall (1989); Nov 11 Armistice. Nov 2 Día de Muertos (papel picado was done once
+  in Sept on another branch; a calavera or marigold-arch would be new).
 
 ## Run log
 
@@ -132,3 +145,25 @@ Maalin, Merca, 26 Oct 1977 (sources differ 26/27/30 Oct on onset vs diagnosis; W
 Notes: labels collided everywhere on pass 1 (Erie city names, tide footer). Plan label slots
 before drawing. The needle looked weak until drawn much bigger with engraved hatch lines.
 
+
+### 2026-10-27 (Tue) — forked run (branch `esqsgs`, merged in 10-28)
+Comic panel with Ben-Day sky over Manhattan (Lichtenstein b. 1923); Lissitzky wedge as the first
+IRT train; strip map of the 28 IRT stations of 1904; six Chladni plates; Gray–Scott seeded with
+"1952". Recipes from it: Chladni grains p ∝ exp(−(d/0.012)²) with d=|f|/|∇f|; Gray–Scott Du=.16
+Dv=.08, coral F=.0545 k=.062, worms F=.029 k=.057.
+
+### 2026-10-28 (Wed). Theme: thin things that held.
+Hooks: Milvian Bridge 28 Oct 312 (Eusebius: the sign above the sun); Statue of Liberty dedicated
+28 Oct 1886 (skin 3/32″ copper; ~300,000 rivets, 1,500 saddles, ~1,350 iron bars — Copper
+Development Assoc.); Radio Moscow 14:04 GMT 28 Oct 1962 broadcasting Khrushchev's letter before
+editing was finished; John Locke d. 28 Oct 1704 (Essay II.i.2 "white paper, void of all characters").
+1. **In hoc signo**: dithered dusk over a six-arch bridge with rippled reflection, red ☧ in a black
+   halo above the sun, one red tower window. Moody; the arches-in-water read well.
+2. **3/32″**: Liberty's skin as an 11 px red band, *actual size* at 4.72 px/mm, riveted saddle over
+   a cross-hatched armature bar. Best idea of the day: the screen itself as a ruler.
+3. **14:04**: a shortwave dial (49–19 m bands), red needle on МОСКВА, magic eye, two knobs.
+4. **Tabvla rasa**: a wax-tablet diptych, wood grain as white lines, everything blank but a small red
+   stylus and its first 4-px mark. Nearly all white — a quiet picture for the panel.
+5. **(untitled) first frost**: DLA from the window sill plus three dust nuclei; one lineage red.
+Notes: pass 1 put the sun *under* the bridge and the stylus read as an arrow. "True scale"
+is a new reusable form (a stamp, a seed, a hair, a flea, a microchip die at 4.72 px/mm).
