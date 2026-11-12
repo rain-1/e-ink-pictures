@@ -10,7 +10,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-11-11: `claude/quirky-noether-04nmwa`; the prefix
+- Push to whatever branch the session names (2026-11-12: `claude/quirky-noether-anvrid`; the prefix
   changes — it has been `tender-wright`, `exciting-goldberg`, `practical-turing`, `quirky-noether`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
@@ -24,7 +24,9 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - 11-10: the chain was intact (10-28 `njotwk` was newest), but there were **no runs 10-29 … 11-09**.
   Told Edward by notification that `main` still holds July's five and the daily sets live on
   per-run branches. Don't repeat that notification unless something new breaks. (11-11: chain
-  intact, merged `74tvqr`, stayed silent.)
+  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent.)
+- On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
+  above, not a first run — don't start over.
 
 ## Toolbox (works on this box)
 
@@ -76,6 +78,18 @@ prune and rewrite freely. Keep it short enough to read in one go.
   10 px on red is weak; use white for small text on red.
 - Giant glyphs: FreeSerif Italic ∫ at 290 px, fontmode "1", is clean. Check both terminals are on canvas.
 - Simple chart projection for a constellation: x = −(α−α0)·15·cos δ·s, y = −(δ−δ0)·s (east left).
+- **Ray-traced planet (11-12 Saturn):** orthographic rays in numpy against an oblate ellipsoid + ring
+  plane z=0, at 3× then block-mean to 1× and `convert("1")`. Ring profile by radius (C/B/Cassini/A/
+  Encke), ring shadow on globe and globe shadow on rings from the same `hit()` routine. Keep the
+  phase angle small (sun ~38° from the viewer); at ~80° the globe's shadow eats a whole ansa and
+  the picture stops reading as Saturn.
+- **Figures:** a line-and-circle body reads as a rocket. Shoulders wider than hips (a trapezoid
+  torso), two-segment legs with a knee and a foot tick, arms as a V — then it is a person.
+- **Ghosts:** a 50 % checker mask is the only "grey" that survives; a 25 % dot screen disappears.
+- Superscripts (⁴) in 10 px mono turn into "*". Spell it out ("inverse fourth power").
+- Typed-in form values: DejaVu Sans Mono Bold 12. Serif 16 in 1-bit makes "rn" read as "m".
+- **Rubber stamp:** draw on an L mask (Inter Black), rotate BICUBIC + threshold 110, knock out ~6 %
+  random pixels and a few low-frequency blots. Check the digits afterwards; blots ate a "4" once.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -100,7 +114,7 @@ Rules I keep:
   parallelograms in a few sizes, rotated). Next: her *knot* drawings, Bauhaus triple-weave
   blocks, Sophie Taeuber-Arp, Sonia Delaunay.
 - Ephemera as a form: playbills, ticker tape, film strips, organette strips (done). Still to
-  try: tram tickets, telegrams, luggage labels, seed packets, a planisphere with a moving wheel.
+  try: tram tickets, telegrams, seed packets (a tag was done 11-12), a planisphere with a moving wheel.
 - Screens as a form (new, 11-10): radar PPI, a 1985 tiled desktop, a chalkboard graph (11-11) done. Still to try: an
   oscilloscope Lissajous, a teletext page, a vector-display starfield, an ECG strip, a sonar waterfall,
   a departure board (split-flap), a seven-segment clock.
@@ -111,6 +125,8 @@ Rules I keep:
   to Plane, Itten's contrast studies in 3 colours, Chevreul, Owen Jones' Grammar of Ornament.
 - Instruments as a form (new, 10-25): astrolabe done. Next: a sundial or nocturnal, a slide rule,
   a sextant arc, a Napier's bones set, a tide-predicting machine trace.
+- Chronophotography (new, 11-12: Léotard). Next: Marey's birds or a pole-vaulter, Muybridge grids,
+  Edgerton's strobe (a golf swing as a fan of clubs), Duchamp's staircase as a method.
 - Two-view / multi-view drawings (Mili's two cameras): the same 3D object shown front and side.
   Could do orthographic plans, stereo pairs, or a knot shown in three projections.
 - Sky almanac: keep doing one sky piece when the sky gives a reason.
@@ -118,7 +134,8 @@ Rules I keep:
 
 ## Sky hooks ahead
 
-- 11-11's sky piece was historical (Tycho's nova; Cassiopeia transits ~21:00 local in mid-Nov).
+- No sky piece since the 10-26 occultation chart (11-11 and 11-12 were historical). The Mars–Jupiter
+  pairing below is the next real one — do it with ephem.
 - Mars + Jupiter in Leo, rising ~23:00, conjunction ~Nov 14–17 (≈1.2° on the 16th) — a good
   "two dots" picture. Leonids peak night of Nov 17–18. Mercury greatest W elongation Nov 20, full
   supermoon Nov 24 14:53 UTC, Uranus at opposition Nov 25, Venus brightest ~Nov 27.
@@ -134,10 +151,12 @@ Rules I keep:
   machine done 10-26 — the "sum of pulleys" diagram was a good form.)
 - Objects-drawn-large (new, 10-26): the bifurcated needle worked as a quiet memorial. Other
   humble world-changing tools: a cotter pin, a QWERTY typebar, a ration book, a Bakelite plug.
-- Upcoming dates: Nov 12 Voyager 1 at Saturn (1980); Nov 14 Moby-Dick US publication (1851), Nellie Bly sets off
+- Upcoming dates: Nov 13 Holland Tunnel opens (1927), R. L. Stevenson b. 1850 (check both); Nov 14 Moby-Dick US publication (1851), Nellie Bly sets off
   (1889); Nov 15 Intel 4004 (1971); Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
   Nov 20 Windows 1.0 ships (did the announcement 11-10 — skip); Nov 22 SOS adopted? (check);
   Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
+- Unused 11-12 hooks: Berners-Lee & Cailliau's WorldWideWeb proposal (12 Nov 1990) — a node-and-link
+  web with one red "you are here"; Rodin b. 1840; Barthes b. 1915 (the *punctum*: one red point in a photo).
 - Unused 11-11 hooks: Perelman posts the first Ricci-flow preprint (11 Nov 2002) — a neck pinching
   under flow would be a fine diagram; Dostoevsky b. 1821; Martinmas lanterns; N. Taurids; Gemini 12 (1966).
 - Unused 11-10 hooks: Stanley meets Livingstone (his own date 10 Nov 1871 is disputed), Luther
@@ -158,25 +177,11 @@ size — the screen as a ruler), 14:04 (shortwave dial on МОСКВА), Tabvla 
 all white), first frost (DLA, one red lineage). "True scale" is a reusable form (a stamp, a seed,
 a flea, a chip die at 4.72 px/mm).
 
-### 2026-11-10 (Tue). Theme: calls. (First run after a 12-day gap.)
-Hooks, all verified: Edmund Fitzgerald lost 10 Nov 1975 (last radio 19:10 EST to the Arthur M.
-Anderson, "We are holding our own"; 29 men; 46°59.9′N 85°06.6′W); first coast-to-coast direct-
-dialled call, Sat 10 Nov 1951, Englewood NJ → Alameda CA, 415 LAkehurst 3-9727, ~18 s to ring;
-Hogarth b. 10 Nov 1697 (Analysis of Beauty pl. I fig. 49: seven waving lines, No. 4 the line of
-beauty, 1–3 "mean and poor", 5–7 "gross and clumsy"); Sesame Street ep. 1, Mon 10 Nov 1969,
-sponsors W, S, E, 2, 3; Windows announced Thu 10 Nov 1983 at the Helmsley Palace, shipped 20 Nov
-1985, tiled windows only (and it shipped with Reversi).
-1. **Holding our own**: the Anderson's radar scope — dithered phosphor sweep, sea clutter, one red
-   blip ten miles ahead; the quote in white bold italic beside it. The tonal piece, and the best.
-2. **18 seconds**: a rotary dial drawn large (dialled digits red, 415 on the card) + the ten digits
-   as red pulse trains (45 clicks).
-3. **No. 4**: Hogarth's seven lines as an engraved plate, swelling strokes, the fourth in red.
-4. **W S E 2 3**: six-cell type poster, each glyph a different face, "today is brought to you by…".
-   No characters or logos — the letters alone carry it.
-5. **Tiled**: a 1-bit desktop: MS-DOS Executive, Clock at 11:10, Notepad telling the story,
-   Reversi, a November 2026 calendar with the 10th red. Checker "grey" icon bar.
-Notes: pass 1 had mushy captions (3× path) and the JetBrains O/D problem — both now in Toolbox.
-The desktop is a good recurring *container* (a window per fact), but don't lean on it.
+### 2026-11-10 (Tue). Theme: calls.
+Edmund Fitzgerald radar scope with one red blip ("We are holding our own"); rotary dial + pulse
+trains (first direct-dialled coast-to-coast call, 1951); Hogarth's seven lines, No. 4 red; W S E 2 3
+six-cell type poster (Sesame Street ep. 1); a tiled 1-bit desktop (Windows announced 1983).
+The desktop is a good *container* (a window per fact), but don't lean on it.
 
 ### 2026-11-11 (Wed). Theme: signs.
 Hooks (searched; captions kept to what sources agree on): Tycho sees the new star in Cassiopeia,
@@ -196,3 +201,24 @@ beginning, E for entropy"); Signac b. Paris 11 Nov 1863.
 Notes: pass 1 had the chart running off the frame, labels on top of curves, and an unreadable
 harbour. Arrival delays across the six traces (same shell, shifted per microphone) is a true
 detail worth the effort.
+
+### 2026-11-12 (Thu). Theme: arrivals.
+Hooks (searched): Voyager 1 closest to Saturn 12 Nov 1980 (sources say 124,000–126,000 km above the
+cloud tops, so the caption says "some 125,000"; Titan the day before, which threw it north out of
+the ecliptic); Léotard's first flying-trapeze act, Cirque Napoléon, 12 Nov 1859; Philae's three
+touchdowns 12 Nov 2014 (15:34, 17:25, 17:32 UTC — sources vary by a minute; harpoons failed; first
+bounce "as high as a kilometre"); Rayleigh b. 12 Nov 1842, 1871 papers, scattering ∝ 1/λ⁴
+((700/400)⁴ = 9.4); Ellis Island closes 12 Nov 1954, opened 1 Jan 1892, about 12 million, last
+detainee the Norwegian seaman Arne Peterssen (spelling varies: Pettersen/Petterson).
+1. **Saturn**: ray-traced, dithered globe and rings on black, reseau dots, Titan a red dot. The best.
+2. **Léotard**: chronophotograph on black — checker ghosts on two trapezes, a white catcher, the
+   man in the air red; LÉOTARD in Inter Black.
+3. **Three landings**: the empty one. A dotted 111-minute arc, a 7-minute hop, a red dot at rest.
+4. **The long way through the air**: six sine waves 400–700 nm damped by exp(−x/2L), L ∝ λ⁴, the
+   700 nm one red and still strong when it reaches "you"; a red sun at the left edge.
+5. **Ellis Island**: a manila tag on checker grey, typed fields, a red CLOSED stamp at 11°.
+Notes: pass 1 had Saturn lit from the side (unreadable), rocket-shaped acrobats, and a "1/λ*".
+Three of the five were black-on-white with a mono caption block at the bottom — the caption
+strip is becoming a habit. Tomorrow: at least two pictures with **no caption strip at all**
+(fact worked into the object itself, as on the tag), and one that fills the frame edge to edge.
+
