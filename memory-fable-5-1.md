@@ -10,7 +10,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-11-12: `claude/quirky-noether-anvrid`; the prefix
+- Push to whatever branch the session names (2026-11-13: `claude/quirky-noether-4f5nxr`; the prefix
   changes — it has been `tender-wright`, `exciting-goldberg`, `practical-turing`, `quirky-noether`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
@@ -24,7 +24,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - 11-10: the chain was intact (10-28 `njotwk` was newest), but there were **no runs 10-29 … 11-09**.
   Told Edward by notification that `main` still holds July's five and the daily sets live on
   per-run branches. Don't repeat that notification unless something new breaks. (11-11: chain
-  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent.)
+  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent. 11-13: same, merged `anvrid`, silent.)
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -90,6 +90,16 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Typed-in form values: DejaVu Sans Mono Bold 12. Serif 16 in 1-bit makes "rn" read as "m".
 - **Rubber stamp:** draw on an L mask (Inter Black), rotate BICUBIC + threshold 110, knock out ~6 %
   random pixels and a few low-frequency blots. Check the digits afterwards; blots ate a "4" once.
+- **Meteors / streaks on a dithered sky (11-13):** streaks put *through* the dither dissolve into
+  texture. Dither only the glow (horizon glow ~0.8 so silhouettes read; 0.3 leaves them invisible),
+  then draw the streaks as hard 1 px white lines afterwards, 2 px for the last 40 % (the head).
+- **Old-map kit (11-13):** island = polar harmonics polygon on an L mask; sea shading = rows
+  `y%2==0` inside MaxFilter(15) of the mask, sparser rows inside MaxFilter(27); coast =
+  mask minus MinFilter(5). Dashed rhumb lines from a compass rose, molehill hachures, a chequered
+  neatline. Inlets carved with a Gaussian dent come out narrower than expected — print the mask and
+  check before placing a ship in one.
+- Liberation Serif Italic 13 in white on black is ragged ("I3" for 13); on white it's fine. Inter Black
+  at 18 px fits "HOLLAND" in 82 px; at 21 it doesn't — measure with textbbox before placing.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -113,8 +123,8 @@ Rules I keep:
 - Textile & print geometry: Anni Albers (PO II / Éclat: only isosceles trapezoids +
   parallelograms in a few sizes, rotated). Next: her *knot* drawings, Bauhaus triple-weave
   blocks, Sophie Taeuber-Arp, Sonia Delaunay.
-- Ephemera as a form: playbills, ticker tape, film strips, organette strips (done). Still to
-  try: tram tickets, telegrams, seed packets (a tag was done 11-12), a planisphere with a moving wheel.
+- Ephemera as a form: playbills, ticker tape, film strips, organette strips, a tear-off calendar
+  leaf (11-13) done. Still to try: tram tickets, telegrams, seed packets (a tag was done 11-12), a planisphere with a moving wheel.
 - Screens as a form (new, 11-10): radar PPI, a 1985 tiled desktop, a chalkboard graph (11-11) done. Still to try: an
   oscilloscope Lissajous, a teletext page, a vector-display starfield, an ECG strip, a sonar waterfall,
   a departure board (split-flap), a seven-segment clock.
@@ -127,6 +137,10 @@ Rules I keep:
   a sextant arc, a Napier's bones set, a tide-predicting machine trace.
 - Chronophotography (new, 11-12: Léotard). Next: Marey's birds or a pole-vaulter, Muybridge grids,
   Edgerton's strobe (a golf swing as a fan of clubs), Duchamp's staircase as a method.
+- Engineering sections (new, 11-13: Holland Tunnel tube). Next: a lighthouse cut open, a ship's
+  midship section, a pyramid's chambers, a watch escapement, a Bessemer converter.
+- Imaginary cartography (new, 11-13). Next: a portolan with wind roses only, a star-fort plan, a
+  sea chart of soundings (numbers only, no coastline drawn).
 - Two-view / multi-view drawings (Mili's two cameras): the same 3D object shown front and side.
   Could do orthographic plans, stereo pairs, or a knot shown in three projections.
 - Sky almanac: keep doing one sky piece when the sky gives a reason.
@@ -134,10 +148,10 @@ Rules I keep:
 
 ## Sky hooks ahead
 
-- No sky piece since the 10-26 occultation chart (11-11 and 11-12 were historical). The Mars–Jupiter
-  pairing below is the next real one — do it with ephem.
-- Mars + Jupiter in Leo, rising ~23:00, conjunction ~Nov 14–17 (≈1.2° on the 16th) — a good
-  "two dots" picture. Leonids peak night of Nov 17–18. Mercury greatest W elongation Nov 20, full
+- 11-13 did Mars + Jupiter as "one binocular field" (ephem: 1.38° at 05:00 UT on the 14th, 1.19° on
+  the 16th, Mars +0.7, Jupiter −1.9). Don't redo the pair; the Moon is waxing (47 % on the 17th).
+- Leonids peak night of Nov 17–18 (the 1833 storm was drawn 11-13 — pick a different angle, e.g.
+  Tempel–Tuttle's orbit, or skip). Mercury greatest W elongation Nov 20, full
   supermoon Nov 24 14:53 UTC, Uranus at opposition Nov 25, Venus brightest ~Nov 27.
   December: Geminids Dec 13–14, solstice Dec 21.
 
@@ -151,10 +165,12 @@ Rules I keep:
   machine done 10-26 — the "sum of pulleys" diagram was a good form.)
 - Objects-drawn-large (new, 10-26): the bifurcated needle worked as a quiet memorial. Other
   humble world-changing tools: a cotter pin, a QWERTY typebar, a ration book, a Bakelite plug.
-- Upcoming dates: Nov 13 Holland Tunnel opens (1927), R. L. Stevenson b. 1850 (check both); Nov 14 Moby-Dick US publication (1851), Nellie Bly sets off
+- Upcoming dates: Nov 14 Mariner 9 enters Mars orbit (1971; 13 Nov in US time — first orbiter of another planet), Moby-Dick US publication (1851), Nellie Bly sets off
   (1889); Nov 15 Intel 4004 (1971); Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
   Nov 20 Windows 1.0 ships (did the announcement 11-10 — skip); Nov 22 SOS adopted? (check);
   Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
+- Unused 11-13 hooks: Fantasia premiere (13 Nov 1940) — an optical soundtrack strip as a form; Vietnam
+  Veterans Memorial dedicated (1982); St Augustine b. 354.
 - Unused 11-12 hooks: Berners-Lee & Cailliau's WorldWideWeb proposal (12 Nov 1990) — a node-and-link
   web with one red "you are here"; Rodin b. 1840; Barthes b. 1915 (the *punctum*: one red point in a photo).
 - Unused 11-11 hooks: Perelman posts the first Ricci-flow preprint (11 Nov 2002) — a neck pinching
@@ -171,36 +187,13 @@ relay map, football pitch plan, bifurcated needle drawn large, tide-machine sine
 Lissitzky wedge, strip map, Chladni plates, Gray–Scott (Du=.16 Dv=.08; coral F=.0545 k=.062).
 Lessons: make the important thing BIG; plan label slots before drawing.
 
-### 2026-10-28 (Wed). Theme: thin things that held.
-In hoc signo (dithered dusk, six-arch bridge, red chi-rho), 3/32″ (Liberty's copper skin at actual
-size — the screen as a ruler), 14:04 (shortwave dial on МОСКВА), Tabvla rasa (wax tablet, almost
-all white), first frost (DLA, one red lineage). "True scale" is a reusable form (a stamp, a seed,
-a flea, a chip die at 4.72 px/mm).
-
-### 2026-11-10 (Tue). Theme: calls.
-Edmund Fitzgerald radar scope with one red blip ("We are holding our own"); rotary dial + pulse
-trains (first direct-dialled coast-to-coast call, 1951); Hogarth's seven lines, No. 4 red; W S E 2 3
-six-cell type poster (Sesame Street ep. 1); a tiled 1-bit desktop (Windows announced 1983).
-The desktop is a good *container* (a window per fact), but don't lean on it.
-
-### 2026-11-11 (Wed). Theme: signs.
-Hooks (searched; captions kept to what sources agree on): Tycho sees the new star in Cassiopeia,
-11 Nov 1572, walking home from the lab at Herrevad — labelled "I" in *De nova stella* (1573), at
-α 0h25.3m δ +64°09′; the Armistice sound-ranging record (six microphones, American front near the
-Moselle, a minute either side of 11:00, published 1919 in Crowell's *America's Munitions*; sources
-differ on film vs paper, so I didn't say); Leibniz 11 Nov 1675 uses the integral for an area — ∫ is a
-long s for *summa*, printed 1686 (some sources date the sign itself to 29 Oct 1675, so the caption
-doesn't claim "first ∫"); Vonnegut b. 11 Nov 1922, story shapes on G–I / B–E axes ("B for
-beginning, E for entropy"); Signac b. Paris 11 Nov 1863.
-1. **Nova stella**: woodcut-style chart, black engraved stars, dotted W, the nova a rayed red star.
-2. **11:00**: six jagged traces, a red line, six flat traces. The quiet one, and the best.
-3. **∫umma**: solid red ground, a 290 px white ∫ serving as the s of "umma", "y dx" below.
-4. **Man in hole**: chalkboard, white man-in-hole curve, red Cinderella staircase → midnight → ∞.
-5. **Touches**: a harbour in ~2,900 brick-laid touches (red sun and sails, black sea dashes).
-   The weakest: legible but coarse. If I stipple again, use fewer, larger shapes and a denser sea.
-Notes: pass 1 had the chart running off the frame, labels on top of curves, and an unreadable
-harbour. Arrival delays across the six traces (same shell, shifted per microphone) is a true
-detail worth the effort.
+### 2026-10-28 … 11-11 (condensed)
+10-28 "thin things that held": dithered dusk bridge + chi-rho, actual-size copper skin, shortwave dial,
+wax tablet (almost all white), DLA frost. 11-10 "calls": radar scope with one red blip, rotary dial +
+pulse trains, Hogarth's seven lines, six-cell type poster, tiled 1-bit desktop. 11-11 "signs": woodcut
+star chart (Tycho's nova), sound-ranging traces going flat at 11:00 (the quiet one, the best), giant
+white ∫ on solid red, chalkboard story-shapes, stippled harbour (weakest: too coarse).
+Lessons: pass 1 always has labels on top of things and something running off the frame.
 
 ### 2026-11-12 (Thu). Theme: arrivals.
 Hooks (searched): Voyager 1 closest to Saturn 12 Nov 1980 (sources say 124,000–126,000 km above the
@@ -222,3 +215,23 @@ Three of the five were black-on-white with a mono caption block at the bottom �
 strip is becoming a habit. Tomorrow: at least two pictures with **no caption strip at all**
 (fact worked into the object itself, as on the tag), and one that fills the frame edge to edge.
 
+### 2026-11-13 (Fri the 13th). Theme: luck.
+Hooks (searched): the 1833 Leonid storm, night of 12–13 Nov (rate estimates range 72,000–150,000/h, so
+no number in the picture); Holland Tunnel opened 13 Nov 1927 (one source says the ceremony was 4 p.m.
+on the 12th, cars after midnight), 84 fans = 42 blowers + 42 exhausters, air changed every 90 s,
+ventilation by Ole Singstad (tube diameter not confirmed — left out); Stevenson b. Edinburgh 13 Nov
+1850, the Treasure Island map came before the story (Braemar, 1881; sources disagree whether he or
+his stepson Lloyd drew it, and the original was lost — caption says only "the map came first");
+B. H. Brown's 1933 Monthly problem: in 400 Gregorian years the 13th is Mon 685, Tue 685, Wed 687,
+Thu 684, **Fri 688**, Sat 684, Sun 687 (recomputed with `datetime`); 2026 has three (Feb, Mar, Nov).
+1. **The night the stars fell**: full-bleed black sky, dithered horizon glow, ~140 hard white
+   streaks from one radiant, a red fireball, a meeting-house with one red window, bare trees.
+2. **Holland Tunnel**: a tube in section — cast-iron ring, red foul-air duct above, fresh air below,
+   two 1927 cars from behind; a title block with a red "90 s".
+3. **Treasure Island**: my own island in the old manner (shaded coast, rhumb lines, hachured hills,
+   three red crosses), names from the book. No caption strip; the fact lives in the cartouche. Best.
+4. **13**: tear-off calendar leaf, a 222 px red 13, and the 400-year weekday tally as bars beside it.
+5. **One binocular field**: a black 6° disc on white; Jupiter white, Mars red, 1.4° apart. The quiet one.
+Notes: three of five had no caption strip (1, 3, 4) and 1 runs edge to edge — yesterday's resolution
+kept. The cars read a little like tram-ends: for vehicles, side views are safer than rear views.
+Tomorrow: something with **curves and no text at all**, and avoid a black night sky (two today).
