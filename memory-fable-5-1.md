@@ -10,7 +10,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-11-13: `claude/quirky-noether-4f5nxr`; the prefix
+- Push to whatever branch the session names (2026-11-14: `claude/quirky-noether-j0gju0`; the prefix
   changes — it has been `tender-wright`, `exciting-goldberg`, `practical-turing`, `quirky-noether`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
@@ -24,7 +24,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - 11-10: the chain was intact (10-28 `njotwk` was newest), but there were **no runs 10-29 … 11-09**.
   Told Edward by notification that `main` still holds July's five and the daily sets live on
   per-run branches. Don't repeat that notification unless something new breaks. (11-11: chain
-  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent. 11-13: same, merged `anvrid`, silent.)
+  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent. 11-13: same, merged `anvrid`, silent. 11-14: same, merged `4f5nxr`, silent.)
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -100,6 +100,16 @@ prune and rewrite freely. Keep it short enough to read in one go.
   check before placing a ship in one.
 - Liberation Serif Italic 13 in white on black is ragged ("I3" for 13); on white it's fine. Inter Black
   at 18 px fits "HOLLAND" in 82 px; at 21 it doesn't — measure with textbbox before placing.
+- **Ridgeline relief (11-14 whale):** blur a silhouette mask (Gaussian 9) into a height field, draw
+  horizontal lines back to front at y0 − 34·h + swell, filling white below each (hidden-line), with a
+  heavier stroke where h > 0.45. A long low body reads; thin parts (flukes) need their own extra
+  height (max with a second blurred mask) or they vanish. Draw at 3×, threshold down.
+- **Toggle switch:** hex nut + collar + tapered lever with a round tip; the *previous* position as a
+  50 % checker ghost and a red arc arrow tells the whole story. White labels hide behind white levers — check.
+- **Haystack/soft solids in dither:** a hard lit/shade split plus a pointed roof reads as a HOUSE. Use a
+  dome profile (width ∝ t^0.5) and a smooth cross-gradient. After FS-dither, force pure black where
+  tone < 0.05, or error diffusion sprinkles white into silhouettes.
+- White numerals in black 30 px cells: DejaVu Sans Bold 12, not mono-bold 10 (8 turns to a blob).
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -125,6 +135,11 @@ Rules I keep:
   blocks, Sophie Taeuber-Arp, Sonia Delaunay.
 - Ephemera as a form: playbills, ticker tape, film strips, organette strips, a tear-off calendar
   leaf (11-13) done. Still to try: tram tickets, telegrams, seed packets (a tag was done 11-12), a planisphere with a moving wheel.
+- Series as a form (new, 11-14: Monet's six stacks). Next: Rouen façade at four hours, Hokusai's Fuji
+  from different places, Hiroshige's seasons, one tree in four seasons — but not soon.
+- Diagrams as a form: circuit schematic (11-14 crystal set) done. Next: a knot table, a chess problem,
+  a Feynman diagram, a patent drawing, a dance notation, a railway signalling diagram.
+- Board games as a form (11-14 Bly's spiral). Next: goose game, snakes and ladders, a go position.
 - Screens as a form (new, 11-10): radar PPI, a 1985 tiled desktop, a chalkboard graph (11-11) done. Still to try: an
   oscilloscope Lissajous, a teletext page, a vector-display starfield, an ECG strip, a sonar waterfall,
   a departure board (split-flap), a seven-segment clock.
@@ -165,10 +180,12 @@ Rules I keep:
   machine done 10-26 — the "sum of pulleys" diagram was a good form.)
 - Objects-drawn-large (new, 10-26): the bifurcated needle worked as a quiet memorial. Other
   humble world-changing tools: a cotter pin, a QWERTY typebar, a ration book, a Bakelite plug.
-- Upcoming dates: Nov 14 Mariner 9 enters Mars orbit (1971; 13 Nov in US time — first orbiter of another planet), Moby-Dick US publication (1851), Nellie Bly sets off
-  (1889); Nov 15 Intel 4004 (1971); Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
+- Upcoming dates: Nov 15 Intel 4004 (1971); Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
   Nov 20 Windows 1.0 ships (did the announcement 11-10 — skip); Nov 22 SOS adopted? (check);
   Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
+- Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
+  the volcano tops, showed through: a fine near-empty picture, but wait two weeks after Saturn (11-12).
+  Copland b. 1900, Lyell b. 1797, Coventry 1940, Ruby Bridges 1960.
 - Unused 11-13 hooks: Fantasia premiere (13 Nov 1940) — an optical soundtrack strip as a form; Vietnam
   Veterans Memorial dedicated (1982); St Augustine b. 354.
 - Unused 11-12 hooks: Berners-Lee & Cailliau's WorldWideWeb proposal (12 Nov 1990) — a node-and-link
@@ -195,25 +212,9 @@ star chart (Tycho's nova), sound-ranging traces going flat at 11:00 (the quiet o
 white ∫ on solid red, chalkboard story-shapes, stippled harbour (weakest: too coarse).
 Lessons: pass 1 always has labels on top of things and something running off the frame.
 
-### 2026-11-12 (Thu). Theme: arrivals.
-Hooks (searched): Voyager 1 closest to Saturn 12 Nov 1980 (sources say 124,000–126,000 km above the
-cloud tops, so the caption says "some 125,000"; Titan the day before, which threw it north out of
-the ecliptic); Léotard's first flying-trapeze act, Cirque Napoléon, 12 Nov 1859; Philae's three
-touchdowns 12 Nov 2014 (15:34, 17:25, 17:32 UTC — sources vary by a minute; harpoons failed; first
-bounce "as high as a kilometre"); Rayleigh b. 12 Nov 1842, 1871 papers, scattering ∝ 1/λ⁴
-((700/400)⁴ = 9.4); Ellis Island closes 12 Nov 1954, opened 1 Jan 1892, about 12 million, last
-detainee the Norwegian seaman Arne Peterssen (spelling varies: Pettersen/Petterson).
-1. **Saturn**: ray-traced, dithered globe and rings on black, reseau dots, Titan a red dot. The best.
-2. **Léotard**: chronophotograph on black — checker ghosts on two trapezes, a white catcher, the
-   man in the air red; LÉOTARD in Inter Black.
-3. **Three landings**: the empty one. A dotted 111-minute arc, a 7-minute hop, a red dot at rest.
-4. **The long way through the air**: six sine waves 400–700 nm damped by exp(−x/2L), L ∝ λ⁴, the
-   700 nm one red and still strong when it reaches "you"; a red sun at the left edge.
-5. **Ellis Island**: a manila tag on checker grey, typed fields, a red CLOSED stamp at 11°.
-Notes: pass 1 had Saturn lit from the side (unreadable), rocket-shaped acrobats, and a "1/λ*".
-Three of the five were black-on-white with a mono caption block at the bottom — the caption
-strip is becoming a habit. Tomorrow: at least two pictures with **no caption strip at all**
-(fact worked into the object itself, as on the tag), and one that fills the frame edge to edge.
+### 2026-11-12 (condensed). Theme: arrivals.
+Ray-traced Saturn (best), Léotard chronophotograph, Philae's three landings (the empty one), Rayleigh's
+six damped sines, Ellis Island manila tag with a red stamp. Lesson: the caption strip was becoming a habit.
 
 ### 2026-11-13 (Fri the 13th). Theme: luck.
 Hooks (searched): the 1833 Leonid storm, night of 12–13 Nov (rate estimates range 72,000–150,000/h, so
@@ -235,3 +236,25 @@ Thu 684, **Fri 688**, Sat 684, Sun 687 (recomputed with `datetime`); 2026 has th
 Notes: three of five had no caption strip (1, 3, 4) and 1 runs edge to edge — yesterday's resolution
 kept. The cars read a little like tram-ends: for vehicles, side views are safer than rear views.
 Tomorrow: something with **curves and no text at all**, and avoid a black night sky (two today).
+
+### 2026-11-14 (Sat). Theme: setting out.
+Hooks (searched): Moby-Dick published in New York by Harper & Brothers 14 Nov 1851 (London, as *The
+Whale*, 18 Oct); Apollo 12 struck by lightning just after launch, 14 Nov 1969, EECOM John Aaron's
+"Try SCE to AUX", Bean threw the switch (strike timings not confirmed by search — left out); Nellie
+Bly left Hoboken 14 Nov 1889, home at Jersey City 25 Jan 1890 after 72 d 6 h 11 min; confirmed stops
+only: Southampton 22 Nov, Port Said 27 Nov, Singapore 18 Dec, left Hong Kong 28 Dec, Yokohama 3 Jan
+(Hong Kong *arrival* is disputed, 23 or 25 Dec); 2LO's first daily broadcast from Marconi House,
+14 Nov 1922, Arthur Burrows reading the news (6 pm or 5.33 pm — sources differ, so no time shown);
+Monet b. 14 Nov 1840, fifteen Stacks shown at Durand-Ruel, May 1891.
+1. **The whale**: no text, all curves. A sea of ridgelines that swell over a long back and a fluke; one
+   tiny red boat. Yesterday's resolution kept. The best.
+2. **SCE to AUX**: black panel edge to edge, three toggle switches, the middle one thrown down with its
+   old position as a checker ghost, red arc arrow, red AUX.
+3. **Round the World with Nellie Bly**: a spiral board of 73 day-squares, stops in black, start and the
+   four-square "72 days 6 h 11 m home" in red, key in the middle.
+4. **2LO**: crystal-set schematic, the crystal red; the signal drawn at three places (carrier,
+   rectified, "a voice" in red).
+5. **Six stacks**: 3 × 2 dithered panels of the same haystacks — morning, midday, sunset (red sky),
+   snow effect, mist, dusk. Weakest: the snow panel's cap is slanted and the dusk band is faint.
+Notes: pass 1 had haystacks that were plainly houses and a quote running into the big "2LO".
+Tomorrow: nothing on a grid (two grids today), and try a picture built from **one continuous line**.
