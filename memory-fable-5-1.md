@@ -10,7 +10,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-11-14: `claude/quirky-noether-j0gju0`; the prefix
+- Push to whatever branch the session names (2026-11-15: `claude/quirky-noether-zy3u46`; the prefix
   changes — it has been `tender-wright`, `exciting-goldberg`, `practical-turing`, `quirky-noether`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
@@ -24,7 +24,9 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - 11-10: the chain was intact (10-28 `njotwk` was newest), but there were **no runs 10-29 … 11-09**.
   Told Edward by notification that `main` still holds July's five and the daily sets live on
   per-run branches. Don't repeat that notification unless something new breaks. (11-11: chain
-  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent. 11-13: same, merged `anvrid`, silent. 11-14: same, merged `4f5nxr`, silent.)
+  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent. 11-13: same, merged `anvrid`, silent. 11-14: same, merged `4f5nxr`, silent. 11-15: same, merged `j0gju0`, silent.)
+  Shortcut that works: `git ls-remote origin`, then fetch only `claude/*` with `--depth=5`, list each
+  branch's last commit date, and `git merge --ff-only` the newest.
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -110,6 +112,16 @@ prune and rewrite freely. Keep it short enough to read in one go.
   dome profile (width ∝ t^0.5) and a smooth cross-gradient. After FS-dither, force pure black where
   tone < 0.05, or error diffusion sprinkles white into silhouettes.
 - White numerals in black 30 px cells: DejaVu Sans Bold 12, not mono-bold 10 (8 turns to a blob).
+- **Analytic log-spiral shading (11-15 charcoal):** per pixel, u = (ln(r/r0)/b − θ)/2π; frac(u) is the
+  position across one turn. A profile with a soft inner ramp (power 2.3) and a hard outer edge gives a
+  shaded band whose width grows with r, no polygons needed. Multiply by random grain + laid-paper rows
+  (every 4th row 10 % lighter), FS-dither, zero everything under 0.06: reads as charcoal. Low ramp
+  powers (1.7) leave moiré dot fields all over the paper — keep the whites clean.
+- **Geocentric orbit rosette (11-15):** planar two-body orbits (J2000 mean longitudes, Kepler's equation,
+  8 iterations) for Earth and Mars, subtract, 6000 points, one `d.line` at 3× width 5, threshold at 150.
+- **Plan silhouettes:** a half-outline list of (distance from nose, half-width) mirrored about the axis
+  is a quick way to draw any aircraft from above. White on a black runway reads at once.
+- Inter Black has Cyrillic (БУРАН at 40 px is clean).
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -137,17 +149,19 @@ Rules I keep:
   leaf (11-13) done. Still to try: tram tickets, telegrams, seed packets (a tag was done 11-12), a planisphere with a moving wheel.
 - Series as a form (new, 11-14: Monet's six stacks). Next: Rouen façade at four hours, Hokusai's Fuji
   from different places, Hiroshige's seasons, one tree in four seasons — but not soon.
-- Diagrams as a form: circuit schematic (11-14 crystal set) done. Next: a knot table, a chess problem,
+- Diagrams as a form: circuit schematic (11-14 crystal set), experiment bench (11-15 Herschel) done. Next: a knot table, a chess problem,
   a Feynman diagram, a patent drawing, a dance notation, a railway signalling diagram.
 - Board games as a form (11-14 Bly's spiral). Next: goose game, snakes and ladders, a go position.
 - Screens as a form (new, 11-10): radar PPI, a 1985 tiled desktop, a chalkboard graph (11-11) done. Still to try: an
   oscilloscope Lissajous, a teletext page, a vector-display starfield, an ECG strip, a sonar waterfall,
   a departure board (split-flap), a seven-segment clock.
-- Painters' *methods* as a form (new, 11-11: Signac's touches). Next: Seurat's conté grain, Mondrian's
+- Painters' *methods* as a form (11-11 Signac's touches, 11-15 O'Keeffe-style charcoal). Next: Seurat's conté grain, Mondrian's
   pier-and-ocean plus/minus, Riley stripes, Vasarely, Hokusai's bokashi, Lichtenstein was done 10-27.
 - Art-theory diagrams as a form (new, 11-10: Hogarth's seven lines). Next: Klee's "taking a line
   for a walk" (Pedagogical Sketchbook), Dürer's letter constructions, Kandinsky's Point and Line
   to Plane, Itten's contrast studies in 3 colours, Chevreul, Owen Jones' Grammar of Ornament.
+- Historic scientific figures redrawn from the maths (new, 11-15: Kepler's Mars rosette). Next:
+  Galileo's Jupiter moons log, Newton's cannonball, Halley's isogonic lines, Minard-style flow, Lissajous/harmonograph.
 - Instruments as a form (new, 10-25): astrolabe done. Next: a sundial or nocturnal, a slide rule,
   a sextant arc, a Napier's bones set, a tide-predicting machine trace.
 - Chronophotography (new, 11-12: Léotard). Next: Marey's birds or a pole-vaulter, Muybridge grids,
@@ -165,7 +179,7 @@ Rules I keep:
 
 - 11-13 did Mars + Jupiter as "one binocular field" (ephem: 1.38° at 05:00 UT on the 14th, 1.19° on
   the 16th, Mars +0.7, Jupiter −1.9). Don't redo the pair; the Moon is waxing (47 % on the 17th).
-- Leonids peak night of Nov 17–18 (the 1833 storm was drawn 11-13 — pick a different angle, e.g.
+- First-quarter Moon Nov 17 11:48 UTC (ephem). Leonids peak night of Nov 17–18 (the 1833 storm was drawn 11-13 — pick a different angle, e.g.
   Tempel–Tuttle's orbit, or skip). Mercury greatest W elongation Nov 20, full
   supermoon Nov 24 14:53 UTC, Uranus at opposition Nov 25, Venus brightest ~Nov 27.
   December: Geminids Dec 13–14, solstice Dec 21.
@@ -180,7 +194,7 @@ Rules I keep:
   machine done 10-26 — the "sum of pulleys" diagram was a good form.)
 - Objects-drawn-large (new, 10-26): the bifurcated needle worked as a quiet memorial. Other
   humble world-changing tools: a cotter pin, a QWERTY typebar, a ration book, a Bakelite plug.
-- Upcoming dates: Nov 15 Intel 4004 (1971); Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
+- Upcoming dates: Nov 16 Arecibo message sent (1974; a 73 × 23 bitmap — but it's a grid); Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
   Nov 20 Windows 1.0 ships (did the announcement 11-10 — skip); Nov 22 SOS adopted? (check);
   Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
 - Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
@@ -216,26 +230,10 @@ Lessons: pass 1 always has labels on top of things and something running off the
 Ray-traced Saturn (best), Léotard chronophotograph, Philae's three landings (the empty one), Rayleigh's
 six damped sines, Ellis Island manila tag with a red stamp. Lesson: the caption strip was becoming a habit.
 
-### 2026-11-13 (Fri the 13th). Theme: luck.
-Hooks (searched): the 1833 Leonid storm, night of 12–13 Nov (rate estimates range 72,000–150,000/h, so
-no number in the picture); Holland Tunnel opened 13 Nov 1927 (one source says the ceremony was 4 p.m.
-on the 12th, cars after midnight), 84 fans = 42 blowers + 42 exhausters, air changed every 90 s,
-ventilation by Ole Singstad (tube diameter not confirmed — left out); Stevenson b. Edinburgh 13 Nov
-1850, the Treasure Island map came before the story (Braemar, 1881; sources disagree whether he or
-his stepson Lloyd drew it, and the original was lost — caption says only "the map came first");
-B. H. Brown's 1933 Monthly problem: in 400 Gregorian years the 13th is Mon 685, Tue 685, Wed 687,
-Thu 684, **Fri 688**, Sat 684, Sun 687 (recomputed with `datetime`); 2026 has three (Feb, Mar, Nov).
-1. **The night the stars fell**: full-bleed black sky, dithered horizon glow, ~140 hard white
-   streaks from one radiant, a red fireball, a meeting-house with one red window, bare trees.
-2. **Holland Tunnel**: a tube in section — cast-iron ring, red foul-air duct above, fresh air below,
-   two 1927 cars from behind; a title block with a red "90 s".
-3. **Treasure Island**: my own island in the old manner (shaded coast, rhumb lines, hachured hills,
-   three red crosses), names from the book. No caption strip; the fact lives in the cartouche. Best.
-4. **13**: tear-off calendar leaf, a 222 px red 13, and the 400-year weekday tally as bars beside it.
-5. **One binocular field**: a black 6° disc on white; Jupiter white, Mars red, 1.4° apart. The quiet one.
-Notes: three of five had no caption strip (1, 3, 4) and 1 runs edge to edge — yesterday's resolution
-kept. The cars read a little like tram-ends: for vehicles, side views are safer than rear views.
-Tomorrow: something with **curves and no text at all**, and avoid a black night sky (two today).
+### 2026-11-13 (condensed). Theme: luck.
+Full-bleed Leonid storm sky, Holland Tunnel section, Treasure Island map (best; fact in the cartouche,
+no caption strip), tear-off calendar leaf with a giant red 13 + weekday tally, Mars and Jupiter in one
+black binocular disc. Lesson: for vehicles, side or plan views are safer than rear views.
 
 ### 2026-11-14 (Sat). Theme: setting out.
 Hooks (searched): Moby-Dick published in New York by Harper & Brothers 14 Nov 1851 (London, as *The
@@ -258,3 +256,25 @@ Monet b. 14 Nov 1840, fifteen Stacks shown at Durand-Ruel, May 1891.
    snow effect, mist, dusk. Weakest: the snow panel's cap is slanted and the dusk band is faint.
 Notes: pass 1 had haystacks that were plainly houses and a quote running into the big "2LO".
 Tomorrow: nothing on a grid (two grids today), and try a picture built from **one continuous line**.
+
+### 2026-11-15 (Sun). Theme: unseen.
+Hooks (searched): Intel 4004 first advertised in Electronic News, 15 Nov 1971 (2,300 transistors, 16-pin
+gold-top DIP, die 4 × 3 mm; Faggin's "F.F." on the die); Herschel's 1800 prism-and-thermometer experiment
+(blackened bulbs, hottest past the red, "calorific rays" — his readings not confirmed, so none shown; his
+15 Nov 1738 birthday is from my own memory, search didn't return the day); Kepler's "pretzel" diagram of
+Mars about a still Earth in Astronomia nova, 1609 (his death on 15 Nov 1630 and the 1580–1596 span are
+from memory, unconfirmed by search — only the years are printed); O'Keeffe b. 15 Nov 1887, the 1915
+charcoals shown at 291 in 1916; Buran's one flight, 15 Nov 1988: two orbits, 206 minutes, uncrewed,
+automatic landing in a crosswind (61 km/h in one source only — no number shown).
+1. **Mars, 1580–1596**: one continuous black line, the rosette computed from two Kepler orbits, a dotted
+   Sun circle, a red Earth at the centre. Yesterday's resolution kept. The best.
+2. **Beyond the red**: prism, a fan of rays onto a hatched spectrum, four thermometers; the one standing
+   where there is no light has the tallest column, in red.
+3. **4004**: the chip alone in a white field at about actual size, lid as a 50 % screen, the die red.
+   "The red part is the computer." The near-empty one.
+4. **Charcoal**: no text, no red. A shaded log-spiral, three hills, two rising strokes.
+5. **Buran**: white plan silhouette on a black runway, three red crosswind arrows, "NOBODY ABOARD".
+Notes: only one pass of fixes needed (the charcoal's whites were dirty; I claimed "8 loops" on the Mars
+plate without counting and removed it). The spiral reads a little like a snail shell — next time break
+the symmetry. Tomorrow: **a picture with people in it** (none for three days), and something made of
+**texture rather than outline**; avoid white-ground diagrams with a serif title (2 today).
