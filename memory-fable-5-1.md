@@ -10,7 +10,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-11-15: `claude/quirky-noether-zy3u46`; the prefix
+- Push to whatever branch the session names (2026-11-16: `claude/quirky-noether-pwoz2c`; the prefix
   changes — it has been `tender-wright`, `exciting-goldberg`, `practical-turing`, `quirky-noether`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
@@ -24,7 +24,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - 11-10: the chain was intact (10-28 `njotwk` was newest), but there were **no runs 10-29 … 11-09**.
   Told Edward by notification that `main` still holds July's five and the daily sets live on
   per-run branches. Don't repeat that notification unless something new breaks. (11-11: chain
-  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent. 11-13: same, merged `anvrid`, silent. 11-14: same, merged `4f5nxr`, silent. 11-15: same, merged `j0gju0`, silent.)
+  intact, merged `74tvqr`, stayed silent. 11-12: same, merged `04nmwa`, silent. 11-13: same, merged `anvrid`, silent. 11-14: same, merged `4f5nxr`, silent. 11-15: same, merged `j0gju0`, silent. 11-16: same, merged `zy3u46`, silent.)
   Shortcut that works: `git ls-remote origin`, then fetch only `claude/*` with `--depth=5`, list each
   branch's last commit date, and `git merge --ff-only` the newest.
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
@@ -122,6 +122,16 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - **Plan silhouettes:** a half-outline list of (distance from nose, half-width) mirrored about the axis
   is a quick way to draw any aircraft from above. White on a black runway reads at once.
 - Inter Black has Cyrillic (БУРАН at 40 px is clean).
+- **Line-screen engraving (11-16 falls):** build a tone field T (0–1), then ink where
+  |((y + wobble) mod 4) − 1.5| < T·2 + small noise. Pitch 4 gives a banknote/wood-engraving look; white
+  soft shapes (spray, cloud) are just T→0. Paint solid black silhouettes and a solid red disc on top.
+  Plumes need to be much narrower than feels right (width 0.3–1.1 × base), or the whole sky goes white.
+- **Echo bands round a glyph (11-16 "25"):** brute-force distance to the glyph outline in numpy (edge
+  points from a 3× mask, rows in chunks of 10, ~3 s), then band = (sqrt(D+1)·1.9) mod 2 < 1, glyph solid
+  red, a 2 px white moat. Add 2.2·sin(5θ + D/21) to D and the outer bands swim. Very strong on the panel.
+- **Globular cluster:** Plummer radii r = a/sqrt(u^(−2/3) − 1), Pareto luminosities, add a 1 px blur for
+  core glow, cap at 0.93 so the core stays grainy, FS-dither.
+- Small figures in a boat read as people if they *hold something* (a long paddle crossing the hull).
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -155,8 +165,8 @@ Rules I keep:
 - Screens as a form (new, 11-10): radar PPI, a 1985 tiled desktop, a chalkboard graph (11-11) done. Still to try: an
   oscilloscope Lissajous, a teletext page, a vector-display starfield, an ECG strip, a sonar waterfall,
   a departure board (split-flap), a seven-segment clock.
-- Painters' *methods* as a form (11-11 Signac's touches, 11-15 O'Keeffe-style charcoal). Next: Seurat's conté grain, Mondrian's
-  pier-and-ocean plus/minus, Riley stripes, Vasarely, Hokusai's bokashi, Lichtenstein was done 10-27.
+- Painters' *methods* as a form (11-11 Signac's touches, 11-15 O'Keeffe-style charcoal). Op-art bands done 11-16. Next: Seurat's conté grain, Mondrian's
+  pier-and-ocean plus/minus, Vasarely, Hokusai's bokashi, Lichtenstein was done 10-27.
 - Art-theory diagrams as a form (new, 11-10: Hogarth's seven lines). Next: Klee's "taking a line
   for a walk" (Pedagogical Sketchbook), Dürer's letter constructions, Kandinsky's Point and Line
   to Plane, Itten's contrast studies in 3 colours, Chevreul, Owen Jones' Grammar of Ornament.
@@ -172,6 +182,9 @@ Rules I keep:
   sea chart of soundings (numbers only, no coastline drawn).
 - Two-view / multi-view drawings (Mili's two cameras): the same 3D object shown front and side.
   Could do orthographic plans, stereo pairs, or a knot shown in three projections.
+- Text with something removed (new, 11-16: a page of punctuation only). Next: a page of only its
+  capital letters, a redacted telegram, a poem as word-lengths, erasure, a concordance of one word.
+- Engraving line-screens (new, 11-16). Next: a banknote guilloche, a portrait medallion, crosshatch at two angles.
 - Sky almanac: keep doing one sky piece when the sky gives a reason.
 - Early space imagery: V-2 photos, Lunar Orbiter scan-lines, Luna 3's far-side image (7 Oct 1959).
 
@@ -179,6 +192,7 @@ Rules I keep:
 
 - 11-13 did Mars + Jupiter as "one binocular field" (ephem: 1.38° at 05:00 UT on the 14th, 1.19° on
   the 16th, Mars +0.7, Jupiter −1.9). Don't redo the pair; the Moon is waxing (47 % on the 17th).
+- 11-16 did M13 as a cluster of points with the Arecibo message's progress bar.
 - First-quarter Moon Nov 17 11:48 UTC (ephem). Leonids peak night of Nov 17–18 (the 1833 storm was drawn 11-13 — pick a different angle, e.g.
   Tempel–Tuttle's orbit, or skip). Mercury greatest W elongation Nov 20, full
   supermoon Nov 24 14:53 UTC, Uranus at opposition Nov 25, Venus brightest ~Nov 27.
@@ -194,7 +208,9 @@ Rules I keep:
   machine done 10-26 — the "sum of pulleys" diagram was a good form.)
 - Objects-drawn-large (new, 10-26): the bifurcated needle worked as a quiet memorial. Other
   humble world-changing tools: a cotter pin, a QWERTY typebar, a ration book, a Bakelite plug.
-- Upcoming dates: Nov 16 Arecibo message sent (1974; a 73 × 23 bitmap — but it's a grid); Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
+- Unused 11-16 hooks: Fleming's valve patent (1904), Hindemith b. 1895, UNESCO 1945, Pizarro and
+  Atahualpa at Cajamarca (1532), Skylab 4 launch (1973), W. C. Handy b. 1873 (a 78 rpm label).
+- Upcoming dates: Nov 17 Suez Canal opens (1869); Nov 19 Gettysburg Address;
   Nov 20 Windows 1.0 ships (did the announcement 11-10 — skip); Nov 22 SOS adopted? (check);
   Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
 - Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
@@ -235,27 +251,9 @@ Full-bleed Leonid storm sky, Holland Tunnel section, Treasure Island map (best; 
 no caption strip), tear-off calendar leaf with a giant red 13 + weekday tally, Mars and Jupiter in one
 black binocular disc. Lesson: for vehicles, side or plan views are safer than rear views.
 
-### 2026-11-14 (Sat). Theme: setting out.
-Hooks (searched): Moby-Dick published in New York by Harper & Brothers 14 Nov 1851 (London, as *The
-Whale*, 18 Oct); Apollo 12 struck by lightning just after launch, 14 Nov 1969, EECOM John Aaron's
-"Try SCE to AUX", Bean threw the switch (strike timings not confirmed by search — left out); Nellie
-Bly left Hoboken 14 Nov 1889, home at Jersey City 25 Jan 1890 after 72 d 6 h 11 min; confirmed stops
-only: Southampton 22 Nov, Port Said 27 Nov, Singapore 18 Dec, left Hong Kong 28 Dec, Yokohama 3 Jan
-(Hong Kong *arrival* is disputed, 23 or 25 Dec); 2LO's first daily broadcast from Marconi House,
-14 Nov 1922, Arthur Burrows reading the news (6 pm or 5.33 pm — sources differ, so no time shown);
-Monet b. 14 Nov 1840, fifteen Stacks shown at Durand-Ruel, May 1891.
-1. **The whale**: no text, all curves. A sea of ridgelines that swell over a long back and a fluke; one
-   tiny red boat. Yesterday's resolution kept. The best.
-2. **SCE to AUX**: black panel edge to edge, three toggle switches, the middle one thrown down with its
-   old position as a checker ghost, red arc arrow, red AUX.
-3. **Round the World with Nellie Bly**: a spiral board of 73 day-squares, stops in black, start and the
-   four-square "72 days 6 h 11 m home" in red, key in the middle.
-4. **2LO**: crystal-set schematic, the crystal red; the signal drawn at three places (carrier,
-   rectified, "a voice" in red).
-5. **Six stacks**: 3 × 2 dithered panels of the same haystacks — morning, midday, sunset (red sky),
-   snow effect, mist, dusk. Weakest: the snow panel's cap is slanted and the dusk band is faint.
-Notes: pass 1 had haystacks that were plainly houses and a quote running into the big "2LO".
-Tomorrow: nothing on a grid (two grids today), and try a picture built from **one continuous line**.
+### 2026-11-14 (condensed). Theme: setting out.
+Ridgeline whale with one red boat (best, no text), SCE-to-AUX toggle panel, Nellie Bly spiral board,
+2LO crystal-set schematic, six Monet stacks (weakest: haystacks kept turning into houses).
 
 ### 2026-11-15 (Sun). Theme: unseen.
 Hooks (searched): Intel 4004 first advertised in Electronic News, 15 Nov 1971 (2,300 transistors, 16-pin
@@ -278,3 +276,23 @@ Notes: only one pass of fixes needed (the charcoal's whites were dirty; I claime
 plate without counting and removed it). The spiral reads a little like a snail shell — next time break
 the symmetry. Tomorrow: **a picture with people in it** (none for three days), and something made of
 **texture rather than outline**; avoid white-ground diagrams with a serif title (2 today).
+
+### 2026-11-16 (Mon). Theme: names.
+Hooks (searched): Arecibo message, 16 Nov 1974: 1,679 bits (73 × 23), aimed at M13, about 25,000 ly;
+Livingstone at the falls, 16 Nov 1855 by his journal and most sources (a few say the 17th), reached an
+island on the lip by canoe, saw columns of vapour; the name Mosi-oa-Tunya was already there; Hofmann
+first made LSD-25 on 16 Nov 1938 at Sandoz, Basel, shelved until 16 Apr 1943; The Sound of Music opened
+at the Lunt-Fontanne, 16 Nov 1959 (Mary Martin); Saramago b. 16 Nov 1922, Azinhaga (registered the
+18th; "saramago" = wild radish, the family nickname the registrar wrote in — not used on the plate).
+1. **M 13**: a full-bleed cluster of ~16,000 dithered points; along the bottom a dotted road from
+   Arecibo to M13 with a 2 px red mark: "the message, 52 years out … about 25,000 to go".
+2. **Mosi-oa-Tunya**: line-screen engraving. Five white columns of spray, palms, a red sun, a dugout
+   with three standing paddlers and two seated passengers. People, and texture — resolution kept.
+3. **A page with the words taken out**: only commas and full stops where a Saramago page would have
+   them; the last full stop red. The near-empty one.
+4. **25**: a red Inter Black numeral with black/white echo bands swimming out to the edges. The best.
+5. **Do re mi**: black stage, seven white children by height, a rising scale of red noteheads above.
+Notes: one pass of fixes (spray columns swallowed the whole sky and cut the sun into a red wedge;
+too few commas). Three of five have a caption box again — tomorrow at least two pictures with **no
+text at all**, and something **drawn in perspective / with depth** (everything lately is flat or in plan).
+
