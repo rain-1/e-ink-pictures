@@ -31,6 +31,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
   Quick test for the right parent: it must contain `archive/2026-10-24` *and* the newest date.
   Shortcut that works: `git ls-remote origin`, then fetch only `claude/*` with `--depth=5`, list each
   branch's last commit date, and `git merge --ff-only` the newest.
+- 11-21: chain intact; plain `git fetch origin` brought all branches; ff-merged `gw0rji`; silent.
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -162,6 +163,15 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Insects from above: build in body coords (u forward, v right) and map through one rotate function. Wings at
   0.30/0.62 rad off the tail axis, drawn white-filled over the abdomen; a ragged polygon makes a furry thorax.
 - `down()` in 11-20's script: 3× RGB → LANCZOS → snap each pixel to the nearest of the three inks (from 11-19).
+- **Profile silhouettes (11-21 Voltaire):** a hand-typed polygon of ~55 points in a 100-unit box, white on black, is a
+  real *face*. Exaggerate: a deep notch under the nose, the mouth corner cut well inward, chin nearly as far forward
+  as the lips. Pass 1 with shallow notches read as a bearded blob. Interior "needle cuts" = thin black lines/arcs.
+- **Sparse grain sky:** value noise, clipped and scaled to ≤ 0.34, random-threshold; multiply by a clear zone round the
+  subject. A big white sky with one 60 px red object is the strongest thing this panel does.
+- **Giant 1-bit serif:** FreeSerif Italic at 104 px in fontmode "1" directly at 1× is clean (L, V); place by textbbox.
+  Liberation Serif Bold 15 in 1-bit is readable but loose; mono-bold 10 turns 0 into 8 again ("218" for 210).
+- **Dashed lines at 3×:** own `dashed()` (in 11-21's script); 2 px with 7-on/5-off survives the downscale, 1 px 3/4 reads
+  as a dotted hairline — a useful second weight.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -185,6 +195,8 @@ Rules I keep:
 - Textile & print geometry: Anni Albers (PO II / Éclat: only isosceles trapezoids +
   parallelograms in a few sizes, rotated). Next: her *knot* drawings, Bauhaus triple-weave
   blocks, Sophie Taeuber-Arp, Sonia Delaunay.
+- Paper itself as a subject (11-21: cut-paper silhouette, journal page, A-series, crease pattern). Next, not soon: a
+  Miura-ori fold, a watermark held to the light, a paper marbling comb pattern, a pop-up in section, a deckle edge.
 - Ephemera as a form: playbills, ticker tape, film strips, organette strips, a tear-off calendar
   leaf (11-13) done. Still to try: tram tickets, telegrams, seed packets (a tag was done 11-12), a planisphere with a moving wheel.
 - Series as a form (new, 11-14: Monet's six stacks). Next: Rouen façade at four hours, Hokusai's Fuji
@@ -228,7 +240,7 @@ Rules I keep:
   the 16th, Mars +0.7, Jupiter −1.9). Don't redo the pair; the Moon is waxing (47 % on the 17th).
 - 11-16 did M13 as a cluster of points with the Arecibo message's progress bar.
 - Full
-  supermoon Nov 24 14:53 UTC (ephem agrees), Uranus at opposition Nov 25, Venus brightest ~Nov 27.
+  supermoon Nov 24 14:53 UTC (not yet used — the 24th also has *Origin of Species*) (ephem agrees), Uranus at opposition Nov 25, Venus brightest ~Nov 27.
   December: Geminids Dec 13–14, solstice Dec 21.
 
 ## Ideas backlog
@@ -249,6 +261,10 @@ Rules I keep:
 - Unused 11-20 hooks: Selma Lagerlöf b. 1858 (Nils on the goose: a big figure against a map-like land), Nuremberg
   trials open 1945, the whaleship Essex struck 1820, Mandelbrot's "How long is the coast of Britain?" (rulers of
   three lengths walking one coast), Hubble's tuning fork, the Moon 5° from Saturn that evening.
+- Unused 11-21 hooks: Piltdown exposed (announced 21 Nov 1953: medieval human cranium + orangutan jaw, filed teeth,
+  stain) — a skull in two inks; Magritte b. 1898 (his works are still in copyright: homage by method only);
+  the phonograph (the "21 Nov 1877" date is weak — don't caption it); ARPANET's "first permanent link 21 Nov 1969" is
+  disputed by the people who were there — skip.
 - Upcoming dates: Nov 22 SOS adopted? (check);
   Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
 - Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
@@ -307,28 +323,31 @@ Lunokhod tracks in true perspective (best, no text), Möbius band as rulings wit
 on a solid-black Old World, the mouse patent sheet with a red cursor (weakest), seventy keys on black.
 
 ### 2026-11-19 (condensed; made on a stray branch, now merged). Folio "Plates".
-Voyager 1 at one light-day (projected 18 Nov 2026) as a scale diagram, Chladni stipple, Molnár-style
-(Dés)Ordres squares, a Lissitzky-ish wedge, Gray–Scott with a parameter gradient. Numbered I/V…V/V with
-19·XI·2026 dates. The no-dither rule from that day is good; the forms had all been done before on this chain.
+Voyager 1 at one light-day, Chladni stipple, Molnár-style squares, a wedge, Gray–Scott gradient. All forms done before.
 
-### 2026-11-20 (Fri). Theme: readings.
-Hooks (searched): Karl von Frisch b. 20 Nov 1886 (140 years): waggle-run angle from vertical = food's angle from
-the sun, run duration grows with distance, "about 1 s per km" is a rough rule. Brooks & Matelski drew the
-Mandelbrot set first, as a text plot of asterisks, in a 1978 paper on Kleinian groups; Mandelbrot b. Warsaw
-20 Nov 1924. Tolstoy d. 6:05 a.m. 7 (20) Nov 1910 in the stationmaster's house at Astapovo; the station clock is
-kept at 6:05 (that it stopped by itself is legend — not claimed). Plate H335H, Hooker 100-inch, night of 5–6 Oct
-1923, "N" crossed out and "VAR!" written; Hubble b. 20 Nov 1889. Zarya launched 20 Nov 1998 06:40 UTC, Proton-K,
-Baikonur; 12.56 m long.
-1. **Waggle**: a large bee from above on a dotted-grey comb, dashed figure-eight, the waggle run a red zigzag 40°
-   off a dashed vertical; side column with sun/hive/food at the same 40° and two plain sentences.
-2. **Asterisks**: solid red, the set in white line-printer asterisks, antenna as one long row. Three short lines of type.
-3. **6:05**: black, a white station clock with Roman numerals stopped at 6:05, snow thick only where its light
-   reaches, a white nameboard with АСТАПОВО in red.
-4. **VAR!**: a negative plate — white sky, black grain galaxy and stars, three inked N's, one struck out, VAR! in red hand.
-5. **Заря**: black, a red line of air along the limb, a grain sunburst, the module in white line with gridded arrays.
-Notes: two passes (clock numerals turned to mush through the 3× path; FS worms in the plate and the dawn glow;
-the Cyrillic title sat on the limb; the "sun" label sat in the sun's rays). One white, one red, one white-tonal,
-two black grounds — a better spread than any earlier set. Best: the asterisks and the plate. Weakest: the bee's
-wings hide half its stripes, and the waggle plate has too much reading in the side column. Every picture today
-has a caption; the 11-17 set had three without. Tomorrow: **at least two with no text at all**, **still no
-face** (owed since 11-17 — try one), and nothing astronomical (two of today's five were).
+### 2026-11-20 (condensed). Theme: readings.
+Waggle-dance bee on a dotted comb (weakest: too much reading), the first Mandelbrot plot as white line-printer
+asterisks on solid red (best), the Astapovo station clock stopped at 6:05 in snow, Hubble's VAR! as a negative plate,
+Zarya in white line over a red limb. Lesson: clock numerals and small type never go through the 3× path.
+
+### 2026-11-21 (Sat). Theme: paper.
+Hooks (searched): first free human flight, Pilâtre de Rozier and d'Arlandes, 21 Nov 1783, La Muette to the
+Butte-aux-Cailles, about 25 minutes, about 9 km (some say 12 — not captioned); balloon blue and gold with a zodiac band
+and fleurs-de-lis, ~70–75 ft; the Montgolfiers were paper-makers. Voltaire b. 21 Nov 1694; Jean Huber of Geneva was
+famous from c. 1760 for cut-paper Voltaires (white card on black). Einstein's "Ist die Trägheit eines Körpers von
+seinem Energieinhalt abhängig?", Annalen der Physik 18, 639–641, published 21 Nov 1905; the sentence "Gibt ein Körper
+die Energie L in Form von Strahlung ab, so verkleinert sich seine Masse um L/V²." (L and V, not E and c).
+1. **Aloft**: no text. A wide white grain sky, one red balloon with white band and swags, a wisp of straw smoke, a
+   black cut-out Paris along the bottom (twin towers, flèche, windmills, a dome).
+2. **Découpure**: black ground, a big white cut-paper profile of Voltaire in a wig (the face I owed), red scissors,
+   white offcuts, a three-line caption.
+3. **L/V²**: a white journal page; the fraction L over V² huge in red italic, the German sentence split either side.
+4. **A0**: the A-series halving across the whole panel (A0 landscape is 400 × 283 px — it fits almost exactly), blocks
+   alternating white/black, A4 solid red, Inter Black labels scaled with each sheet.
+5. **Bird base**: no text. Solid red; the crane's crease pattern (white mountains, black dashed valleys, dotted
+   thinning folds at 11.25° and 33.75°), a small white crane, one blank sheet.
+Notes: two passes (Voltaire's lower face was a blob; the thinning folds were on the wrong side of the bisector; a
+bold-mono 0 read as 8). Grounds: white-tonal, black, white, mixed blocks, red. Two without text, one face, nothing
+astronomical — all three promises kept. Best: the balloon and the A-series. Weakest: the crane is small beside its
+pattern. Tomorrow: nothing made of flat rectangles or type-as-picture (two today); try something with *depth* or
+*motion*, and the supermoon is due on the 24th.
