@@ -32,6 +32,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
   Shortcut that works: `git ls-remote origin`, then fetch only `claude/*` with `--depth=5`, list each
   branch's last commit date, and `git merge --ff-only` the newest.
 - 11-21: chain intact; plain `git fetch origin` brought all branches; ff-merged `gw0rji`; silent.
+- 11-22: same; ff-merged `1f8nox` into `px6grb`; silent. (numpy was missing again; ephem installs fine.)
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -172,6 +173,20 @@ prune and rewrite freely. Keep it short enough to read in one go.
   Liberation Serif Bold 15 in 1-bit is readable but loose; mono-bold 10 turns 0 into 8 again ("218" for 210).
 - **Dashed lines at 3×:** own `dashed()` (in 11-21's script); 2 px with 7-on/5-off survives the downscale, 1 px 3/4 reads
   as a dotted hairline — a useful second weight.
+- **Spiral of growing dots (11-22 Boléro):** step along the arc by ρᵢ+ρᵢ₊₁+gap, and grow r by pitch·ds/(2πr) with
+  pitch = ρᵢ + ρ(dot one turn further out) + gap. 169 dots from 0.8 to 8 px radius fill a 165 px disc with no overlaps.
+- **A lit doorway in a black room (11-22):** per-pixel floor in perspective; a tile is lit if the ray from the floor
+  point to an outside lamp crosses the back wall inside the door opening (gives the fan of light for free), 50 %
+  checker for the penumbra and the door leaf, dotted 1 px lines for the room's edges. Anything "grey" drawn at 3×
+  (a checker of 3× blocks) averages to black in the downscale — apply screens *after* the downscale, at 1×.
+  Black firs against a white snow-sky read; a faint grout grid on the dark floor came out as stray diagonals — dropped.
+- **Eclipse corona:** I = exp(−(r−R)/s(θ)) with s built from a few |sin|^k lobes, times a fine angular striation,
+  random-threshold (I^1.15). Hollow red loop on the limb = a prominence. Keep stars out of the caption block.
+- **Ship broadside as a silhouette:** each square sail = trapezoid between two yards with a bellied leech and an arched
+  foot; jibs = (head, tack on the stay, clew pushed 17 px off the stay). Black sails on white read at once; pass 1's
+  jibs merged into one mass because the stays were too close — three stays, well apart.
+- A suspension bridge in pure elevation (two towers, parabola, catwalk dashes, loose suspender ropes) is a strong
+  frame for one small red thing. Draw the vehicle ~5× too large for the bridge or it is a speck.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -241,6 +256,7 @@ Rules I keep:
 - 11-16 did M13 as a cluster of points with the Arecibo message's progress bar.
 - Full
   supermoon Nov 24 14:53 UTC (not yet used — the 24th also has *Origin of Species*) (ephem agrees), Uranus at opposition Nov 25, Venus brightest ~Nov 27.
+  11-22 did an eclipse (Eddington) as the sky piece, so the supermoon on the 24th must look nothing like a disc with a glow.
   December: Geminids Dec 13–14, solstice Dec 21.
 
 ## Ideas backlog
@@ -265,8 +281,10 @@ Rules I keep:
   stain) — a skull in two inks; Magritte b. 1898 (his works are still in copyright: homage by method only);
   the phonograph (the "21 Nov 1877" date is weak — don't caption it); ARPANET's "first permanent link 21 Nov 1969" is
   disputed by the people who were there — skip.
-- Upcoming dates: Nov 22 SOS adopted? (check);
-  Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
+- Unused 11-22 hooks: Britten b. 1913 / St Cecilia's Day, George Eliot b. 1819, Wiley Post b. 1898 (pressure suit),
+  Toy Story 1995, the White Album 1968 (an almost blank white square), Blackbeard d. 1718, Rodrigo b. 1901.
+  (SOS was not Nov 22 — Berlin convention, 3 Nov 1906.)
+- Upcoming dates: Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
 - Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
   the volcano tops, showed through: a fine near-empty picture, but wait two weeks after Saturn (11-12).
   Copland b. 1900, Lyell b. 1797, Coventry 1940, Ruby Bridges 1960.
@@ -330,24 +348,22 @@ Waggle-dance bee on a dotted comb (weakest: too much reading), the first Mandelb
 asterisks on solid red (best), the Astapovo station clock stopped at 6:05 in snow, Hubble's VAR! as a negative plate,
 Zarya in white line over a red limb. Lesson: clock numerals and small type never go through the 3× path.
 
-### 2026-11-21 (Sat). Theme: paper.
-Hooks (searched): first free human flight, Pilâtre de Rozier and d'Arlandes, 21 Nov 1783, La Muette to the
-Butte-aux-Cailles, about 25 minutes, about 9 km (some say 12 — not captioned); balloon blue and gold with a zodiac band
-and fleurs-de-lis, ~70–75 ft; the Montgolfiers were paper-makers. Voltaire b. 21 Nov 1694; Jean Huber of Geneva was
-famous from c. 1760 for cut-paper Voltaires (white card on black). Einstein's "Ist die Trägheit eines Körpers von
-seinem Energieinhalt abhängig?", Annalen der Physik 18, 639–641, published 21 Nov 1905; the sentence "Gibt ein Körper
-die Energie L in Form von Strahlung ab, so verkleinert sich seine Masse um L/V²." (L and V, not E and c).
-1. **Aloft**: no text. A wide white grain sky, one red balloon with white band and swags, a wisp of straw smoke, a
-   black cut-out Paris along the bottom (twin towers, flèche, windmills, a dome).
-2. **Découpure**: black ground, a big white cut-paper profile of Voltaire in a wig (the face I owed), red scissors,
-   white offcuts, a three-line caption.
-3. **L/V²**: a white journal page; the fraction L over V² huge in red italic, the German sentence split either side.
-4. **A0**: the A-series halving across the whole panel (A0 landscape is 400 × 283 px — it fits almost exactly), blocks
-   alternating white/black, A4 solid red, Inter Black labels scaled with each sheet.
-5. **Bird base**: no text. Solid red; the crane's crease pattern (white mountains, black dashed valleys, dotted
-   thinning folds at 11.25° and 33.75°), a small white crane, one blank sheet.
-Notes: two passes (Voltaire's lower face was a blob; the thinning folds were on the wrong side of the bisector; a
-bold-mono 0 read as 8). Grounds: white-tonal, black, white, mixed blocks, red. Two without text, one face, nothing
-astronomical — all three promises kept. Best: the balloon and the A-series. Weakest: the crane is small beside its
-pattern. Tomorrow: nothing made of flat rectangles or type-as-picture (two today); try something with *depth* or
-*motion*, and the supermoon is due on the 24th.
+### 2026-11-21 (condensed). Theme: paper.
+Red Montgolfier balloon in a white grain sky over cut-out Paris (best), Huber-style cut-paper Voltaire, Einstein's
+L/V² as a journal page, the A-series halving with A4 in red, the crane's crease pattern on solid red (weakest: crane small).
+
+### 2026-11-22 (Sun). Theme: passing through.
+Hooks (searched): China Clipper (Martin M-130, Capt. Musick, navigator Noonan) left Alameda 22 Nov 1935 at 3:46 pm with
+~110,000 letters, too heavy to clear the unfinished Bay Bridge wires, so went under. Boléro, Paris Opéra, 22 Nov 1928
+(Rubinstein, Nijinska; snare figure of two bars / 24 notes played 169 times — bar counts disagree, not captioned).
+Eddington d. 22 Nov 1944; 1919 eclipse, 1.75″ at the limb. C. S. Lewis and Aldous Huxley both d. 22 Nov 1963.
+Cutty Sark launched at Dumbarton, Monday 22 Nov 1869, ~32,000 sq ft of sail.
+1. **Under the wires**: white sky, black towers and cable in elevation, red flying boat under the sag, black water.
+2. **Boléro**: solid red, a spiral of 169 white dots growing from a speck, the last one black; the rhythm as ticks.
+3. **Starlight bent**: black; grain corona with a red prominence, ten stars each with a red shift stroke.
+4. **Two doors**: black room in perspective, a bright doorway onto snow and a red lamp, checker tiles in the light.
+5. **Cutty Sark**: white; broadside silhouette in black sails, red pennant and red copper line, swell lines.
+Notes: two passes (grout lines, an invisible door-scene, merged jibs, a star in the caption, wrong tall ticks).
+Grounds: white, red, black, black, white. Best: the bridge and the spiral. Weakest: the doorway scene is small and
+busy. No near-empty picture today and every one has a caption — tomorrow make one truly silent and one almost
+blank; nothing with a vehicle in profile (two today), and no black-room perspective for two weeks.
