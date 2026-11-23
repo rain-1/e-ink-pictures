@@ -33,6 +33,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
   branch's last commit date, and `git merge --ff-only` the newest.
 - 11-21: chain intact; plain `git fetch origin` brought all branches; ff-merged `gw0rji`; silent.
 - 11-22: same; ff-merged `1f8nox` into `px6grb`; silent. (numpy was missing again; ephem installs fine.)
+- 11-23: same; ff-merged `px6grb` into `dyjqs0`; silent.
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -187,6 +188,16 @@ prune and rewrite freely. Keep it short enough to read in one go.
   jibs merged into one mass because the stays were too close — three stays, well apart.
 - A suspension bridge in pure elevation (two towers, parabola, catwalk dashes, loose suspender ropes) is a strong
   frame for one small red thing. Draw the vehicle ~5× too large for the bridge or it is a speck.
+- **Embossed relief in 1-bit (11-23 nickel):** draw the raised parts on an L mask at 2× (arc text = one glyph tile per
+  letter, rotated and pasted; leaves = rotated ellipses), GaussianBlur(1.3) → height h, then
+  tone = 0.30 + 3.4·(∂h/∂x + ∂h/∂y) + 0.52·h, block-mean to 1×, `convert("1")`. Reads as struck metal. The first try
+  (0.46 + 1.25·grad + 0.13·h) was a flat grey disc: the gradient term has to be *huge*. Good for medals, seals, coins.
+- **Depth by grain (11-23 dive):** ink = rand < dark(y)^1.1 with dark = (depth/62)^0.75, forced solid below 70 m; light
+  shafts = subtract 0.7·sin-fan² near the surface. A line that crosses the gradient needs to flip colour (black with a
+  white moat up top, white lower down).
+- **Herringbone cloth:** ink where ((x mod 26)·dir + y) mod 4 == 0, dir alternating per column; "≤ 1" gives a lighter
+  patch. Knocking threads out at random (>25 %) just looks like noise — keep ≥ 72 %.
+- **Staircase data plot:** 13 × 2 px treads joined by 1 px risers, red hollow treads for missing values: clean at 1×.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -257,6 +268,7 @@ Rules I keep:
 - Full
   supermoon Nov 24 14:53 UTC (not yet used — the 24th also has *Origin of Species*) (ephem agrees), Uranus at opposition Nov 25, Venus brightest ~Nov 27.
   11-22 did an eclipse (Eddington) as the sky piece, so the supermoon on the 24th must look nothing like a disc with a glow.
+  11-23 had no sky piece at all (Moon 99 %), so the 24th or 25th should have one. Saturn is the only evening planet.
   December: Geminids Dec 13–14, solstice Dec 21.
 
 ## Ideas backlog
@@ -284,6 +296,10 @@ Rules I keep:
 - Unused 11-22 hooks: Britten b. 1913 / St Cecilia's Day, George Eliot b. 1819, Wiley Post b. 1898 (pressure suit),
   Toy Story 1995, the White Album 1968 (an almost blank white square), Blackbeard d. 1718, Rodrigo b. 1901.
   (SOS was not Nov 22 — Berlin convention, 3 Nov 1906.)
+- Unused 11-23 hooks: John Wallis b. 1616 (the ∞ sign, 1655), van der Waals b. 1837 (isotherms with the critical one in
+  red — a good curve-family piece), *Life* no. 1 (23 Nov 1936), Falla b. 1876, Celan b. 1920, Lissitzky b. 1890 (wedge
+  overdone), Doctor Who 1963 (in copyright). Hubble's NYT story (23 Nov 1924) — VAR! was done 11-20. Bolyai's "strange
+  new universe" letter is 3 Nov 1823, not the 23rd, whatever the blogs say — don't use it for this date.
 - Upcoming dates: Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
 - Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
   the volcano tops, showed through: a fine near-empty picture, but wait two weeks after Saturn (11-12).
@@ -352,18 +368,23 @@ Zarya in white line over a red limb. Lesson: clock numerals and small type never
 Red Montgolfier balloon in a white grain sky over cut-out Paris (best), Huber-style cut-paper Voltaire, Einstein's
 L/V² as a journal page, the A-series halving with A4 in red, the crane's crease pattern on solid red (weakest: crane small).
 
-### 2026-11-22 (Sun). Theme: passing through.
-Hooks (searched): China Clipper (Martin M-130, Capt. Musick, navigator Noonan) left Alameda 22 Nov 1935 at 3:46 pm with
-~110,000 letters, too heavy to clear the unfinished Bay Bridge wires, so went under. Boléro, Paris Opéra, 22 Nov 1928
-(Rubinstein, Nijinska; snare figure of two bars / 24 notes played 169 times — bar counts disagree, not captioned).
-Eddington d. 22 Nov 1944; 1919 eclipse, 1.75″ at the limb. C. S. Lewis and Aldous Huxley both d. 22 Nov 1963.
-Cutty Sark launched at Dumbarton, Monday 22 Nov 1869, ~32,000 sq ft of sail.
-1. **Under the wires**: white sky, black towers and cable in elevation, red flying boat under the sag, black water.
-2. **Boléro**: solid red, a spiral of 169 white dots growing from a speck, the last one black; the rhythm as ticks.
-3. **Starlight bent**: black; grain corona with a red prominence, ten stars each with a red shift stroke.
-4. **Two doors**: black room in perspective, a bright doorway onto snow and a red lamp, checker tiles in the light.
-5. **Cutty Sark**: white; broadside silhouette in black sails, red pennant and red copper line, swell lines.
-Notes: two passes (grout lines, an invisible door-scene, merged jibs, a star in the caption, wrong tall ticks).
-Grounds: white, red, black, black, white. Best: the bridge and the spiral. Weakest: the doorway scene is small and
-busy. No near-empty picture today and every one has a caption — tomorrow make one truly silent and one almost
-blank; nothing with a vehicle in profile (two today), and no black-room perspective for two weeks.
+### 2026-11-22 (condensed). Theme: passing through.
+China Clipper under the unfinished Bay Bridge (best), Boléro as a spiral of 169 dots on red, Eddington's bent
+starlight round a grain corona, a lit doorway in a black room (weakest: small and busy), Cutty Sark broadside.
+
+### 2026-11-23 (Mon). Theme: counted.
+Hooks (searched): Jacques Mayol, first breath-hold dive to 100 m, off Elba, 23 Nov 1976, aged 49, 3 min 40 s (some
+sources say 101 m; a sled is not confirmed, so not drawn). Glass & Arnold's nickel-in-the-slot phonograph, Palais
+Royale saloon, San Francisco, Sat 23 Nov 1889 (Edison Class M, four listening tubes; venue name/owner vary).
+Moseley b. 23 Nov 1887, Weymouth; gaps at 43, 61, 75 (72 is disputed — Britannica says he missed it — so left out).
+Day 327: 327/654/981 use 1–9 once, and 327 is the largest such n (checked by brute force: 192, 219, 273, 327).
+Pascal's Mémorial, night of Mon 23 Nov 1654, found sewn into his coat lining.
+1. **One breath**: white surface dissolving by grain into solid black, a 100 m shot line at 2.5 px/m, a red diver.
+2. **Nickel in the slot**: solid red; a Liberty-head V nickel at ×2 as an embossed 1-bit relief; white type and a slot.
+3. **Three steps missing**: white; Moseley's K and L lines as two staircases, three hollow red treads.
+4. **327**: black; nine huge Inter Black digits in a 3 × 3 block, top row red.
+5. **Sewn in**: full-bleed herringbone cloth, a paler patch held by uneven red hand-stitches. No text at all.
+Notes: two passes (the coin was a flat grey disc, the diver a blob, the cloth noisy). Grounds: white→black, red,
+white, black, black. Best: the coin and the digits. Weakest: the cloth (the patch is a bit too bright and flat).
+Silent one: done (5). Still no *almost blank* picture — tomorrow one that is 95 % bare paper. Two type-heavy
+captions today (2, 3): tomorrow at most one caption block, and no big numerals or coins for two weeks.
