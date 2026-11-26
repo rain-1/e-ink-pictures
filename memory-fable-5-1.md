@@ -10,7 +10,7 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - Edward's desk screen: 400 × 300, exactly **#000000 / #FFFFFF / #FF0000**.
 - Each day: 5 PNGs → `images/1.png … 5.png` (overwritten) plus `archive/YYYY-MM-DD/` (the five
   images plus a self-contained `generate.py` that reproduces them from the repo root).
-- Push to whatever branch the session names (2026-11-17: `claude/quirky-noether-vmztyn`; the prefix
+- Push to whatever branch the session names (2026-11-26: `claude/quirky-noether-7ksyzm`; the prefix
   changes — it has been `tender-wright`, `exciting-goldberg`, `practical-turing`, `quirky-noether`).
 - **Continuity gotcha (found 10-25):** each run's branch starts from `main`, and nothing gets
   merged, so `main` still has only Day 1 (Jul 7) and no copy of this file. First step every day:
@@ -34,6 +34,10 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - 11-21: chain intact; plain `git fetch origin` brought all branches; ff-merged `gw0rji`; silent.
 - 11-22: same; ff-merged `1f8nox` into `px6grb`; silent. (numpy was missing again; ephem installs fine.)
 - 11-23: same; ff-merged `px6grb` into `dyjqs0`; silent.
+- **11-24 and 11-25 both missed the gotcha** and founded fresh short files on `q6lt6x` and `c2d3aw`. 11-26: ff-merged
+  `dyjqs0` (the real chain: 34 KB file, 20+ archive days), then `git merge -X ours` of both strays, so their archives
+  are in. Stayed silent. **The newest branch is not always the right parent — pick the one whose file is BIG
+  (> 30 KB) and whose archive has many dates, then `-X ours` any newer strays on top.**
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -198,6 +202,16 @@ prune and rewrite freely. Keep it short enough to read in one go.
 - **Herringbone cloth:** ink where ((x mod 26)·dir + y) mod 4 == 0, dir alternating per column; "≤ 1" gives a lighter
   patch. Knocking threads out at random (>25 %) just looks like noise — keep ≥ 72 %.
 - **Staircase data plot:** 13 × 2 px treads joined by 1 px risers, red hollow treads for missing values: clean at 1×.
+- **Things seen by candle (11-26):** draw the objects on an L mask, edge = mask − MinFilter(5), T = (1.5·edge + 0.3·mask)
+  × (exp(−dist to flame/150) + 0.12), random-threshold. Outlines of grain on black read as gilt catching light.
+  Wheels (ring + six spokes) and a horned head read best; a chair and a vase barely. Flame = red teardrop, white core.
+- **Shaped poem:** DejaVu Sans Bold 14 → 9 px in 1-bit, white on solid red, line centres on a damped sine. Fine down to 9.
+- **Dotted ghost:** 2×2 red dots every 4 px along an outline = "what is no longer there". Works on bare white.
+- **Barred feather:** quadratic Bézier shaft; ~200 barbs a side as polylines leaning tipward; a bar = segments dropped
+  where sin(axis distance) is low (keep every 3rd barb, dashed, inside dark bars). 2 px barb pitch fuses to solid
+  white bands — for visible barbs go to 3 px pitch. The tip comes out ragged; round it with a final cap of short barbs.
+- From the stray runs: Poisson-disc stipple with density-dependent radius is a hand-engraved tone; on black, thin 3×
+  lines die in the snap unless gained ×1.5–1.7 first; drawn crater rims read as little "C"s.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -300,7 +314,8 @@ Rules I keep:
   red — a good curve-family piece), *Life* no. 1 (23 Nov 1936), Falla b. 1876, Celan b. 1920, Lissitzky b. 1890 (wedge
   overdone), Doctor Who 1963 (in copyright). Hubble's NYT story (23 Nov 1924) — VAR! was done 11-20. Bolyai's "strange
   new universe" letter is 3 Nov 1823, not the 23rd, whatever the blogs say — don't use it for this date.
-- Upcoming dates: Nov 24 Origin of Species (1859); Nov 26 Casablanca premiere (1942).
+- Unused 11-26 hooks: Wiener b. 1894 (a feedback loop), Concorde's last flight 2003 (to Filton), InSight lands 2018
+  (a marsquake trace), Ionesco b. 1909, Sojourner Truth d. 1883, Casablanca premiere 1942 (in copyright).
 - Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
   the volcano tops, showed through: a fine near-empty picture, but wait two weeks after Saturn (11-12).
   Copland b. 1900, Lyell b. 1797, Coventry 1940, Ruby Bridges 1960.
@@ -372,19 +387,28 @@ L/V² as a journal page, the A-series halving with A4 in red, the crane's crease
 China Clipper under the unfinished Bay Bridge (best), Boléro as a spiral of 169 dots on red, Eddington's bent
 starlight round a grain corona, a lit doorway in a black room (weakest: small and busy), Cutty Sark broadside.
 
-### 2026-11-23 (Mon). Theme: counted.
-Hooks (searched): Jacques Mayol, first breath-hold dive to 100 m, off Elba, 23 Nov 1976, aged 49, 3 min 40 s (some
-sources say 101 m; a sled is not confirmed, so not drawn). Glass & Arnold's nickel-in-the-slot phonograph, Palais
-Royale saloon, San Francisco, Sat 23 Nov 1889 (Edison Class M, four listening tubes; venue name/owner vary).
-Moseley b. 23 Nov 1887, Weymouth; gaps at 43, 61, 75 (72 is disputed — Britannica says he missed it — so left out).
-Day 327: 327/654/981 use 1–9 once, and 327 is the largest such n (checked by brute force: 192, 219, 273, 327).
-Pascal's Mémorial, night of Mon 23 Nov 1654, found sewn into his coat lining.
-1. **One breath**: white surface dissolving by grain into solid black, a 100 m shot line at 2.5 px/m, a red diver.
-2. **Nickel in the slot**: solid red; a Liberty-head V nickel at ×2 as an embossed 1-bit relief; white type and a slot.
-3. **Three steps missing**: white; Moseley's K and L lines as two staircases, three hollow red treads.
-4. **327**: black; nine huge Inter Black digits in a 3 × 3 block, top row red.
-5. **Sewn in**: full-bleed herringbone cloth, a paler patch held by uneven red hand-stitches. No text at all.
-Notes: two passes (the coin was a flat grey disc, the diver a blob, the cloth noisy). Grounds: white→black, red,
-white, black, black. Best: the coin and the digits. Weakest: the cloth (the patch is a bit too bright and flat).
-Silent one: done (5). Still no *almost blank* picture — tomorrow one that is 95 % bare paper. Two type-heavy
-captions today (2, 3): tomorrow at most one caption block, and no big numerals or coins for two weeks.
+### 2026-11-23 (condensed). Theme: counted.
+Mayol's 100 m dive as grain depth with a red diver, an embossed V nickel on solid red (best), Moseley's staircases
+with three hollow red treads, 327 as nine huge digits, herringbone cloth with a red-stitched patch (silent; weakest).
+
+### 2026-11-24 and 11-25 (stray runs, merged). "Endless forms" / "Instruments".
+24: stippled supermoon + red Pleiades, Darwin's tree by space colonization (best), a red lens with traced rays,
+Gray–Scott spots→labyrinth, Penrose rhombs. 25: Chladni (11,25) sand stipple, 8-shaft weaving draft, a Proun, the Benz
+Motorwagen as a white-line blueprint, de Jong attractor. All had a 13 px "plate strip" caption — not my habit; dropped.
+So: no stipple moons, generated trees, R-D, tilings, Chladni, drafts, wedges, blueprints or attractors for two weeks.
+
+### 2026-11-26 (Thu, Thanksgiving). Theme: what was there.
+Hooks: Carter's candle at the breach, 26 Nov 1922 (the famous reply varies between sources, so not quoted). Dodgson
+gives Alice Liddell the *Under Ground* manuscript, 26 Nov 1864; its mouse's tale is a different poem ("We lived
+beneath the mat") from the printed one. Great Storm, night of 26–27 Nov 1703 O.S.: Winstanley's Eddystone light and
+Winstanley gone by morning (sources split 26/27; "almost all trace" erased). Saussure b. Geneva 26 Nov 1857.
+Venus 24 % lit, 43″, mag −4.5 in the dawn (ephem) — unused; Moon 96 %.
+1. **The breach**: black; a ragged hole full of grain-lit things (cow couch, oval boxes, wheels), one red flame.
+2. **We lived beneath the mat**: solid red; the manuscript poem in white as a shrinking tail under a black mouse.
+3. **The morning after**: 95 % white (the almost-blank one at last); a reef, three bent irons, the tower as red dots.
+4. **arbor**: Saussure's sign, a solid red tree over a giant italic word, two arrows.
+5. **Barred feather**: black; a turkey wing feather with a red shaft. No text.
+Notes: two passes (caption under the candle, poem off the bottom, feather off the frame). Grounds: black, red, white,
+white, black. Best: the breach and the tale. Weakest: the feather (bars fused to zebra stripes, ragged tip).
+Next: every picture but one had a date caption again — tomorrow two fully silent ones. Something with *people* in it;
+no candles, feathers or poems for two weeks. Venus is at its brightest in the dawn this week: one sky piece owed.
