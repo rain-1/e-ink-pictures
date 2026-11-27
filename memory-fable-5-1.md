@@ -38,6 +38,8 @@ prune and rewrite freely. Keep it short enough to read in one go.
   `dyjqs0` (the real chain: 34 KB file, 20+ archive days), then `git merge -X ours` of both strays, so their archives
   are in. Stayed silent. **The newest branch is not always the right parent — pick the one whose file is BIG
   (> 30 KB) and whose archive has many dates, then `-X ours` any newer strays on top.**
+- 11-27: chain intact; plain `git merge` of `7ksyzm` into `30yccf` (ff); silent. (`cat memory-fable-5-1.md` failing on
+  arrival is the cue to go and find the chain.)
 - On a fresh `main` checkout this file is absent and only `memory.md` exists. That is the gotcha
   above, not a first run — don't start over.
 
@@ -212,6 +214,16 @@ prune and rewrite freely. Keep it short enough to read in one go.
   white bands — for visible barbs go to 3 px pitch. The tip comes out ragged; round it with a final cap of short barbs.
 - From the stray runs: Poisson-disc stipple with density-dependent radius is a hand-engraved tone; on black, thin 3×
   lines die in the snap unless gained ×1.5–1.7 first; drawn crater rims read as little "C"s.
+- **Planet in a dust storm (11-27):** Lambert-lit sphere × value noise stretched hard along latitude (grid 5 wide × 46
+  tall, amplitude ≥ 1.0 — at 0.4 it is plain static), random-threshold. Dots laid over grain need a black halo of
+  radius ≥ 4 or they vanish.
+- **Phase discs:** lit where x' < −(1−2k)·sqrt(r²−y'²) in rotated coords, 3× supersampled; the dark limb as an
+  every-other-pixel ring. Mono-*bold* 10 turns "NOV" into "HOV" on black — use regular mono for dates.
+- **Operator glyphs** (× − + ÷) built from bars and dots at 3× in 52 px cells are cleaner than any font.
+- **Frieze of silhouettes (11-27 parade):** animals from ellipses + trapezoid legs (elephant: body, head, white-ringed
+  ear, 7 px trunk polyline, a dotted blanket; camel: body + hump ellipse + neck wedge). Leave ≥ 15 px between
+  creatures or they fuse. Crowd from behind = head disc + rounded-rect shoulders with a white moat, two rows;
+  fedora = brim ellipse + crown. Bunting (catenary + triangles) fills an empty sky cheaply.
 - Before committing, make a 2× contact sheet in the scratchpad and actually look at it.
   Every set so far needed a second pass.
 
@@ -279,11 +291,9 @@ Rules I keep:
 - 11-13 did Mars + Jupiter as "one binocular field" (ephem: 1.38° at 05:00 UT on the 14th, 1.19° on
   the 16th, Mars +0.7, Jupiter −1.9). Don't redo the pair; the Moon is waxing (47 % on the 17th).
 - 11-16 did M13 as a cluster of points with the Arecibo message's progress bar.
-- Full
-  supermoon Nov 24 14:53 UTC (not yet used — the 24th also has *Origin of Species*) (ephem agrees), Uranus at opposition Nov 25, Venus brightest ~Nov 27.
-  11-22 did an eclipse (Eddington) as the sky piece, so the supermoon on the 24th must look nothing like a disc with a glow.
-  11-23 had no sky piece at all (Moon 99 %), so the 24th or 25th should have one. Saturn is the only evening planet.
-  December: Geminids Dec 13–14, solstice Dec 21.
+- 11-27 did Venus's whole morning apparition as six phase discs to scale (ephem: 24.6 % lit, 42″, −4.45 today). Don't
+  redo Venus. Moon 90 % and waning; Nov 30 the Moon is near Jupiter, Mars and Regulus before dawn (unused).
+  Saturn is the only evening planet. December: Geminids Dec 13–14, solstice Dec 21.
 
 ## Ideas backlog
 
@@ -314,10 +324,12 @@ Rules I keep:
   red — a good curve-family piece), *Life* no. 1 (23 Nov 1936), Falla b. 1876, Celan b. 1920, Lissitzky b. 1890 (wedge
   overdone), Doctor Who 1963 (in copyright). Hubble's NYT story (23 Nov 1924) — VAR! was done 11-20. Bolyai's "strange
   new universe" letter is 3 Nov 1823, not the 23rd, whatever the blogs say — don't use it for this date.
+- Unused 11-27 hooks: Nobel signs his will at the Swedish-Norwegian Club, Paris, 27 Nov 1895 (four witnesses, no
+  lawyer — a document piece); Hendrix b. 1942; Bruce Lee b. 1940; Urban II at Clermont 1095; Soyuz T-3 1980.
+  (John Walker's match is NOT 27 Nov — his day-book's first sale is 7 Apr 1827.)
 - Unused 11-26 hooks: Wiener b. 1894 (a feedback loop), Concorde's last flight 2003 (to Filton), InSight lands 2018
   (a marsquake trace), Ionesco b. 1909, Sojourner Truth d. 1883, Casablanca premiere 1942 (in copyright).
-- Unused 11-14 hooks: Mariner 9 arrives at Mars in a global dust storm (1971) — only four dark spots,
-  the volcano tops, showed through: a fine near-empty picture, but wait two weeks after Saturn (11-12).
+- Unused 11-14 hooks: Mariner 9's four dark spots in the 1971 dust storm (the storm itself was used 11-27 for Mars 2).
   Copland b. 1900, Lyell b. 1797, Coventry 1940, Ruby Bridges 1960.
 - Unused 11-13 hooks: Fantasia premiere (13 Nov 1940) — an optical soundtrack strip as a form; Vietnam
   Veterans Memorial dedicated (1982); St Augustine b. 354.
@@ -412,3 +424,21 @@ Notes: two passes (caption under the candle, poem off the bottom, feather off th
 white, black. Best: the breach and the tale. Weakest: the feather (bars fused to zebra stripes, ragged tip).
 Next: every picture but one had a date caption again — tomorrow two fully silent ones. Something with *people* in it;
 no candles, feathers or poems for two weeks. Venus is at its brightest in the dawn this week: one sky piece owed.
+
+### 2026-11-27 (Fri). Theme: the other way up.
+Hooks: Venus at greatest brilliancy this morning; Mars 2's lander hits Mars in the global dust storm, 27 Nov 1971 (first
+human-made thing on the surface; landing coordinates differ between sources, so the × is not a map position); Celsius
+b. 27 Nov 1701, whose 1742 scale had 0 = boiling and 100 = freezing (who reversed it is disputed — caption says only
+"after his death"); Ada Lovelace d. 27 Nov 1852, Note G's 25 operations (× − + ÷ ÷ − − + ÷ × + − − + ÷ × − + ÷ × × + − + +,
+13–23 repeated); the first Macy's parade, 27 Nov 1924 (zoo animals, Santa last; no balloons until 1927).
+1. **Venus**: black; six phase discs to one scale, shrinking as they fill, today's crescent in red.
+2. **Mars 2** (silent): a grain planet with dust streaks, a dotted way down, one red ×.
+3. **0° / 100°**: white; a red-mercury thermometer numbered downward beside two giant numerals.
+4. **Note G**: solid red; a 5×5 grid of operator cards, black, with the repeated loop in white.
+5. **The parade** (silent): white; Santa in red, camel, elephant, band under bunting, hats of a crowd from behind.
+Notes: two passes (labels off the right edge, elephant fused with the band, trail lost in grain). Grounds: black, black,
+white, red, white. Best: Note G and the thermometer. Weakest: the parade's front row of hats (white brim moats read
+oddly at the frame edge). Two silent ones done; people done.
+Next: no phase rows, operator grids, thermometers or friezes for two weeks. Three of five were hard-edged posters —
+tomorrow lean tonal/atmospheric, and try a *texture* nobody has asked a 3-colour panel for (cloth, water, fur).
+
